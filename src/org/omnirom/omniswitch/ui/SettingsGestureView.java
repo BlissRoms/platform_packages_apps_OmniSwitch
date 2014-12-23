@@ -256,7 +256,7 @@ public class SettingsGestureView {
                 return true;
             }
         });
-        
+
         mLocationButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -276,7 +276,7 @@ public class SettingsGestureView {
                 return true;
             }
         });
-        
+
         mResetButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -289,7 +289,7 @@ public class SettingsGestureView {
                 return true;
             }
         });
-        
+
         mView.setFocusableInTouchMode(true);
         mView.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -326,7 +326,7 @@ public class SettingsGestureView {
         getDragHandleContainer().addView(mDragButton);
         getDragHandleContainer().addView(mDragButtonEnd);
     }
-    
+
     private LinearLayout getDragHandleContainer() {
         if(mLocation == 1){
             return mDragHandleViewLeft;
@@ -352,7 +352,7 @@ public class SettingsGestureView {
                 mDragHandleLimiterHeight);
         params.gravity = mLocation == 1 ? Gravity.LEFT : Gravity.RIGHT;
         mDragButtonEnd.setLayoutParams(params);
-        
+
         mStartYRelative = (int)(mStartY / (mConfiguration.getCurrentDisplayHeight() /100));
         mHandleHeight = mEndY - mStartY;
     }
@@ -371,7 +371,7 @@ public class SettingsGestureView {
         mDragButton.setScaleType(ImageView.ScaleType.FIT_XY);
         mDragButton.setImageDrawable(BitmapUtils.colorize(mContext.getResources(), mColor, d));
         mDragButton.getDrawable().setColorFilter(mColor, Mode.SRC_ATOP);
-        
+
         mDragButtonStart.setScaleType(ImageView.ScaleType.FIT_XY);
         mDragButtonStart.setImageDrawable(d1);
 
@@ -393,7 +393,7 @@ public class SettingsGestureView {
             mLocationButton.setText(mContext.getResources().getString(R.string.location_left));
         }
         mColor = mPrefs.getInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR,
-                mContext.getResources().getColor(R.color.holo_blue_light));
+                mContext.getResources().getColor(R.color.material_green));
     }
 
     public void show() {

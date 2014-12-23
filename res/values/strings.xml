@@ -74,7 +74,7 @@
     <string name="drag_handle_enable_title">Enable</string>
     <string name="drag_handle_enable_summary">Disable only if you use another activation method</string>
     <string name="allapps_help">App drawer</string>
-    <string name="allapps">App drawer</string>
+    <string name="allapps">Apps</string>
     <string name="dim_behind_title">Dim background</string>
     <string name="dim_behind_summary">Apply opacity to complete screen</string>
     <string name="gravity_title">Horizontal gravity</string>
@@ -110,4 +110,5 @@
     <string name="package_remove_favorite_title">Remove from favorites</string>
     <string name="flat_style_summary">Use solid background for overlay view</string>
     <string name="flat_style_title">Flat style</string>
+    <string name="open_favorite_help">Open/close favorites view</string>
 </resources>

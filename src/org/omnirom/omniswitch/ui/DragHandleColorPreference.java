@@ -51,7 +51,7 @@ public class DragHandleColorPreference extends Preference implements DialogInter
         super(context, attrs, com.android.internal.R.attr.preferenceStyle);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mColorValue = mPrefs.getInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR,
-                getContext().getResources().getColor(R.color.holo_blue_light));
+                getContext().getResources().getColor(R.color.material_green));
         init();
     }
 
@@ -110,7 +110,7 @@ public class DragHandleColorPreference extends Preference implements DialogInter
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mColorValue = getContext().getResources().getColor(R.color.holo_blue_light);
+                        mColorValue = getContext().getResources().getColor(R.color.material_green);
                         updatePreferenceViews();
                         mPrefs.edit()
                                 .putInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR,
