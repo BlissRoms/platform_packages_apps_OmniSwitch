@@ -47,8 +47,6 @@ public class SwitchConfiguration {
     public boolean mShowLabels = true;
     public int mDragHandleColor;
     public float mDragHandleOpacity;
-    public int mGlowColor;
-    public int mFlatGlowColor;
     public int mDefaultColor;
     public int mIconDpi;
     public boolean mAutoHide;
@@ -93,8 +91,6 @@ public class SwitchConfiguration {
         mWindowManager.getDefaultDisplay().getSize(size);
         mDefaultColor = context.getResources()
                 .getColor(R.color.material_green);
-        mGlowColor = context.getResources().getColor(R.color.glow_color);
-        mFlatGlowColor = context.getResources().getColor(R.color.flat_glow_color);
         mDefaultHandleHeight = Math.round(100 * mDensity);
         mRestrictedMode = !hasSystemPermission(context);
         mLevelHeight = Math.round(80 * mDensity);
@@ -134,9 +130,10 @@ public class SwitchConfiguration {
                 mDefaultHandleHeight);
 
         mMaxWidth = Math.round((mIconSize + mIconBorder) * mDensity);
-        mMaxHeight = Math.round((mIconSize + 2 * mIconBorder) * mDensity);
+        mMaxHeight = Math.round((mIconSize + mIconBorder) * mDensity);
         mLabelFontSize = 15f;
-        mLabelFontSizePx = Math.round(mLabelFontSize * mDensity) * 2;
+        // add a small gap
+        mLabelFontSizePx = Math.round((mLabelFontSize + mIconBorder) * mDensity);
 
         mDragHandleColor = prefs.getInt(
                 SettingsActivity.PREF_DRAG_HANDLE_COLOR, mDefaultColor);

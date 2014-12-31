@@ -230,7 +230,7 @@ public class SettingsActivity extends PreferenceActivity implements
             dialog.show();
             return true;
         } else if (preference == mIconpack){
-            IconPackHelper.pickIconPack(this);
+            IconPackHelper.getInstance(SettingsActivity.this).pickIconPack(this);
             return true;
         } else if (preference == mFavoriteAppsConfig) {
             String favoriteListString = mPrefs.getString(PREF_FAVORITE_APPS, "");
