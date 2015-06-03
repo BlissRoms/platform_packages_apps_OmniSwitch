@@ -67,7 +67,10 @@ public class SwitchService extends Service {
             mUserId = UserHandle.myUserId();
             Log.d(TAG, "started SwitchService " + mUserId);
 
-            mManager = new SwitchManager(this);
+            mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+            String layoutStyle = mPrefs.getString(SettingsActivity.PREF_LAYOUT_STYLE, "0");
+            mManager = new SwitchManager(this, Integer.valueOf(layoutStyle));
 
             mReceiver = new RecentsReceiver();
             IntentFilter filter = new IntentFilter();
@@ -80,9 +83,8 @@ public class SwitchService extends Service {
             filter.addAction(Intent.ACTION_SHUTDOWN);
 
             registerReceiver(mReceiver, filter);
-            PackageManager.getInstance(this);
+            PackageManager.getInstance(this).updatePackageList();
 
-            mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
             updatePrefs(mPrefs, null);
 
             mPrefsListener = new SharedPreferences.OnSharedPreferenceChangeListener() {

@@ -40,6 +40,8 @@ public class SwitchConfiguration {
     public int mSmallIconSizePx = 60; // in px
     public int mActionIconSize = 60; // in dp
     public int mActionIconSizePx = 60; // in px
+    public int mOverlayIconSizeDp = 30;
+    public int mOverlayIconSizePx = 30;
     public int mIconBorder = 8; // in dp
     public float mDensity;
     public int mMaxWidth;
@@ -73,12 +75,18 @@ public class SwitchConfiguration {
     public int mBgStyle = 0; // 0 = solid 1 = transparent
     public List<String> mFavoriteList = new ArrayList<String>();
     public boolean mSpeedSwitcher = true;
-
+    public boolean mFilterActive = true;
+    public boolean mFilterBoot = true;
+    public long mFilterTime = 0;
+    public boolean mSideHeader = true;
     public static SwitchConfiguration mInstance;
     private WindowManager mWindowManager;
     private int mDefaultHandleHeight;
     private int mLabelFontSizePx;
     public int mMaxHeight;
+    public int mMemDisplaySize;
+    public int mLayoutStyle;
+    public float mThumbRatio = 1.0f;
 
     public static SwitchConfiguration getInstance(Context context) {
         if (mInstance == null) {
@@ -105,13 +113,15 @@ public class SwitchConfiguration {
         mSmallIconSizePx = Math.round(mSmallIconSizePx * mDensity);
         mActionIconSizePx = Math.round(mActionIconSize * mDensity);
         mLevelChangeWidthX = Math.round(60 * mDensity);
+        mOverlayIconSizePx = Math.round(mOverlayIconSizePx * mDensity);
         mHorizontalDividerWidth = 0;
-
         // Render the default thumbnail background
         mThumbnailWidth = (int) context.getResources().getDimensionPixelSize(
                 R.dimen.thumbnail_width);
         mThumbnailHeight = (int) context.getResources()
                 .getDimensionPixelSize(R.dimen.thumbnail_height);
+        mMemDisplaySize = (int) context.getResources().getDimensionPixelSize(
+                R.dimen.ram_display_size);
         updatePrefs(PreferenceManager.getDefaultSharedPreferences(context), "");
     }
 
@@ -130,7 +140,7 @@ public class SwitchConfiguration {
         mBackgroundOpacity = (float) opacity / 100.0f;
         mAnimate = prefs.getBoolean(SettingsActivity.PREF_ANIMATE, true);
         String iconSize = prefs
-                .getString(SettingsActivity.PREF_ICON_SIZE, "60");
+                .getString(SettingsActivity.PREF_ICON_SIZE, String.valueOf(mIconSize));
         mIconSize = Integer.valueOf(iconSize);
         mShowRambar = prefs
                 .getBoolean(SettingsActivity.PREF_SHOW_RAMBAR, true);
@@ -178,6 +188,17 @@ public class SwitchConfiguration {
         String favoriteListString = prefs.getString(SettingsActivity.PREF_FAVORITE_APPS, "");
         Utils.parseFavorites(favoriteListString, mFavoriteList);
         mSpeedSwitcher = prefs.getBoolean(SettingsActivity.PREF_SPEED_SWITCHER, true);
+        mFilterBoot = prefs.getBoolean(SettingsActivity.PREF_APP_FILTER_BOOT, true);
+        String filterTimeString = prefs.getString(SettingsActivity.PREF_APP_FILTER_TIME, "0");
+        mFilterTime = Integer.valueOf(filterTimeString);
+        if (mFilterTime != 0) {
+            // value is in hours but we need millisecs
+            mFilterTime = mFilterTime * 3600 * 1000;
+        }
+        String layoutStyle = prefs.getString(SettingsActivity.PREF_LAYOUT_STYLE, "0");
+        mLayoutStyle = Integer.valueOf(layoutStyle);
+        String thumbSize = prefs.getString(SettingsActivity.PREF_THUMB_SIZE, "1.0");
+        mThumbRatio = Float.valueOf(thumbSize);
     }
 
     public void resetDefaults(Context context) {

@@ -27,7 +27,6 @@
     <string name="animate_title">Animer</string>
     <string name="animate_title_summary">Animer l\'affichage et la disparition de la vue superposée</string>
     <string name="adjust_handle_title">Taille et position</string>
-    <string name="adjust_handle_help">Déplacer et redimensionner la poignée.\nAppuyer sur le bouton pour basculer entre le côté gauche et le côté droit de l\'écran</string>
     <string name="sc_drag_handle_title">Halo d\'ouverture</string>
     <string name="sc_drag_handle_body">\nGlisser horizontalement ou appuyer longtemps pour ouvrir\nAppuyer sur le bouton ou en dehors pour fermer</string>
     <string name="sc_favorite_title">Applications favorites</string>
@@ -53,15 +52,13 @@
     <string name="favorite_apps_config_summary">Définir les applications à afficher dans la vue des favoris</string>
     <string name="favorite_apps_add_dialog_title">Ajouter des applications</string>
     <string name="favorite_add">Ajouter\u2026</string>
-    <string name="location_left">Gauche</string>
-    <string name="location_right">Droit</string>
     <string name="reset">Défaut</string>
     <string name="toggle_last_app_help">Basculer vers la dernière application</string>
     <string name="kill_all_apps_help">Arrêter toutes les applications</string>
     <string name="kill_other_apps_help">Arrêter les autres applications</string>
     <string name="settings_help">Paramètres</string>
     <string name="home_help">Accueil</string>
-    <string name="toogle_last_app">Dernière application</string>
+    <string name="toggle_last_app">Basculer vers la dernière application</string>
     <string name="kill_all_apps">Arrêter toutes les applications</string>
     <string name="kill_other_apps">Arrêter les autres applications</string>
     <string name="settings">Paramètres</string>
@@ -111,8 +108,4 @@
     <string name="package_remove_favorite_title">Supprimer des favoris</string>
     <string name="flat_style_summary">Utiliser un fond plat pour l\'affichage de la vue superposée</string>
     <string name="flat_style_title">Style plat</string>
-    <string name="open_favorite_help">Ouvrir/Fermer la vue des favoris</string>
-    <string name="button_pos_title">Position du bouton</string>
-    <string name="button_pos_top">Haut</string>
-    <string name="button_pos_bottom">Bas</string>
 </resources>

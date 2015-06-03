@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2013 The OmniROM Project
+ *  Copyright (C) 2013-2015 The OmniROM Project
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,10 +22,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.omnirom.omniswitch.ui.ISwitchLayout;
 import org.omnirom.omniswitch.ui.SwitchGestureView;
 import org.omnirom.omniswitch.ui.SwitchLayout;
+import org.omnirom.omniswitch.ui.SwitchLayoutVertical;
 
 import android.app.ActivityManager;
+import android.app.ActivityOptions;
 import android.app.TaskStackBuilder;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -39,14 +42,17 @@ public class SwitchManager {
     private static final String TAG = "SwitchManager";
     private static final boolean DEBUG = false;
     private List<TaskDescription> mLoadedTasks;
-    private SwitchLayout mLayout;
+    private List<TaskDescription> mActiveTasks;
+    private ISwitchLayout mLayout;
     private SwitchGestureView mGestureView;
     private Context mContext;
     private SwitchConfiguration mConfiguration;
+    private int mLayoutStyle;
 
-    public SwitchManager(Context context) {
+    public SwitchManager(Context context, int layoutStyle) {
         mContext = context;
         mConfiguration = SwitchConfiguration.getInstance(mContext);
+        mLayoutStyle = layoutStyle;
         init();
     }
 
@@ -107,8 +113,8 @@ public class SwitchManager {
         }
 
         mLoadedTasks = new ArrayList<TaskDescription>();
-
-        mLayout = new SwitchLayout(this, mContext);
+        mActiveTasks = new ArrayList<TaskDescription>();
+        switchLayout();
         mGestureView = new SwitchGestureView(this, mContext);
     }
 
@@ -117,10 +123,21 @@ public class SwitchManager {
         mGestureView.hide();
     }
 
-    public SwitchLayout getLayout() {
+    public ISwitchLayout getLayout() {
         return mLayout;
     }
 
+    private void switchLayout() {
+        if (mLayout != null) {
+            mLayout.shutdownService();
+        }
+        if (mLayoutStyle == 0) {
+            mLayout = new SwitchLayout(this, mContext);
+        } else {
+            mLayout = new SwitchLayoutVertical(this, mContext);
+        }
+
+    }
     public SwitchGestureView getSwitchGestureView() {
         return mGestureView;
     }
@@ -131,11 +148,12 @@ public class SwitchManager {
         }
         mLoadedTasks.clear();
         mLoadedTasks.addAll(taskList);
+        filterActiveTasks();
         mLayout.update();
         mGestureView.update();
     }
 
-    public void switchTask(TaskDescription ad, boolean close) {
+    public void switchTask(TaskDescription ad, boolean close, boolean customAnim) {
         if (ad.isKilled()) {
             return;
         }
@@ -152,8 +170,14 @@ public class SwitchManager {
 
         if (ad.getTaskId() >= 0) {
             // This is an active task; it should just go to the foreground.
-            am.moveTaskToFront(ad.getTaskId(),
-                    ActivityManager.MOVE_TASK_WITH_HOME);
+            if (customAnim) {
+                final ActivityOptions opts = ActivityOptions.makeCustomAnimation(mContext,
+                        R.anim.last_app_in,
+                        R.anim.last_app_out);
+                am.moveTaskToFront(ad.getTaskId(), ActivityManager.MOVE_TASK_NO_USER_ACTION, opts.toBundle());
+            } else {
+                am.moveTaskToFront(ad.getTaskId(), ActivityManager.MOVE_TASK_NO_USER_ACTION);
+            }
         } else {
             Intent intent = ad.getIntent();
             intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY
@@ -183,9 +207,15 @@ public class SwitchManager {
         }
         ad.setKilled();
         mLoadedTasks.remove(ad);
+        mActiveTasks.remove(ad);
         mLayout.refresh();
     }
 
+    /**
+     * killall will always remove all tasks - also those that are
+     * filtered out (not active)
+     * @param close
+     */
     public void killAll(boolean close) {
         if (mConfiguration.mRestrictedMode){
             return;
@@ -219,7 +249,7 @@ public class SwitchManager {
         final ActivityManager am = (ActivityManager) mContext
                 .getSystemService(Context.ACTIVITY_SERVICE);
 
-        if (mLoadedTasks.size() == 0) {
+        if (mActiveTasks.size() <= 1) {
             if(close){
                 hide(true);
             }
@@ -248,15 +278,15 @@ public class SwitchManager {
         final ActivityManager am = (ActivityManager) mContext
                 .getSystemService(Context.ACTIVITY_SERVICE);
 
-        if (mLoadedTasks.size() == 0) {
+        if (mActiveTasks.size() == 0) {
             if(close){
                 hide(true);
             }
             return;
         }
 
-        if (mLoadedTasks.size() >= 1){
-            TaskDescription ad = mLoadedTasks.get(0);
+        if (mActiveTasks.size() >= 1){
+            TaskDescription ad = mActiveTasks.get(0);
             am.removeTask(ad.getPersistentTaskId());
             if(DEBUG){
                 Log.d(TAG, "kill " + ad.getPackageName());
@@ -281,20 +311,25 @@ public class SwitchManager {
     }
 
     public void updatePrefs(SharedPreferences prefs, String key) {
+        if (key != null && key.equals(SettingsActivity.PREF_LAYOUT_STYLE)) {
+            String layoutStyle = prefs.getString(SettingsActivity.PREF_LAYOUT_STYLE, "0");
+            mLayoutStyle = Integer.valueOf(layoutStyle);
+            switchLayout();
+        }
         mLayout.updatePrefs(prefs, key);
         mGestureView.updatePrefs(prefs, key);
     }
 
     public void toggleLastApp(boolean close) {
-        if (mLoadedTasks.size() < 2) {
+        if (mActiveTasks.size() < 2) {
             if(close){
                 hide(true);
             }
             return;
         }
 
-        TaskDescription ad = mLoadedTasks.get(1);
-        switchTask(ad, close);
+        TaskDescription ad = mActiveTasks.get(1);
+        switchTask(ad, close, true);
     }
 
     public void startIntentFromtString(String intent, boolean close) {
@@ -372,10 +407,22 @@ public class SwitchManager {
     }
 
     public List<TaskDescription> getTasks() {
-        return mLoadedTasks;
+        return mActiveTasks;
     }
 
     public void clearTasks() {
         mLoadedTasks.clear();
+        mActiveTasks.clear();
+    }
+
+    private void filterActiveTasks() {
+        mActiveTasks.clear();
+        Iterator<TaskDescription> nextTask = mLoadedTasks.iterator();
+        while(nextTask.hasNext()) {
+            TaskDescription ad = nextTask.next();
+            if (ad.isActive()) {
+                mActiveTasks.add(ad);
+            }
+        }
     }
 }
