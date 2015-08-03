@@ -21,37 +21,5 @@
     <string name="package_lock_task_title">Épinglage d\'application</string>
     <string name="lock_app_not_enabled">L\'épinglage d\'écran n\'est pas activé dans les paramètres de sécurité</string>
     <string name="app_filter_running_title">Exécution seulement</string>
-    <string name="adjust_handle_help">Déplacer et redimensionner la poignée.\nAppuyer sur le bouton pour basculer entre le côté gauche et celui de droite de l\'écran.</string>
-    <string name="location_left">Gauche</string>
-    <string name="location_right">Droite</string>
-    <string name="open_favorite_help">Ouvrir/fermer la vue des applications favorites</string>
-    <string name="button_pos_title">Position du bouton</string>
-    <string name="button_pos_top">En haut à gauche</string>
-    <string name="button_pos_bottom">En bas à droite</string>
-    <string name="bg_style_solid">Opaque</string>
-    <string name="bg_style_transparent">Transparent</string>
-    <string name="bg_style_title">Arrière-plan</string>
-    <string name="lock_to_app">Épingler l\'application</string>
-    <string name="lock_app_help">Épingler l\'application actuelle</string>
-    <string name="app_filter_category_title">Filtre d\'application</string>
-    <string name="app_filter_boot_title">Activer au démarrage</string>
-    <string name="layout_style_title">Apparence</string>
-    <string name="layout_style_1">Horizontal</string>
-    <string name="layout_style_2">Vertical</string>
-    <string name="no_limit">Sans limite</string>
-    <string name="one_hour">1 heure</string>
-    <string name="three_hours">3 heures</string>
-    <string name="six_hours">6 heures</string>
-    <string name="twelve_hours">12 heures</string>
-    <string name="one_day">1 jour</string>
-    <string name="two_days">2 jours</string>
-    <string name="one_week">1 semaine</string>
-    <string name="app_filter_time_title">Actif depuis</string>
-    <string name="close_help">Fermeture de la superposition</string>
-    <string name="close">Fermeture</string>
-    <string name="thumb_size_title">Taille des miniatures</string>
-    <string name="thumb_size_normal">Normale</string>
-    <string name="thumb_size_small">Petite</string>
-    <string name="thumb_size_medium">Moyenne</string>
 
 </resources>
