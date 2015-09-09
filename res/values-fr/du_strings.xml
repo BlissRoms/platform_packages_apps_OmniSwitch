@@ -21,5 +21,7 @@
     <string name="package_lock_task_title">Épinglage d\'application</string>
     <string name="lock_app_not_enabled">L\'épinglage d\'écran n\'est pas activé dans les paramètres de sécurité</string>
     <string name="app_filter_running_title">En cours d\'exécution seulement</string>
+    <string name="menu">Menu</string>
+    <string name="menu_help">Menu</string>
 
 </resources>
