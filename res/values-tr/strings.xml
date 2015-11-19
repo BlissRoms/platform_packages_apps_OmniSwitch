@@ -17,10 +17,8 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">OmniSwitch</string>
   <string name="package_stop_task_title">Durdur</string>
   <string name="package_inspect_item_title">Uygulama bilgisi</string>
-  <string name="recents_settings_title">OmniSwitch</string>
   <string name="start_on_boot_title">Açılışta başlat</string>
   <string name="start_on_boot_summary">Cihaz açılışında başlat ve aktif et</string>
   <string name="opacity_title">Saydamlık</string>
