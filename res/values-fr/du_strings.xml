@@ -14,6 +14,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+
+     French translation for Dirty Unicorns
  */
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -23,5 +25,10 @@
     <string name="app_filter_running_title">En cours d\'exécution seulement</string>
     <string name="menu">Menu</string>
     <string name="menu_help">Menu</string>
+
+    <string name="bg_style_solid_light">Clair</string>
+    <string name="bg_style_solid_dark">Foncé</string>
+
+    <string name="enable_title">Activer</string>
 
 </resources>
