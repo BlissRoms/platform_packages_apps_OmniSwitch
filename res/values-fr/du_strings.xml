@@ -31,4 +31,7 @@
 
     <string name="enable_title">Activer</string>
 
+    <string name="adjust_handle_width">Largeur</string>
+    <string name="adjust_handle_position">Position</string>
+
 </resources>
