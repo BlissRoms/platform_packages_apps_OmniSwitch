@@ -29,9 +29,9 @@
   <string name="animate_title_summary">Animer l\'affichage et la disparition de la vue superposée</string>
   <string name="adjust_handle_title">Taille et position</string>
   <string name="adjust_handle_help">Déplacer et redimensionner le halo d\'ouverture\nAppuyer sur le bouton pour basculer entre les côtés gauche et droite de l\'écran</string>
-  <string name="icon_size_normal">Normal</string>
+  <string name="icon_size_normal">Normale</string>
   <string name="icon_size_small">Petit</string>
-  <string name="icon_size_large">Large</string>
+  <string name="icon_size_large">Grande</string>
   <string name="icon_size_title">Taille d\'icône</string>
   <string name="ok">Ok</string>
   <string name="cancel">Annuler</string>
@@ -146,5 +146,5 @@
   <string name="package_bottom_task_title">Bas</string>
   <string name="package_right_task_title">Droite</string>
   <string name="package_full_task_title">Plein écran</string>
-  <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
+  <string name="shortcut_label_toggle_overlay">Activer le recouvrement</string>
 </resources>
