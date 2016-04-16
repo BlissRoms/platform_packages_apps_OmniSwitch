@@ -27,7 +27,6 @@
   <string name="opacity_summary">Opacidad del fondo de la superposición</string>
   <string name="animate_title">Animar</string>
   <string name="animate_title_summary">Reproducir animaciones al mostrar y ocultar la superposición</string>
-  <string name="adjust_handle_title">Posición y tamaño</string>
   <string name="adjust_handle_help">Move and resize drag handle</string>
   <string name="icon_size_normal">Normal</string>
   <string name="icon_size_small">Pequeño</string>
@@ -147,4 +146,6 @@
   <string name="package_right_task_title">Right</string>
   <string name="package_full_task_title">Full size</string>
   <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
+  <string name="adjust_handle_title_new">Configure drag handle</string>
+  <string name="adjust_handle_summary">Configure position size and color</string>
 </resources>

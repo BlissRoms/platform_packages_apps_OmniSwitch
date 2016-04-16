@@ -27,7 +27,6 @@
   <string name="opacity_summary">Définir l\'opacité de l\'arrière plan lors de la vue superposée</string>
   <string name="animate_title">Animer</string>
   <string name="animate_title_summary">Animer l\'affichage et la disparition de la vue superposée</string>
-  <string name="adjust_handle_title">Taille et position</string>
   <string name="adjust_handle_help">Déplacer et redimensionner le halo d\'ouverture\nAppuyer sur le bouton pour basculer entre les côtés gauche et droite de l\'écran</string>
   <string name="icon_size_normal">Normale</string>
   <string name="icon_size_small">Petit</string>
@@ -147,4 +146,6 @@
   <string name="package_right_task_title">Droite</string>
   <string name="package_full_task_title">Plein écran</string>
   <string name="shortcut_label_toggle_overlay">Activer le recouvrement</string>
+  <string name="adjust_handle_title_new">Halo d\'ouverture</string>
+  <string name="adjust_handle_summary">Paramètres de la taille, de la position et de la couleur</string>
 </resources>

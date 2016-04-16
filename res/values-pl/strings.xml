@@ -27,7 +27,6 @@
   <string name="opacity_summary">Nieprzezroczystość tła nakładki widoku</string>
   <string name="animate_title">Animacja</string>
   <string name="animate_title_summary">Animuj pokazywanie i ukrywanie nakładki widoku</string>
-  <string name="adjust_handle_title">Pozycja</string>
   <string name="adjust_handle_help">Move and resize drag handle</string>
   <string name="icon_size_normal">Normalne</string>
   <string name="icon_size_small">Małe</string>
@@ -91,7 +90,7 @@
   <string name="back_help">Wróć</string>
   <string name="kill_current">Zamknij bieżącą aplikację</string>
   <string name="kill_current_help">Zamknij bieżącą aplikację</string>
-  <string name="speed_switch_color_summary">Blue -recent apps. Green - favorites. Red - actions</string>
+  <string name="speed_switch_color_summary">Niebieski - ostatnie aplikacje. Zielony - ulubione, Czerwony - akcje</string>
   <string name="speed_switch_color">Kolor tła</string>
   <string name="speed_switch_limit_summary">Ogranicz obszar zmian</string>
   <string name="speed_switch_limit">Zmiana poziomu obszaru</string>
@@ -134,7 +133,7 @@
   <string name="thumb_size_small">Mały</string>
   <string name="thumb_size_medium">Średni</string>
   <string name="package_lock_task_title">Przypnij aplikację</string>
-  <string name="lock_app_not_enabled">Screen pinning is not enabled in security settings</string>
+  <string name="lock_app_not_enabled">Przypinanie ekranu nie jest włączone w ustawieniach zabezpieczeń</string>
   <string name="app_filter_running_title">Tylko uruchomione</string>
   <string name="menu">Menu</string>
   <string name="menu_help">Menu</string>
@@ -147,4 +146,6 @@
   <string name="package_right_task_title">Po prawej</string>
   <string name="package_full_task_title">Pełny rozmiar</string>
   <string name="shortcut_label_toggle_overlay">Przełącznik nakładki</string>
+  <string name="adjust_handle_title_new">Configure drag handle</string>
+  <string name="adjust_handle_summary">Configure position size and color</string>
 </resources>

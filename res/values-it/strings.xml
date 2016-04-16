@@ -27,7 +27,6 @@
   <string name="opacity_summary">Opacità dello sfondo</string>
   <string name="animate_title">Animazione</string>
   <string name="animate_title_summary">Animazione dell\'avvio e della chiusura</string>
-  <string name="adjust_handle_title">Posizione</string>
   <string name="adjust_handle_help">Move and resize drag handle</string>
   <string name="icon_size_normal">Normale</string>
   <string name="icon_size_small">Piccole</string>
@@ -147,4 +146,6 @@
   <string name="package_right_task_title">Right</string>
   <string name="package_full_task_title">Full size</string>
   <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
+  <string name="adjust_handle_title_new">Configure drag handle</string>
+  <string name="adjust_handle_summary">Configure position size and color</string>
 </resources>
