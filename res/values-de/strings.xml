@@ -146,6 +146,6 @@
   <string name="package_right_task_title">Rechts</string>
   <string name="package_full_task_title">Vollbild</string>
   <string name="shortcut_label_toggle_overlay">Überlagerungs-Schalter</string>
-  <string name="adjust_handle_title_new">Configure drag handle</string>
-  <string name="adjust_handle_summary">Configure position size and color</string>
+  <string name="adjust_handle_title_new">Ziehgriff konfigurieren</string>
+  <string name="adjust_handle_summary">Positionsgröße und Farbe konfigurieren</string>
 </resources>
