@@ -27,7 +27,7 @@
   <string name="opacity_summary">Nieprzezroczystość tła nakładki widoku</string>
   <string name="animate_title">Animacja</string>
   <string name="animate_title_summary">Animuj pokazywanie i ukrywanie nakładki widoku</string>
-  <string name="adjust_handle_help">Move and resize drag handle</string>
+  <string name="adjust_handle_help">Przemieść i zmień rozmiar uchwytu przeciągania</string>
   <string name="icon_size_normal">Normalne</string>
   <string name="icon_size_small">Małe</string>
   <string name="icon_size_large">Duże</string>
@@ -69,7 +69,7 @@
   <string name="no_recent_apps_title">Brak ostatnich aplikacji</string>
   <string name="drag_handle_opacity_title">Przezroczystość</string>
   <string name="drag_handle_enable_title">Włącz</string>
-  <string name="drag_handle_enable_summary">Disable only if you use another activation method</string>
+  <string name="drag_handle_enable_summary">Wyłącz tylko wtedy, gdy można zastosować inną metodę aktywacji</string>
   <string name="allapps_help">Lista aplikacji</string>
   <string name="allapps">Aplikacje</string>
   <string name="dim_behind_title">Ciemne tło</string>
@@ -84,7 +84,7 @@
   <string name="icon_pack_title">Pakiet ikon</string>
   <string name="icon_pack_summary">Użyj pakietu ikon dla ikon aplikacji</string>
   <string name="category_speed_switcher_title">Szybkie przełączanie</string>
-  <string name="speed_switcher_enable_summary">Long press drag handle to activate</string>
+  <string name="speed_switcher_enable_summary">Przytrzymaj uchwyt przeciągania, aby aktywować</string>
   <string name="speed_switcher_enable_title">Włączony</string>
   <string name="back">Wróć</string>
   <string name="back_help">Wróć</string>
@@ -95,7 +95,7 @@
   <string name="speed_switch_limit_summary">Ogranicz obszar zmian</string>
   <string name="speed_switch_limit">Zmiana poziomu obszaru</string>
   <string name="speed_switch_button_title">Przyciski</string>
-  <string name="speed_switch_button_summary">Configure action buttons in quick switcher view</string>
+  <string name="speed_switch_button_summary">Skonfiguruj przyciski wyświetlane w szybkim przełączaniu</string>
   <string name="speed_switch_items_summary">Maksymalna liczba elementów</string>
   <string name="speed_switch_item">Limit pozycji</string>
   <string name="immersive_mode">Rozszerzony Pulpit</string>
@@ -146,6 +146,6 @@
   <string name="package_right_task_title">Po prawej</string>
   <string name="package_full_task_title">Pełny rozmiar</string>
   <string name="shortcut_label_toggle_overlay">Przełącznik nakładki</string>
-  <string name="adjust_handle_title_new">Configure drag handle</string>
-  <string name="adjust_handle_summary">Configure position size and color</string>
+  <string name="adjust_handle_title_new">Skonfiguruj uchwyt przeciągania</string>
+  <string name="adjust_handle_summary">Skonfiguruj położenie, rozmiar i kolor</string>
 </resources>
