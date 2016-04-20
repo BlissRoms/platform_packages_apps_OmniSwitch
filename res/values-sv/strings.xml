@@ -27,15 +27,15 @@
   <string name="opacity_summary">Bakgrund opacitet av overlay vy</string>
   <string name="animate_title">Animera</string>
   <string name="animate_title_summary">Animera visa och dölja av overlay vy</string>
-  <string name="adjust_handle_help">Move and resize drag handle</string>
+  <string name="adjust_handle_help">Flytta och ändra storlek på drag handtag</string>
   <string name="icon_size_normal">Normal</string>
   <string name="icon_size_small">Small</string>
   <string name="icon_size_large">Stor</string>
   <string name="icon_size_title">Icon size</string>
   <string name="ok">OK</string>
   <string name="cancel">Cancel</string>
-  <string name="drag_handle_color_title">Color</string>
-  <string name="drag_handle_color_dialog_title">Color</string>
+  <string name="drag_handle_color_title">Färg</string>
+  <string name="drag_handle_color_dialog_title">Färg</string>
   <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> free</string>
   <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> used</string>
   <string name="show_rambar_title">Show memory usage</string>
