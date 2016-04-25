@@ -102,7 +102,7 @@
   <string name="immersive_mode_help">Включить Расширенный рабочий стол</string>
   <string name="package_add_favorite_title">Добавить в избранное</string>
   <string name="package_remove_favorite_title">Удалить из избранного</string>
-  <string name="open_favorite_help">Open/close favorites view</string>
+  <string name="open_favorite_help">Открыть/закрыть просмотр избранного</string>
   <string name="button_pos_title">Положение кнопки</string>
   <string name="button_pos_top">Сверху слева</string>
   <string name="button_pos_bottom">Внизу справа</string>
@@ -112,7 +112,7 @@
   <string name="bg_style_title">Стиль панели уведомления</string>
   <string name="lock_to_app">Закрепить приложение</string>
   <string name="lock_app_help">Закрепить текущее приложение</string>
-  <string name="app_filter_category_title">App filter</string>
+  <string name="app_filter_category_title">Фильтр приложений</string>
   <string name="app_filter_boot_title">Время после включения:</string>
   <string name="layout_style_title">Стиль</string>
   <string name="layout_style_1">Горизонтально</string>
@@ -147,5 +147,5 @@
   <string name="package_full_task_title">Полный размер</string>
   <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
   <string name="adjust_handle_title_new">Configure drag handle</string>
-  <string name="adjust_handle_summary">Configure position size and color</string>
+  <string name="adjust_handle_summary">Настройка позиции, размера и цвета</string>
 </resources>
