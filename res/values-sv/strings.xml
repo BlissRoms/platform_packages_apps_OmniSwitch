@@ -29,20 +29,20 @@
   <string name="animate_title_summary">Animera visa och dölja av overlay vy</string>
   <string name="adjust_handle_help">Flytta och ändra storlek på drag handtag</string>
   <string name="icon_size_normal">Normal</string>
-  <string name="icon_size_small">Small</string>
+  <string name="icon_size_small">Liten</string>
   <string name="icon_size_large">Stor</string>
-  <string name="icon_size_title">Icon size</string>
+  <string name="icon_size_title">Ikonstorlek</string>
   <string name="ok">OK</string>
-  <string name="cancel">Cancel</string>
+  <string name="cancel">Avbryt</string>
   <string name="drag_handle_color_title">Färg</string>
   <string name="drag_handle_color_dialog_title">Färg</string>
-  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> free</string>
-  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> used</string>
-  <string name="show_rambar_title">Show memory usage</string>
-  <string name="show_rambar_summary">Display amount of free and used memory</string>
-  <string name="show_app_labels">Show app name</string>
-  <string name="show_app_labels_summary">Application name will be displayed with the icon</string>
-  <string name="category_overlay_title">Overlay</string>
+  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> ledig</string>
+  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> används</string>
+  <string name="show_rambar_title">Visa minnesanvändningen</string>
+  <string name="show_rambar_summary">Visa mängden ledigt och använt minnen</string>
+  <string name="show_app_labels">Visa app namn</string>
+  <string name="show_app_labels_summary">App namn visas med ikonen</string>
+  <string name="category_overlay_title">Överlägg</string>
   <string name="category_drag_handle_title">Drag handle</string>
   <string name="category_favorite_title">Favorites</string>
   <string name="favorite_apps_config_title">Manage favorites</string>
@@ -57,10 +57,10 @@
   <string name="kill_all_apps_help">Kill all apps</string>
   <string name="kill_other_apps_help">Kill other apps</string>
   <string name="settings_help">Settings</string>
-  <string name="home_help">Home</string>
-  <string name="kill_all_apps">Kill all</string>
-  <string name="kill_other_apps">Kill other</string>
-  <string name="settings">Settings</string>
+  <string name="home_help">Hem</string>
+  <string name="kill_all_apps">Döda alla</string>
+  <string name="kill_other_apps">Döda andra</string>
+  <string name="settings">Inställningar</string>
   <string name="home">Home</string>
   <string name="buttons_title">Buttons</string>
   <string name="buttons_summary">Configure action buttons in overlay view</string>
