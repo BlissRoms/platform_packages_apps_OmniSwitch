@@ -110,9 +110,9 @@
   <string name="bg_style_solid_dark">Oscuro</string>
   <string name="bg_style_transparent">Transparente</string>
   <string name="bg_style_title">Estilo del fondo</string>
-  <string name="lock_to_app">Pin app</string>
-  <string name="lock_app_help">Pin current app</string>
-  <string name="app_filter_category_title">App filter</string>
+  <string name="lock_to_app">Anclar aplicacion</string>
+  <string name="lock_app_help">Anclar aplicacion actual</string>
+  <string name="app_filter_category_title">Filtro de aplicaciones</string>
   <string name="app_filter_boot_title">Activar desde el arranque</string>
   <string name="layout_style_title">Estilo de OmniSwitch</string>
   <string name="layout_style_1">Horizontal</string>
@@ -126,14 +126,14 @@
   <string name="two_days">2 días</string>
   <string name="one_week">1 semana</string>
   <string name="app_filter_time_title">Activo por</string>
-  <string name="close_help">Close overlay</string>
+  <string name="close_help">Cerrar superposicion</string>
   <string name="close">Cerrar</string>
   <string name="thumb_size_title">Tamaño de las Aplicaciones Recientes</string>
   <string name="thumb_size_normal">Normal</string>
   <string name="thumb_size_small">Pequeño</string>
   <string name="thumb_size_medium">Mediano</string>
-  <string name="package_lock_task_title">Pin app</string>
-  <string name="lock_app_not_enabled">Screen pinning is not enabled in security settings</string>
+  <string name="package_lock_task_title">Anclar aplicacion</string>
+  <string name="lock_app_not_enabled">Anclamiento de pantalla no esta habilitado en ajustes de seguridad</string>
   <string name="app_filter_running_title">Se ejecuta solo</string>
   <string name="menu">Menú</string>
   <string name="menu_help">Menú</string>
@@ -145,7 +145,7 @@
   <string name="package_bottom_task_title">Abajo</string>
   <string name="package_right_task_title">Derecha</string>
   <string name="package_full_task_title">Máximo Tamaño</string>
-  <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
+  <string name="shortcut_label_toggle_overlay">Alternar superposicion</string>
   <string name="adjust_handle_title_new">Configurar control de arrastre</string>
   <string name="adjust_handle_summary">Configurar posición tamaño y color</string>
 </resources>
