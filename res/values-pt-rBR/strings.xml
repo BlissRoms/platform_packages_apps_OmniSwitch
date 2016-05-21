@@ -99,7 +99,7 @@
   <string name="speed_switch_items_summary">Número máximo de itens de nível</string>
   <string name="speed_switch_item">Limite de item no nível</string>
   <string name="immersive_mode">Modo imersivo</string>
-  <string name="immersive_mode_help">Toggle immersive mode</string>
+  <string name="immersive_mode_help">Alternar modo de imersão</string>
   <string name="package_add_favorite_title">Add to favorites</string>
   <string name="package_remove_favorite_title">Remove from favorites</string>
   <string name="open_favorite_help">Abrir/fechar visualização dos favoritos</string>
