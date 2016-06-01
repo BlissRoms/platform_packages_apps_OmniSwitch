@@ -119,16 +119,16 @@
   <string name="layout_style_2">Vertical</string>
   <string name="no_limit">Sem limite</string>
   <string name="one_hour">1 Hora</string>
-  <string name="three_hours">3 hours</string>
-  <string name="six_hours">6 hours</string>
-  <string name="twelve_hours">12 hours</string>
+  <string name="three_hours">3 horas</string>
+  <string name="six_hours">6 horas</string>
+  <string name="twelve_hours">12 horas</string>
   <string name="one_day">1 dia</string>
   <string name="two_days">2 dias</string>
   <string name="one_week">1 Semana</string>
   <string name="app_filter_time_title">Ativo desde</string>
   <string name="close_help">Fechar Sobreposição</string>
-  <string name="close">Close</string>
-  <string name="thumb_size_title">Thumbnail size</string>
+  <string name="close">Fechar</string>
+  <string name="thumb_size_title">Tamanho da miniatura</string>
   <string name="thumb_size_normal">Normal</string>
   <string name="thumb_size_small">Pequeno</string>
   <string name="thumb_size_medium">Médio</string>
@@ -144,8 +144,8 @@
   <string name="package_left_task_title">Esquerda</string>
   <string name="package_bottom_task_title">Em baixo</string>
   <string name="package_right_task_title">Direita</string>
-  <string name="package_full_task_title">Full size</string>
-  <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
-  <string name="adjust_handle_title_new">Configure drag handle</string>
-  <string name="adjust_handle_summary">Configure position size and color</string>
+  <string name="package_full_task_title">Tamanho Inteiro</string>
+  <string name="shortcut_label_toggle_overlay">Alternar sobreposição</string>
+  <string name="adjust_handle_title_new">Configurar drag handle</string>
+  <string name="adjust_handle_summary">Configurar a posição de tamanho e cor</string>
 </resources>

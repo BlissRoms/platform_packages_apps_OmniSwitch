@@ -27,7 +27,7 @@
   <string name="opacity_summary">Уровень непрозрачности панели</string>
   <string name="animate_title">Анимация</string>
   <string name="animate_title_summary">Анимированное появление и исчезание панели</string>
-  <string name="adjust_handle_help">Move and resize drag handle</string>
+  <string name="adjust_handle_help">Переместить и перетащите маркеры изменения размера</string>
   <string name="icon_size_normal">Нормальный</string>
   <string name="icon_size_small">Маленький</string>
   <string name="icon_size_large">Большой</string>
@@ -126,14 +126,14 @@
   <string name="two_days">2 дня</string>
   <string name="one_week">1 неделя</string>
   <string name="app_filter_time_title">Время после включения:</string>
-  <string name="close_help">Close overlay</string>
+  <string name="close_help">Закрыть наложение</string>
   <string name="close">Закрыть</string>
   <string name="thumb_size_title">Размер эскиза</string>
   <string name="thumb_size_normal">Обычные</string>
   <string name="thumb_size_small">Маленькие</string>
   <string name="thumb_size_medium">Средние</string>
   <string name="package_lock_task_title">Закрепить приложение</string>
-  <string name="lock_app_not_enabled">Screen pinning is not enabled in security settings</string>
+  <string name="lock_app_not_enabled">Закрепление позиции не включено в настройках безопасности</string>
   <string name="app_filter_running_title">Только запущенные</string>
   <string name="menu">Меню</string>
   <string name="menu_help">Меню</string>
@@ -145,7 +145,7 @@
   <string name="package_bottom_task_title">Внизу</string>
   <string name="package_right_task_title">Справа</string>
   <string name="package_full_task_title">Полный размер</string>
-  <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
-  <string name="adjust_handle_title_new">Configure drag handle</string>
+  <string name="shortcut_label_toggle_overlay">Включить наложение</string>
+  <string name="adjust_handle_title_new">Настроить ручку</string>
   <string name="adjust_handle_summary">Настройка позиции, размера и цвета</string>
 </resources>
