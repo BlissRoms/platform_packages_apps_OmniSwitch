@@ -19,9 +19,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">OmniSwitch</string>
   <string name="package_stop_task_title">Durdur</string>
-  <string name="package_inspect_item_title">App info</string>
+  <string name="package_inspect_item_title">Uygulama bilgisi</string>
   <string name="recents_settings_title">OmniSwitch</string>
-  <string name="start_on_boot_title">Start on boot</string>
+  <string name="start_on_boot_title">Açılışta başlat</string>
   <string name="start_on_boot_summary">Cihaz açılışında başlat ve aktif et</string>
   <string name="opacity_title">Saydamlık</string>
   <string name="opacity_summary">Background opacity of overlay view</string>
@@ -29,13 +29,13 @@
   <string name="animate_title_summary">Animate show and hide of overlay view</string>
   <string name="adjust_handle_help">Move and resize drag handle</string>
   <string name="icon_size_normal">Normal</string>
-  <string name="icon_size_small">Small</string>
+  <string name="icon_size_small">Küçük</string>
   <string name="icon_size_large">Büyük</string>
   <string name="icon_size_title">Simge boyutu</string>
   <string name="ok">TAMAM</string>
   <string name="cancel">Cancel</string>
-  <string name="drag_handle_color_title">Color</string>
-  <string name="drag_handle_color_dialog_title">Color</string>
+  <string name="drag_handle_color_title">Renk</string>
+  <string name="drag_handle_color_dialog_title">Renk</string>
   <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> free</string>
   <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> kullanılıyor</string>
   <string name="show_rambar_title">Bellek kullanımını göster</string>

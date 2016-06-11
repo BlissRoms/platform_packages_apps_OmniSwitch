@@ -27,7 +27,7 @@
   <string name="opacity_summary">Уровень непрозрачности панели</string>
   <string name="animate_title">Анимация</string>
   <string name="animate_title_summary">Анимированное появление и исчезание панели</string>
-  <string name="adjust_handle_help">Переместить и перетащите маркеры изменения размера</string>
+  <string name="adjust_handle_help">Переместить и изменить размер ручки</string>
   <string name="icon_size_normal">Нормальный</string>
   <string name="icon_size_small">Маленький</string>
   <string name="icon_size_large">Большой</string>
