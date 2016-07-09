@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
         <string name="app_name" translatable="false">OmniSwitch</string>
+        <string name="hide_app">Hide app</string>
         <string name="package_stop_task_title">Stop</string>
         <string name="package_inspect_item_title">App info</string>
         <string name="recents_settings_title" translatable="false">OmniSwitch</string>
