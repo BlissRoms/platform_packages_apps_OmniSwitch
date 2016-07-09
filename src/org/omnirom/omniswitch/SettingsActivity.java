@@ -30,8 +30,10 @@ import org.omnirom.omniswitch.ui.SettingsGestureView;
 import org.omnirom.omniswitch.ui.FavoriteDialog;
 
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -46,6 +48,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -465,5 +468,41 @@ public class SettingsActivity extends PreferenceActivity implements
     private void doShowFavoritesList(List<String> favoriteList) {
         FavoriteDialog dialog = new FavoriteDialog(this, this, favoriteList);
         dialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.hide_app).setChecked(!isAppIconEnabled());
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.hide_app:
+                boolean checked = item.isChecked();
+                item.setChecked(!checked);
+                setAppIconEnabled(checked);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void setAppIconEnabled(boolean enabled) {
+        int newState;
+        PackageManager pm = getPackageManager();
+        if (enabled) {
+            newState = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+        } else {
+            newState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+        }
+        pm.setComponentEnabledSetting(new ComponentName(this, org.omnirom.omniswitch.LauncherActivity.class), newState, PackageManager.DONT_KILL_APP);
+    }
+
+    public boolean isAppIconEnabled() {
+        PackageManager pm = getPackageManager();
+        return (pm.getComponentEnabledSetting(new ComponentName(this, org.omnirom.omniswitch.LauncherActivity.class)) != PackageManager.COMPONENT_ENABLED_STATE_DISABLED);
     }
 }

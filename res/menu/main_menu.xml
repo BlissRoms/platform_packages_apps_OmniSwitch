@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/hide_app"
+        android:orderInCategory="300"
+        android:title="@string/hide_app"
+        android:checkable="true"
+        android:showAsAction="never" />
+</menu>
