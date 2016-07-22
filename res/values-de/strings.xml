@@ -156,13 +156,13 @@
   <string name="welcome_cling_header">Willkommen beim OmniSwitch-Startmodus</string>
   <string name="welcome_cling_description">Viel Spaß mit einem minimalistischen Launcher, der sich auf das Starten und Umschalten von Apps fokussiert. Streichen Sie über den Bildschirm, um OmniSwitch zu öffnen.</string>
   <string name="welcome_cling_dismiss">Ok</string>
-  <string name="launch_stats_title">Start-Statistiken</string>
-  <string name="launch_stats_summary">Sammeln Sie Statistiken über gestartete Apps. Daten werden nicht freigegeben und nur lokal gespeichert.</string>
+  <string name="launch_stats_title">Start-Statistik</string>
+  <string name="launch_stats_summary">Datenauswertung, welche Apps gestartet wurden. Daten werden nicht freigegeben und nur lokal gespeichert.</string>
   <string name="launch_stats_delete_title">Statistik löschen</string>
-  <string name="launch_stats_delete_summary">Aktuell gesammelte Start-Statistiken löschen</string>
-  <string name="favorite_apps_config_stat_title">Statistik-Favoriten</string>
-  <string name="favorite_apps_config_stat_summary">Erstellen Sie eine Favoritenliste basierend auf den gesammelten Start-Statistiken</string>
-  <string name="launch_stats_delete_notice">Start-Statistiken gelöscht</string>
+  <string name="launch_stats_delete_summary">Aktuelle Auswertung der gestarteten Apps löschen</string>
+  <string name="favorite_apps_config_stat_title">Statistische Favoriten</string>
+  <string name="favorite_apps_config_stat_summary">Favoritenliste erstellen, die auf der Auswertung der gestarteten Apps beruht</string>
+  <string name="launch_stats_delete_notice">Start-Statistik gelöscht</string>
   <string name="launch_stats_low_title">Favoriten verwalten</string>
-  <string name="launch_stats_low_notice">Es sind keine ausreichenden Daten vorhanden, um eine Liste der Lieblings-Apps zu erstellen. Möchten Sie wirklich fortfahren?</string>
+  <string name="launch_stats_low_notice">Es gibt zu wenig Werte, um eine Liste der Lieblings-Apps zu erstellen. Möchten Sie wirklich fortfahren?</string>
 </resources>
