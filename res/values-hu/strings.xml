@@ -165,4 +165,6 @@
   <string name="launch_stats_delete_notice">Indítási statisztika törölve</string>
   <string name="launch_stats_low_title">Kedvencek kezelése</string>
   <string name="launch_stats_low_notice">Nincs elegendő adat a kedvenc alkalmazások listájának létrehozásához. Tényleg folytatni kívánja?</string>
+  <string name="revert_recents_summary">Fill recent apps from bottom</string>
+  <string name="revert_recents_title">Revert recent apps list</string>
 </resources>
