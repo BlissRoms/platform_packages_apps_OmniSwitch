@@ -55,15 +55,15 @@
   <string name="toggle_last_app_help">Switch to last app</string>
   <string name="kill_all_apps_help">Kill all apps</string>
   <string name="kill_other_apps_help">Kill other apps</string>
-  <string name="settings_help">Settings</string>
-  <string name="home_help">Home</string>
+  <string name="settings_help">設定</string>
+  <string name="home_help">ホーム</string>
   <string name="kill_all_apps">Kill all</string>
   <string name="kill_other_apps">Kill other</string>
   <string name="settings">Settings</string>
-  <string name="home">Home</string>
-  <string name="buttons_title">Buttons</string>
+  <string name="home">ホーム</string>
+  <string name="buttons_title">ボタン</string>
   <string name="buttons_summary">Configure action buttons in overlay view</string>
-  <string name="auto_hide_handle">Auto-hide</string>
+  <string name="auto_hide_handle">自動的に隠す</string>
   <string name="auto_hide_handle_summary">Two swipes to show overlay view</string>
   <string name="no_recent_apps_title">No recent apps</string>
   <string name="drag_handle_opacity_title">Opacity</string>
@@ -76,11 +76,11 @@
   <string name="gravity_title">Horizontal gravity</string>
   <string name="gravity_center">Center</string>
   <string name="gravity_drag">Drag handle side</string>
-  <string name="dialog_pick_iconpack_title">Pick icon pack</string>
+  <string name="dialog_pick_iconpack_title">アイコンパックを選択</string>
   <string name="default_iconpack_title">Default icons</string>
-  <string name="icon_packs_title">Icon packs</string>
-  <string name="no_iconpacks_summary">No icon packs installed</string>
-  <string name="icon_pack_title">Icon pack</string>
+  <string name="icon_packs_title">アイコンパック</string>
+  <string name="no_iconpacks_summary">アイコンパックがインストールされていません</string>
+  <string name="icon_pack_title">アイコンパック</string>
   <string name="icon_pack_summary">Use icon pack for app icons</string>
   <string name="category_speed_switcher_title">Quick Switcher</string>
   <string name="speed_switcher_enable_summary">Long press drag handle to activate</string>
@@ -134,8 +134,8 @@
   <string name="package_lock_task_title">Pin app</string>
   <string name="lock_app_not_enabled">Screen pinning is not enabled in security settings</string>
   <string name="app_filter_running_title">Running only</string>
-  <string name="menu">Menu</string>
-  <string name="menu_help">Menu</string>
+  <string name="menu">メニュー</string>
+  <string name="menu_help">メニュー</string>
   <string name="enable_title">Enable</string>
   <string name="adjust_handle_width">Width</string>
   <string name="adjust_handle_position">Position</string>
@@ -147,8 +147,8 @@
   <string name="shortcut_label_toggle_overlay">Toggle overlay</string>
   <string name="adjust_handle_title_new">Configure drag handle</string>
   <string name="adjust_handle_summary">Configure position size and color</string>
-  <string name="settings_button_text">Settings</string>
-  <string name="wallpaper_button_text">Wallpaper</string>
+  <string name="settings_button_text">設定</string>
+  <string name="wallpaper_button_text">壁紙</string>
   <string name="category_launcher_title">Launcher mode</string>
   <string name="launcher_mode_summary">Run OmniSwitch also as your launcher. After enabling press home and select OmniSwitch</string>
   <string name="launcher_mode_title">Enable</string>
@@ -167,4 +167,6 @@
   <string name="launch_stats_low_notice">Insufficient data to create favorite apps list. You really want to continue?</string>
   <string name="revert_recents_summary">Fill recent apps from bottom</string>
   <string name="revert_recents_title">Revert recent apps list</string>
+  <string name="dialog_overlay_perms_title">OmniSwitch permission error</string>
+  <string name="dialog_overlay_perms_msg">Enable \u0022Draw over other apps\u0022 permission</string>
 </resources>

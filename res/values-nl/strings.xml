@@ -165,6 +165,8 @@
   <string name="launch_stats_delete_notice">Start statistieken verwijderd</string>
   <string name="launch_stats_low_title">Favorieten beheren</string>
   <string name="launch_stats_low_notice">Er zijn onvoldoende gegevens om favoriete appslijst te maken. Je echt wilt doorgaan?</string>
-  <string name="revert_recents_summary">Fill recent apps from bottom</string>
-  <string name="revert_recents_title">Revert recent apps list</string>
+  <string name="revert_recents_summary">Recente apps vanaf onderkant vullen</string>
+  <string name="revert_recents_title">Herstellen van recente appslijst</string>
+  <string name="dialog_overlay_perms_title">OmniSwitch permission error</string>
+  <string name="dialog_overlay_perms_msg">Enable \u0022Draw over other apps\u0022 permission</string>
 </resources>
