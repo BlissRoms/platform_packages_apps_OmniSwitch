@@ -167,6 +167,6 @@
   <string name="launch_stats_low_notice">Datos insuficientes para crear lista de apps favoritas. ¿Está seguro de continuar?</string>
   <string name="revert_recents_summary">Llenar aplicaciones recientes de la parte inferior</string>
   <string name="revert_recents_title">Volver a lista de aplicaciones recientes</string>
-  <string name="dialog_overlay_perms_title">OmniSwitch permission error</string>
-  <string name="dialog_overlay_perms_msg">Enable \u0022Draw over other apps\u0022 permission</string>
+  <string name="dialog_overlay_perms_title">Error de permiso del OmniSwitch</string>
+  <string name="dialog_overlay_perms_msg">Realizar \u0022 Dibujar encima de otras aplicaciones \u0022 permisión</string>
 </resources>

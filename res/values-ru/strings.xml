@@ -167,6 +167,6 @@
   <string name="launch_stats_low_notice">Недостаточно данных для создания списка любимых приложений. Вы действительно хотите продолжить?</string>
   <string name="revert_recents_summary">Заполните недавние приложения снизу</string>
   <string name="revert_recents_title">Вернуть список недавних приложений</string>
-  <string name="dialog_overlay_perms_title">OmniSwitch permission error</string>
-  <string name="dialog_overlay_perms_msg">Enable \u0022Draw over other apps\u0022 permission</string>
+  <string name="dialog_overlay_perms_title">Наложение OmniSwitch</string>
+  <string name="dialog_overlay_perms_msg">Включить разрешение \u0022наложения на другие приложения\u0022</string>
 </resources>

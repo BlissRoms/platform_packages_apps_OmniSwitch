@@ -167,6 +167,6 @@
   <string name="launch_stats_low_notice">Otillräckliga data för att skapa favorit apps lista. Vill du verkligen fortsätta?</string>
   <string name="revert_recents_summary">Fyll senaste appar från botten</string>
   <string name="revert_recents_title">Återgå till senaste applista</string>
-  <string name="dialog_overlay_perms_title">OmniSwitch permission error</string>
-  <string name="dialog_overlay_perms_msg">Enable \u0022Draw over other apps\u0022 permission</string>
+  <string name="dialog_overlay_perms_title">OmniSwitch tillståndsfel</string>
+  <string name="dialog_overlay_perms_msg">Aktivera \u0022Rita över andra appars\u0022 tillstånd</string>
 </resources>
