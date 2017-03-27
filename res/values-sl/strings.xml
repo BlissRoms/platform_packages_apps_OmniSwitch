@@ -43,7 +43,7 @@
   <string name="category_overlay_title">Prekrivnost</string>
   <string name="category_drag_handle_title">Ročnik za vlečenje</string>
   <string name="category_favorite_title">Priljubljene</string>
-  <string name="favorite_apps_config_title">Upravljaj s priljubljenimi</string>
+  <string name="favorite_apps_config_title">Upravljanje priljubljenih</string>
   <string name="favorite_apps_config_summary">Določi programe, ki so prikazani v pogledu priljubljenih</string>
   <string name="favorite_apps_add_dialog_title">Dodaj programe</string>
   <string name="favorite_add">Dodaj \u2026</string>
@@ -61,7 +61,7 @@
   <string name="settings">Nastavitve</string>
   <string name="home">Domov</string>
   <string name="buttons_title">Gumbi</string>
-  <string name="buttons_summary">Nastavi gumbe za dejanja v prekrivnem pogledu</string>
+  <string name="buttons_summary">Nastavi gumbe dejanj v prekrivnem pogledu</string>
   <string name="auto_hide_handle">Samodejno skrij</string>
   <string name="auto_hide_handle_summary">Dvakrat povleci za prikaz prekrivnega pogleda</string>
   <string name="no_recent_apps_title">Ni nedavnih programov</string>
@@ -93,7 +93,7 @@
   <string name="speed_switch_limit_summary">Omeji področje sprememb ravni</string>
   <string name="speed_switch_limit">Področje sprememb ravni</string>
   <string name="speed_switch_button_title">Gumbi</string>
-  <string name="speed_switch_button_summary">Nastavi gumbe za dejanja v pogledu hitrega preklopnika</string>
+  <string name="speed_switch_button_summary">Nastavi gumbe dejanj v pogledu hitrega preklopnika</string>
   <string name="speed_switch_items_summary">Največje število predmetov ravni</string>
   <string name="speed_switch_item">Omejitev predmeta ravni</string>
   <string name="immersive_mode">Vdelani način</string>
@@ -162,7 +162,7 @@
   <string name="favorite_apps_config_stat_title">Priljubljena statistika</string>
   <string name="favorite_apps_config_stat_summary">Ustvari seznam priljubljenih glede na zbrano statistiko zagonov</string>
   <string name="launch_stats_delete_notice">Statistika zagonov počiščena</string>
-  <string name="launch_stats_low_title">Upravljaj s priljubljenimi</string>
+  <string name="launch_stats_low_title">Upravljanje priljubljenih</string>
   <string name="launch_stats_low_notice">Nezadostni podatki za ustvarjanje seznama priljubljenih programov.  Ali res želite nadaljevati?</string>
   <string name="revert_recents_summary">Izpolni nedavne programe od spodaj</string>
   <string name="revert_recents_title">Obrni seznam nedavnih programov</string>

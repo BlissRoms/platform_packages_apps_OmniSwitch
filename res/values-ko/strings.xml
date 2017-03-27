@@ -138,4 +138,14 @@
   <string name="enable_title">활성화</string>
   <string name="adjust_handle_width">너비</string>
   <string name="adjust_handle_position">위치</string>
+  <string name="package_left_task_title">왼쪽</string>
+  <string name="package_right_task_title">오른쪽</string>
+  <string name="package_full_task_title">전체 크기</string>
+  <string name="shortcut_label_toggle_overlay">오버레이 전환</string>
+  <string name="settings_button_text">설정</string>
+  <string name="wallpaper_button_text">배경화면</string>
+  <string name="category_launcher_title">런처 모드</string>
+  <string name="launcher_mode_summary">OmniSwitch를 기본 런처로 사용합니다. 홈 버튼을 누르고 OmniSwitch를 선택하세요.</string>
+  <string name="launcher_mode_title">켜기</string>
+  <string name="welcome_cling_header">OmniSwitch 런처 모드에 오신 것을 환영합니다</string>
 </resources>
