@@ -112,7 +112,7 @@
   <string name="lock_app_help">Épingler l\'application actuelle</string>
   <string name="app_filter_category_title">Filtre d\'application</string>
   <string name="app_filter_boot_title">Actif depuis le démarrage</string>
-  <string name="layout_style_title">Style</string>
+  <string name="layout_style_title">Apparence</string>
   <string name="layout_style_1">Horizontale</string>
   <string name="layout_style_2">Verticale</string>
   <string name="no_limit">Pas de limite</string>

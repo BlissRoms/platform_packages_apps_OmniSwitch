@@ -89,6 +89,9 @@
   <string name="speed_switch_color_summary">Niebieski - ostatnie aplikacje. Zielony - ulubione. Czerwony - akcje</string>
   <string name="speed_switch_color">Poziom koloru tła</string>
   <string name="speed_switch_button_title">Przyciski</string>
+  <string name="speed_switch_button_summary">Konfiguruj przyciski akcji w szybkim przełączniku widoku</string>
+  <string name="speed_switch_items_summary">Maksymalna liczba elementów</string>
+  <string name="speed_switch_item">Maksymalna liczba elementów</string>
   <string name="immersive_mode">Tryb pełnoekranowy</string>
   <string name="immersive_mode_help">Wyłącz tryb odwrócony</string>
   <string name="package_add_favorite_title">Dodaj do ulubionych</string>

@@ -16,4 +16,26 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_stop_task_title">Зупинити</string>
+  <string name="package_inspect_item_title">Інформація про програму</string>
+  <string name="start_on_boot_title">Запускати при завантаженні</string>
+  <string name="start_on_boot_summary">Запускати при завантаженні пристрою</string>
+  <string name="opacity_title">Прозорість</string>
+  <string name="opacity_summary">Рівень непрозорості панелі</string>
+  <string name="animate_title">Анімація</string>
+  <string name="icon_size_normal">Звичайний</string>
+  <string name="icon_size_small">Маленький</string>
+  <string name="icon_size_large">Великий</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Скасувати</string>
+  <string name="drag_handle_color_title">Колір</string>
+  <string name="drag_handle_color_dialog_title">Колір</string>
+  <string name="service_background_processes">Вільно <xliff:g id="memory">%1$s</xliff:g></string>
+  <string name="service_foreground_processes">Використ. <xliff:g id="memory">%1$s</xliff:g></string>
+  <string name="show_rambar_title">Показати використання пам\'яті</string>
+  <string name="settings">Налаштування</string>
+  <string name="buttons_title">Кнопки</string>
+  <string name="no_recent_apps_title">Немає останніх програм</string>
+  <string name="drag_handle_opacity_title">Прозорість</string>
+</resources>

@@ -146,4 +146,5 @@
   <string name="shortcut_label_toggle_overlay">Ligar/desligar sobreposição</string>
   <string name="adjust_handle_title_new">Configurar a pega de arrasto</string>
   <string name="adjust_handle_summary">Configurar posição, tamanho e cor</string>
+  <string name="settings_button_text">Configurações</string>
 </resources>
