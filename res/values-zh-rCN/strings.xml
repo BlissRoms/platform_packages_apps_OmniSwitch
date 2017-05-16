@@ -168,4 +168,10 @@
   <string name="revert_recents_title">恢复最近应用程序列表</string>
   <string name="dialog_overlay_perms_title">OmniSwitch 权限错误</string>
   <string name="dialog_overlay_perms_msg">启用\u0022在其他的应用上层显示\u0022权限</string>
+  <string name="package_dock_task_title">固定</string>
+  <string name="package_undock_task_title">取消固定</string>
+  <string name="swipe_thumb_update_summary">缩略图将在重叠显示时更新</string>
+  <string name="swipe_thumb_update_title">异步缩略图加载</string>
+  <string name="dim_action_buttons_summary">添加额外的背景昏暗到动作按钮</string>
+  <string name="dim_action_buttons_title">昏暗动作按钮背景</string>
 </resources>

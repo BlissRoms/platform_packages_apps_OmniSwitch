@@ -22,9 +22,9 @@
   <string name="start_on_boot_title">Açılışta başlat</string>
   <string name="start_on_boot_summary">Cihaz açılışında başlat ve etkinleştir</string>
   <string name="opacity_title">Opaklık</string>
-  <string name="opacity_summary">Arayüz görünümünün arka plan saydamlığı</string>
-  <string name="animate_title">Animasyon</string>
-  <string name="animate_title_summary">Animasyon göster ve gizle</string>
+  <string name="opacity_summary">Yer paylaşımı görünümünün arka plan saydamlığı</string>
+  <string name="animate_title">Animasyon ekleme</string>
+  <string name="animate_title_summary">Yer paylaşımı gösterilirken ve gizlenirken animasyon ekle</string>
   <string name="adjust_handle_help">Sürükleme yöneticisini taşı ve yeniden boyutlandır</string>
   <string name="icon_size_normal">Normal</string>
   <string name="icon_size_small">Küçük</string>
@@ -40,7 +40,7 @@
   <string name="show_rambar_summary">Boş ve kullanılan bellek miktarını görüntüle</string>
   <string name="show_app_labels">Uygulama adını göster</string>
   <string name="show_app_labels_summary">Uygulama adı simgesi ile görüntülenir</string>
-  <string name="category_overlay_title">Arayüz</string>
+  <string name="category_overlay_title">Yer Paylaşımı</string>
   <string name="category_drag_handle_title">Sürükleme yöneticisi</string>
   <string name="category_favorite_title">Favoriler</string>
   <string name="favorite_apps_config_title">Favorileri yönet</string>
@@ -61,9 +61,9 @@
   <string name="settings">Ayarlar</string>
   <string name="home">Ana Sayfa</string>
   <string name="buttons_title">Tuşlar</string>
-  <string name="buttons_summary">Gösterilecek eylem butonlarını ayarla</string>
+  <string name="buttons_summary">Yer paylaşımı görünümündeki eylem düğmelerini yapılandır</string>
   <string name="auto_hide_handle">Otomatik gizle</string>
-  <string name="auto_hide_handle_summary">Sürükleyiciyi göstermek için iki parmakla sürükle</string>
+  <string name="auto_hide_handle_summary">Yer paylaşımı görünümünü göstermek için iki parmakla sürükle</string>
   <string name="no_recent_apps_title">Son uygulama yok</string>
   <string name="drag_handle_opacity_title">Opaklık</string>
   <string name="drag_handle_enable_title">Etkinleştir</string>
@@ -124,7 +124,7 @@
   <string name="two_days">2 gün</string>
   <string name="one_week">1 hafta</string>
   <string name="app_filter_time_title">Etkin</string>
-  <string name="close_help">Arayüzü kapat</string>
+  <string name="close_help">Yer paylaşımını kapat</string>
   <string name="close">Kapalı</string>
   <string name="thumb_size_title">Küçük resim boyutu</string>
   <string name="thumb_size_normal">Normal</string>
@@ -143,7 +143,7 @@
   <string name="package_bottom_task_title">Alt</string>
   <string name="package_right_task_title">Sağ</string>
   <string name="package_full_task_title">Tam boyut</string>
-  <string name="shortcut_label_toggle_overlay">Arayüz geçişi</string>
+  <string name="shortcut_label_toggle_overlay">Yer paylaşımını aç</string>
   <string name="adjust_handle_title_new">Sürükleme yöneticisini ayarla</string>
   <string name="adjust_handle_summary">Pozisyon boyutunu ve rengini yapılandır</string>
   <string name="settings_button_text">Ayarlar</string>
@@ -168,6 +168,10 @@
   <string name="revert_recents_title">Son uygulamalar listesini geri al</string>
   <string name="dialog_overlay_perms_title">OmniSwitch izin hatası</string>
   <string name="dialog_overlay_perms_msg">\u0022Diğer uygulamaların üzerine çiz\u0022 iznini etkinleştirin</string>
-  <string name="package_dock_task_title">Tak</string>
-  <string name="package_undock_task_title">Çıkar</string>
+  <string name="package_dock_task_title">Yuvaya Tak</string>
+  <string name="package_undock_task_title">Yuvadan Çıkar</string>
+  <string name="swipe_thumb_update_summary">Küçük resimler yer paylaşımı gösterimi esnasında güncellenecek</string>
+  <string name="swipe_thumb_update_title">Eş zamansız küçük resmi yükleme</string>
+  <string name="dim_action_buttons_summary">Eylem düğmelerine ilave loş arka plan ekle</string>
+  <string name="dim_action_buttons_title">Loş eylem düğmesi arka planı</string>
 </resources>

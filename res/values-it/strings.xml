@@ -170,4 +170,8 @@
   <string name="dialog_overlay_perms_msg">Attivare \u0022 Sovrascrivere i permessi di altre apps di apps\u0022</string>
   <string name="package_dock_task_title">Dock</string>
   <string name="package_undock_task_title">Rimuovi dal dock</string>
+  <string name="swipe_thumb_update_summary">Le miniature verranno aggiornate durante la sovrapposizione</string>
+  <string name="swipe_thumb_update_title">Caricamento delle miniature asincrono</string>
+  <string name="dim_action_buttons_summary">Oscura sfondo dei pulsanti di azione</string>
+  <string name="dim_action_buttons_title">Opacità sfondo dei pulsanti di azione</string>
 </resources>

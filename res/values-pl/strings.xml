@@ -72,7 +72,9 @@
   <string name="allapps">Aplikacje</string>
   <string name="dim_behind_title">Przyciemnianie tła</string>
   <string name="dim_behind_summary">Zastosuj krycie do całego ekranu</string>
+  <string name="gravity_title">Poziome ustawienie</string>
   <string name="gravity_center">Środek</string>
+  <string name="gravity_drag">Lokalizacja przeciągnika uchwytu</string>
   <string name="dialog_pick_iconpack_title">Wybierz zestaw ikon</string>
   <string name="default_iconpack_title">Domyślna ikona</string>
   <string name="icon_packs_title">Zestaw ikon</string>
@@ -88,6 +90,8 @@
   <string name="kill_current_help">Zamknij obecną aplikację</string>
   <string name="speed_switch_color_summary">Niebieski - ostatnie aplikacje. Zielony - ulubione. Czerwony - akcje</string>
   <string name="speed_switch_color">Poziom koloru tła</string>
+  <string name="speed_switch_limit_summary">Granica obszaru dla zmian poziomu</string>
+  <string name="speed_switch_limit">Obszar zmiany poziomu</string>
   <string name="speed_switch_button_title">Przyciski</string>
   <string name="speed_switch_button_summary">Konfiguruj przyciski akcji w szybkim przełączniku widoku</string>
   <string name="speed_switch_items_summary">Maksymalna liczba elementów</string>
@@ -134,4 +138,11 @@
   <string name="enable_title">Włącz</string>
   <string name="adjust_handle_width">Szerokość</string>
   <string name="adjust_handle_position">Położenie</string>
+  <string name="package_top_task_title">Góra</string>
+  <string name="package_left_task_title">Lewo</string>
+  <string name="package_bottom_task_title">Dół</string>
+  <string name="package_right_task_title">Prawo</string>
+  <string name="package_full_task_title">Pełny rozmiar</string>
+  <string name="shortcut_label_toggle_overlay">Przełącznik nakładki</string>
+  <string name="adjust_handle_title_new">Konfiguracja przeciągnika uchwytu</string>
 </resources>

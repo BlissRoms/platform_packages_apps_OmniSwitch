@@ -16,4 +16,50 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_stop_task_title">Dayandır</string>
+  <string name="package_inspect_item_title">Tətbiq haqqında</string>
+  <string name="start_on_boot_title">Açılanda başlat</string>
+  <string name="start_on_boot_summary">Cihaz açılanda başlat və aktivləşdir</string>
+  <string name="opacity_title">Donuqluq</string>
+  <string name="icon_size_normal">Normal</string>
+  <string name="icon_size_small">Kiçik</string>
+  <string name="icon_size_large">Böyük</string>
+  <string name="icon_size_title">İkon ölçüsü</string>
+  <string name="ok">Oldu</string>
+  <string name="cancel">İmtina et</string>
+  <string name="drag_handle_color_title">Rəng</string>
+  <string name="drag_handle_color_dialog_title">Rəng</string>
+  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> boşdur</string>
+  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> işlədilir</string>
+  <string name="show_rambar_title">Yaddaş istifadəsini göstər</string>
+  <string name="show_rambar_summary">Boş və istifadədə olan yaddaş miqdarını göstər</string>
+  <string name="show_app_labels">Tətbiqin adını göstər</string>
+  <string name="show_app_labels_summary">Tətbiq adı ikonu ilə bir yerdə göstərilir</string>
+  <string name="category_overlay_title">Örtük</string>
+  <string name="category_drag_handle_title">Daşıma idarə edici</string>
+  <string name="category_favorite_title">Sevimlilər</string>
+  <string name="favorite_apps_config_title">Sevimliləri idarə et</string>
+  <string name="favorite_apps_config_summary">Sevimlilərdə göstərilən tətbiqləri müəyyənləşdir</string>
+  <string name="favorite_apps_add_dialog_title">Tətbiq əlavə et</string>
+  <string name="favorite_add">Əlavə et\u2026</string>
+  <string name="location_left">Sol</string>
+  <string name="location_right">Sağ</string>
+  <string name="reset">Standart</string>
+  <string name="toggle_last_app">Sonuncu tətbiq</string>
+  <string name="kill_all_apps_help">Bütün tətbiqləri bitir</string>
+  <string name="kill_other_apps_help">Başqa tətbiqləri bitir</string>
+  <string name="settings_help">Parametrlər</string>
+  <string name="home_help">Əsas səhifə</string>
+  <string name="kill_all_apps">Hamısını bitir</string>
+  <string name="kill_other_apps">Başqalarını bitir</string>
+  <string name="settings">Parametrlər</string>
+  <string name="home">Əsas səhifə</string>
+  <string name="buttons_title">Düymələr</string>
+  <string name="buttons_summary">Göstəriləcək əməl butonlarını tənzimlə</string>
+  <string name="auto_hide_handle">Avtomatik gizlət</string>
+  <string name="drag_handle_enable_title">Aktivləşdir</string>
+  <string name="dialog_overlay_perms_title">OmniSwitch icazə xətası</string>
+  <string name="package_dock_task_title">Tax</string>
+  <string name="package_undock_task_title">Çıxar</string>
+</resources>
