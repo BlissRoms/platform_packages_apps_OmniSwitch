@@ -147,4 +147,8 @@
   <string name="adjust_handle_title_new">Configurar a pega de arrasto</string>
   <string name="adjust_handle_summary">Configurar posição, tamanho e cor</string>
   <string name="settings_button_text">Configurações</string>
+  <string name="wallpaper_button_text">Papel de parede</string>
+  <string name="category_launcher_title">Modo iniciador</string>
+  <string name="launcher_mode_summary">Executar o OmniSwitch como a sua aplicação de página inicial. Após activar, pressione o botão home e seleccione Omniswitch</string>
+  <string name="launcher_mode_title">Activar</string>
 </resources>
