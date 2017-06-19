@@ -171,7 +171,7 @@
   <string name="package_dock_task_title">Ancrer</string>
   <string name="package_undock_task_title">Détacher</string>
   <string name="swipe_thumb_update_summary">Les miniatures seront actualisées pendant l\'affichage</string>
-  <string name="swipe_thumb_update_title">Chargement asynchrone de miniatures</string>
+  <string name="swipe_thumb_update_title">Chargement asynchrone des miniatures</string>
   <string name="dim_action_buttons_summary">Ajouter un arrière-plan flou aux boutons d\'action</string>
   <string name="dim_action_buttons_title">Bouton d\'action</string>
 </resources>
