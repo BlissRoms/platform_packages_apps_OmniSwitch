@@ -25,7 +25,7 @@
   <string name="opacity_summary">Yardımcı grafik görünümünün arka plan saydamlığı</string>
   <string name="animate_title">Animasyon ekleme</string>
   <string name="animate_title_summary">Yardımcı grafik gösterilirken ve gizlenirken animasyon ekle</string>
-  <string name="adjust_handle_help">Sürükleme yöneticisini taşı ve yeniden boyutlandır</string>
+  <string name="adjust_handle_help">Sürükleme kolunu taşı ve yeniden boyutlandır</string>
   <string name="icon_size_normal">Normal</string>
   <string name="icon_size_small">Küçük</string>
   <string name="icon_size_large">Büyük</string>
@@ -39,9 +39,9 @@
   <string name="show_rambar_title">Hafıza kullanımını göster</string>
   <string name="show_rambar_summary">Boş ve kullanılan hafıza miktarını görüntüle</string>
   <string name="show_app_labels">Uygulama adını göster</string>
-  <string name="show_app_labels_summary">Uygulama adı simgesi ile görüntülenir</string>
-  <string name="category_overlay_title">Yardımcı Grafik</string>
-  <string name="category_drag_handle_title">Sürükleme yöneticisi</string>
+  <string name="show_app_labels_summary">Uygulama adı simge ile birlikte görüntülenir</string>
+  <string name="category_overlay_title">Yardımcı grafik</string>
+  <string name="category_drag_handle_title">Sürükleme kolu</string>
   <string name="category_favorite_title">En sevilenler</string>
   <string name="favorite_apps_config_title">En sevilenleri yönet</string>
   <string name="favorite_apps_config_summary">En sevilenlerde gösterilen uygulamaları tarif edin</string>
