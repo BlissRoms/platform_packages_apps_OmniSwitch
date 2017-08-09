@@ -54,7 +54,7 @@ public class DragHandleColorPreference extends Preference implements DialogInter
         mConfiguration = SwitchConfiguration.getInstance(context);
         mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         mColorValue = mPrefs.getInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW,
-                mConfiguration.mDefaultColor);
+                mConfiguration.getDefaultDragHandleColor());
         init();
     }
 
@@ -112,7 +112,7 @@ public class DragHandleColorPreference extends Preference implements DialogInter
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mColorValue = mConfiguration.mDefaultColor;
+                        mColorValue = mConfiguration.getDefaultDragHandleColor();
                         updatePreferenceViews();
                         mPrefs.edit()
                                 .putInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW,

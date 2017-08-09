@@ -180,4 +180,5 @@
         <string name="package_unlock_app_title">Unlock app</string>
         <string name="locked_apps_sort_summary">Locked apps will be displayed first in list</string>
         <string name="locked_apps_sort_title">Sort locked apps</string>
+        <string name="drag_handle_dynamic_color_title">Use accent color</string>
 </resources>

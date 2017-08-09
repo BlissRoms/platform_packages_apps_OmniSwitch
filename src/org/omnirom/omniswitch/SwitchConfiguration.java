@@ -58,7 +58,6 @@ public class SwitchConfiguration {
     public int mDefaultDragHandleWidth;
     public boolean mShowLabels = true;
     public int mDragHandleColor;
-    public int mDefaultColor;
     public int mIconDpi;
     public boolean mAutoHide;
     public static final int AUTO_HIDE_DEFAULT = 3000; // 3s
@@ -102,6 +101,8 @@ public class SwitchConfiguration {
     public boolean mDimActionButton;
     public List<String> mLockedAppList = new ArrayList<String>();
     public boolean mTopSortLockedApps;
+    private Context mContext;
+    private boolean mDynamicDragHandleColor = true;
 
     // old pref slots
     private static final String PREF_DRAG_HANDLE_COLOR = "drag_handle_color";
@@ -130,11 +131,10 @@ public class SwitchConfiguration {
     }
 
     private SwitchConfiguration(Context context) {
+        mContext = context;
         mWindowManager = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
 
-        mDefaultColor = context.getResources()
-                .getColor(R.color.default_drag_handle_color);
         setDensityConfiguration(context);
         updatePrefs(PreferenceManager.getDefaultSharedPreferences(context), "");
     }
@@ -187,7 +187,7 @@ public class SwitchConfiguration {
         }
         if (!prefs.contains(SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW) &&
                 prefs.contains(PREF_DRAG_HANDLE_COLOR)) {
-            int dragHandleColor = prefs.getInt(PREF_DRAG_HANDLE_COLOR, mDefaultColor);
+            int dragHandleColor = prefs.getInt(PREF_DRAG_HANDLE_COLOR, getDefaultDragHandleColor());
             int opacity = prefs.getInt(PREF_DRAG_HANDLE_OPACITY, 100);
             dragHandleColor = (dragHandleColor & 0x00FFFFFF) + (opacity << 24);
             prefs.edit().putInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW, dragHandleColor).commit();
@@ -233,7 +233,7 @@ public class SwitchConfiguration {
         mLabelFontSizePx = Math.round((mLabelFontSize + mIconBorderDp) * mDensity);
 
         mDragHandleColor = prefs.getInt(
-                    SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW, mDefaultColor);
+                    SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW, getDefaultDragHandleColor());
         mAutoHide = prefs.getBoolean(SettingsActivity.PREF_AUTO_HIDE_HANDLE,
                 false);
         mDragHandleShow = prefs.getBoolean(
@@ -286,6 +286,7 @@ public class SwitchConfiguration {
         String lockedAppsListString = prefs.getString(SettingsActivity.PREF_LOCKED_APPS_LIST, "");
         Utils.parseLockedApps(lockedAppsListString, mLockedAppList);
         mTopSortLockedApps = prefs.getBoolean(SettingsActivity.PREF_LOCKED_APPS_SORT, false);
+        mDynamicDragHandleColor = prefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, false);
 
         for(OnSharedPreferenceChangeListener listener : mPrefsListeners) {
             if(DEBUG){
@@ -409,5 +410,17 @@ public class SwitchConfiguration {
             return (int) (getCurrentDisplayWidth() * 0.75f);
         }
         return getCurrentDisplayWidth();
+    }
+
+    public int getDragHandleColor() {
+        if (mDynamicDragHandleColor) {
+            int color = mContext.getResources().getColor(R.color.colorAccent);
+            return color;
+        }
+        return mDragHandleColor;
+    }
+
+    public int getDefaultDragHandleColor() {
+        return mContext.getResources().getColor(R.color.colorAccent);
     }
 }

@@ -477,7 +477,7 @@ public class SwitchGestureView {
 
     private void colorizeDragHandleImage() {
         Drawable inner = ((RippleDrawable) mDragHandleImage).getDrawable(0);
-        inner=BitmapUtils.colorize(mContext.getResources(), mConfiguration.mDragHandleColor & 0x00FFFFFF, inner);
+        inner=BitmapUtils.colorize(mContext.getResources(), mConfiguration.getDragHandleColor() & 0x00FFFFFF, inner);
         inner.setAlpha((mConfiguration.mDragHandleColor >> 24) & 0x000000FF);
         ((RippleDrawable) mDragHandleImage).setDrawable(0, inner);
     }
@@ -512,6 +512,21 @@ public class SwitchGestureView {
         }
 
         if (mConfiguration.mDragHandleShow) {
+            // TODO
+            /*if (key != null && key.equals(SettingsActivity.PREF_COLOR_CHANGED)) {
+                // this comes from package receiver which is sometimes too early to fetch new value
+                // so wait a few secs
+                Log.d(TAG, "updatePrefs  " + SettingsActivity.PREF_COLOR_CHANGED + " " + Integer.toHexString(mConfiguration.getDragHandleColor()));
+
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, "handle  " + SettingsActivity.PREF_COLOR_CHANGED + " " + Integer.toHexString(mConfiguration.getDragHandleColor()));
+                        colorizeDragHandleImage();
+                        updateButton(true);
+                    }
+                }, 3000);
+            }*/
             colorizeDragHandleImage();
             updateButton(true);
         }
@@ -1396,18 +1411,6 @@ public class SwitchGestureView {
             // something went wrong - try to recover here
         }
     }
-
-//    private void animateAlpha(){
-//        if (mCurrentItemEnv[0] != null){
-//            mCurrentItemEnv[0].animate().alpha(0.5f).setDuration(100);
-//        }
-//        if (mCurrentItemEnv[1] != null){
-//            mCurrentItemEnv[1].animate().alpha(1f).setDuration(100);
-//        }
-//        if (mCurrentItemEnv[2] != null){
-//            mCurrentItemEnv[2].animate().alpha(0.5f).setDuration(100);
-//        }
-//    }
 
     private void initAlpha(){
         if (mCurrentItemEnv[0] != null){

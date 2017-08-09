@@ -109,6 +109,24 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/drag_handle_dynamic_color_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:orientation="horizontal"
+                    android:background="?android:attr/selectableItemBackground" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drag_handle_dynamic_color_title"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical" />
+                    <CheckBox
+                        android:id="@+id/drag_handle_dynamic_color"
+                        android:layout_width="32dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="10dp"/>

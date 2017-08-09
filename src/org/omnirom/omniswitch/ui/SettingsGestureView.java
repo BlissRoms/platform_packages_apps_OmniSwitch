@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -85,6 +86,7 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
     private ImageView mDragHandleColorView;
     private View mDragHandleColorContainer;
     private Dialog mDialog;
+    private CheckBox mDragHandleDynamicColor;
 
     public SettingsGestureView(Context context) {
         mContext = context;
@@ -275,6 +277,7 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
                 edit.putInt(SettingsActivity.PREF_HANDLE_HEIGHT, mEndY - mStartY);
                 edit.putInt(SettingsActivity.PREF_HANDLE_WIDTH, mDragHandleWidth);
                 edit.putInt(SettingsActivity.PREF_DRAG_HANDLE_COLOR_NEW, mColor);
+                edit.putBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, mDragHandleDynamicColor.isChecked());
                 edit.commit();
                 hide();
             }
@@ -330,6 +333,16 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
                 mDialog.show();
             }
         });
+
+        mDragHandleDynamicColor = (CheckBox) mView.findViewById(R.id.drag_handle_dynamic_color);
+        mDragHandleDynamicColor.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mDragHandleColorContainer.setEnabled(!mDragHandleDynamicColor.isChecked());
+                updateLayout();
+            }
+        });
+        mDragHandleDynamicColor.setChecked(mPrefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, false));
+        mDragHandleColorContainer.setEnabled(!mDragHandleDynamicColor.isChecked());
     }
 
     public WindowManager.LayoutParams getGesturePanelLayoutParams() {
@@ -393,8 +406,8 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
         Drawable d2 = mDragHandleEnd;
 
         mDragButton.setScaleType(ImageView.ScaleType.FIT_XY);
-        mDragButton.setImageDrawable(BitmapUtils.colorize(mContext.getResources(), mColor, d));
-        mDragButton.getDrawable().setColorFilter(mColor, Mode.SRC_ATOP);
+        mDragButton.setImageDrawable(BitmapUtils.colorize(mContext.getResources(), getDragHandleColor(), d));
+        mDragButton.getDrawable().setColorFilter(getDragHandleColor(), Mode.SRC_ATOP);
         mDragButton.setRotation(mLocation == 1 ? 180 : 0);
         
         mDragButtonStart.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -454,8 +467,6 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
         mEndY = mConfiguration.getDefaultOffsetEnd();
         mDragHandleWidth = mConfiguration.mDefaultDragHandleWidth;
         mDragHandleWidthBar.setProgress(40);
-        mColor = mConfiguration.mDefaultColor;
-        updateColorRect();
         updateLayout();
     }
 
@@ -512,7 +523,7 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mColor = mConfiguration.mDefaultColor;
+                        mColor = mConfiguration.getDefaultDragHandleColor();
                         updateColorRect();
                         updateDragHandleImage();
                         d.dismiss();
@@ -527,5 +538,12 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
     @Override
     public void onDismiss(DialogInterface dialog) {
         mDialog = null;
+    }
+
+    private int getDragHandleColor() {
+        if (mDragHandleDynamicColor.isChecked()) {
+            return mContext.getResources().getColor(R.color.colorAccent);
+        }
+        return mColor;
     }
 }
