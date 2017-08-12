@@ -29,7 +29,6 @@
     <color name="rambar_left_color">@color/colorPrimary</color>
     <color name="rambar_middle_color">@color/colorPrimary</color>
     <color name="rambar_right_color">#ff888888</color>
-    <color name="default_drag_handle_color">@color/colorPrimary</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_grey_50">#fffafafa</color>
     <color name="material_grey_100">#fff5f5f5</color>

@@ -19,6 +19,7 @@ package org.omnirom.omniswitch;
 
 import org.omnirom.omniswitch.launcher.Launcher;
 import org.omnirom.omniswitch.ui.BitmapCache;
+import org.omnirom.omniswitch.ui.BitmapUtils;
 import org.omnirom.omniswitch.ui.IconPackHelper;
 
 import android.app.Notification;
@@ -90,6 +91,9 @@ public class SwitchService extends Service {
             if (DEBUG) {
                 Log.d(TAG, "mPrefKeyFilter " + mPrefKeyFilter);
             }
+
+            BitmapUtils.clearCachedColors();
+
             String layoutStyle = mPrefs.getString(SettingsActivity.PREF_LAYOUT_STYLE, "1");
             mManager = new SwitchManager(this, Integer.valueOf(layoutStyle));
 
