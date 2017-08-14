@@ -330,7 +330,8 @@ public class RecentTasksLoader {
                         mLoadedTasks.add(0, item);
                     }
                     boolean activeTask = true;
-                    if (mConfiguration.mFilterActive) {
+                    // never time filter locked and docked tasks
+                    if (mConfiguration.mFilterActive && !item.isLocked() && !item.isDocked()) {
                         long lastActiveTime = recentInfo.lastActiveTime;
                         long firstActiveTime = recentInfo.firstActiveTime;
                         if (DEBUG) {
