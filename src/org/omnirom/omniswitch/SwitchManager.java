@@ -569,9 +569,9 @@ public class SwitchManager {
      */
     public void setFocusStack() {
         if (DEBUG){
-            Log.d(TAG, "setFocusStack " + Utils.isDockingActive());
+            Log.d(TAG, "setFocusStack " + Utils.isDockingActive(mContext));
         }
-        if (Utils.isDockingActive()){
+        if (Utils.isDockingActive(mContext)){
             if (mPlaceholderTask == null) {
                 if (DEBUG){
                     Log.d(TAG, "start placeholder activity");
@@ -673,7 +673,7 @@ public class SwitchManager {
     }
 
     public void restoreHomeStack() {
-        if (Utils.isDockingActive()){
+        if (Utils.isDockingActive(mContext)){
             if (DEBUG) {
                 Log.d(TAG, "restoreHomeStack");
             }

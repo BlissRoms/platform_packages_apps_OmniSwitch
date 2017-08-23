@@ -814,10 +814,10 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         if (!Utils.isLockToAppEnabled(mContext)) {
             popup.getMenu().removeItem(R.id.package_lock_task);
         }
-        if (!Utils.isMultiStackEnabled()) {
+        if (!Utils.isMultiStackEnabled(mContext)) {
             popup.getMenu().removeItem(R.id.package_dock_task);
         } else {
-            if (Utils.isDockingActive()) {
+            if (Utils.isDockingActive(mContext)) {
                 if (mRecentsManager.isDockedTask(ad)) {
                     popup.getMenu().findItem(R.id.package_dock_task).setTitle(R.string.package_undock_task_title);
                 }
