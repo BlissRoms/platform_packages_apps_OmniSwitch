@@ -198,6 +198,8 @@ public class BitmapUtils {
             int iconBorderSizePx, boolean dockedTask, boolean lockedTask,
             float opacity) {
         final Canvas canvas = new Canvas();
+        // TODO - finally needed?
+        canvas.setHwBitmapsInSwModeEnabled(true);
         final int iconSizePx = Math.round(iconSize * density);
         final int textInsetPx = Math.round(5 * density);
 

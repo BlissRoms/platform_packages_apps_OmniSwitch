@@ -43,6 +43,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.os.Process;
+import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -416,7 +417,7 @@ public class RecentTasksLoader {
                         item.setDefaultIcon(mDefaultAppIcon);
                     }
                     if (withThumbs && mHasThumbPermissions && preloadedThumbNum < THUMB_INIT_LOAD) {
-                        Bitmap b = getThumbnail(item.persistentTaskId);
+                        Bitmap b = getThumbnail(item.persistentTaskId, true);
                         if (b != null) {
                             item.setThumbPreloaded(b);
                         }
@@ -440,7 +441,7 @@ public class RecentTasksLoader {
     /**
      * Returns a task thumbnail from the activity manager
      */
-    private Bitmap getThumbnail(int taskId) {
+    private Bitmap getThumbnailOld(int taskId) {
         ActivityManager.TaskThumbnail taskThumbnail = mActivityManager.getTaskThumbnail(taskId);
         if (taskThumbnail == null) return null;
 
@@ -457,6 +458,22 @@ public class RecentTasksLoader {
             }
         }
         return thumbnail;
+    }
+
+    public Bitmap getThumbnail(int taskId, boolean reducedResolution) {
+        if (ActivityManager.ENABLE_TASK_SNAPSHOTS) {
+            try {
+                ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, reducedResolution);
+                if (snapshot != null) {
+                    return Bitmap.createHardwareBitmap(snapshot.getSnapshot());
+                }
+            } catch (RemoteException e) {
+                Log.w(TAG, "Failed to retrieve snapshot", e);
+            }
+            return null;
+        } else {
+            return getThumbnailOld(taskId);
+        }
     }
 
     void loadTaskIcon(TaskDescription td, boolean withIconPack, String label) {
@@ -535,7 +552,7 @@ public class RecentTasksLoader {
                     Log.d(TAG, "late load thumb " + td + " " + td.persistentTaskId);
                 }
                 td.setThumbLoading(true);
-                Bitmap b = getThumbnail(td.persistentTaskId);
+                Bitmap b = getThumbnail(td.persistentTaskId, true);
                 if (b != null) {
                     td.setThumbLoading(false);
                     td.setThumb(b);
