@@ -24,6 +24,5 @@
         android:id="@+id/favorite_apps"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        android:divider="@drawable/list_divider_material" />
+        android:divider="@null" />
 </RelativeLayout>
