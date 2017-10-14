@@ -739,7 +739,7 @@ public class SwitchGestureView {
             TaskDescription ad = nextTask.next();
             PackageTextView item = getPackageItemTemplate();
             item.setThumbRatio(mThumbRatio);
-            item.setTask(ad, true);
+            item.setTask(ad, true, true);
             item.loadTaskThumb();
             mRecentList.add(item);
             i++;

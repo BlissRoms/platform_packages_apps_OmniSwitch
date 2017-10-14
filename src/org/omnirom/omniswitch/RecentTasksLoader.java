@@ -417,7 +417,7 @@ public class RecentTasksLoader {
                         item.setDefaultIcon(mDefaultAppIcon);
                     }
                     if (withThumbs && mHasThumbPermissions && preloadedThumbNum < THUMB_INIT_LOAD) {
-                        Bitmap b = getThumbnail(item.persistentTaskId, true);
+                        Bitmap b = getThumbnail(item.persistentTaskId, true, preloadedThumbNum == 0);
                         if (b != null) {
                             item.setThumbPreloaded(b);
                         }
@@ -442,6 +442,9 @@ public class RecentTasksLoader {
      * Returns a task thumbnail from the activity manager
      */
     private Bitmap getThumbnailOld(int taskId) {
+        if (DEBUG) {
+            Log.d(TAG, "getThumbnailOld " + taskId);
+        }
         ActivityManager.TaskThumbnail taskThumbnail = mActivityManager.getTaskThumbnail(taskId);
         if (taskThumbnail == null) return null;
 
@@ -460,20 +463,24 @@ public class RecentTasksLoader {
         return thumbnail;
     }
 
-    public Bitmap getThumbnail(int taskId, boolean reducedResolution) {
+    public Bitmap getThumbnail(int taskId, boolean reducedResolution, boolean firstThumb) {
+        if (firstThumb) {
+            return getThumbnailOld(taskId);
+        }
         if (ActivityManager.ENABLE_TASK_SNAPSHOTS) {
             try {
                 ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, reducedResolution);
                 if (snapshot != null) {
+                    if (DEBUG) {
+                        Log.d(TAG, "getThumbnail " + taskId);
+                    }
                     return Bitmap.createHardwareBitmap(snapshot.getSnapshot());
                 }
             } catch (RemoteException e) {
                 Log.w(TAG, "Failed to retrieve snapshot", e);
             }
-            return null;
-        } else {
-            return getThumbnailOld(taskId);
         }
+        return getThumbnailOld(taskId);
     }
 
     void loadTaskIcon(TaskDescription td, boolean withIconPack, String label) {
@@ -552,7 +559,7 @@ public class RecentTasksLoader {
                     Log.d(TAG, "late load thumb " + td + " " + td.persistentTaskId);
                 }
                 td.setThumbLoading(true);
-                Bitmap b = getThumbnail(td.persistentTaskId, true);
+                Bitmap b = getThumbnail(td.persistentTaskId, true, false);
                 if (b != null) {
                     td.setThumbLoading(false);
                     td.setThumb(b);

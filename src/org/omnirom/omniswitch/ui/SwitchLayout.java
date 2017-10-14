@@ -89,7 +89,7 @@ public class SwitchLayout extends AbstractSwitchLayout {
             } else {
                 item = (PackageTextView) convertView;
             }
-            item.setTask(ad, false);
+            item.setTask(ad, false, false);
             item.setTaskInfo(mConfiguration);
             return item;
         }

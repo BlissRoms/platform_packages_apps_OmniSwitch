@@ -162,6 +162,10 @@ public final class TaskDescription {
         return mThumbPreloaded;
     }
 
+    public void cleanThumbPreloaded() {
+        mThumbPreloaded = false;
+    }
+
     public void setDocked() {
         mDocked = true;
     }

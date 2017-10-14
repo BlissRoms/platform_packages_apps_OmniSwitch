@@ -96,7 +96,6 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String PREF_LAUNCH_STATS_DELETE = "launch_stats_delete";
     public static final String PREF_FAVORITE_APPS_CONFIG_STAT = "favorite_apps_config_stat";
     public static final String PREF_REVERT_RECENTS = "revert_recents";
-    public static final String PREF_SWIPE_THUMB_UPDATE = "swipe_thumb_update";
     public static final String PREF_DIM_ACTION_BUTTON ="dim_action_buttons";
     public static final String PREF_LOCKED_APPS_LIST ="locked_apps_list";
     public static final String PREF_LOCKED_APPS_SORT ="locked_apps_sort";
@@ -152,7 +151,6 @@ public class SettingsActivity extends PreferenceActivity implements
     private SwitchPreference mLaunchStats;
     private Preference mFavoriteAppsConfigStat;
     private CheckBoxPreference mRevertRecents;
-    private CheckBoxPreference mThumbLoading;
 
     @Override
     public void onPause() {
@@ -245,7 +243,6 @@ public class SettingsActivity extends PreferenceActivity implements
                 mThumbSize.getEntryValues()[2].toString()));
         mThumbSize.setValueIndex(idx);
         mThumbSize.setSummary(mThumbSize.getEntries()[idx]);
-        mThumbLoading = (CheckBoxPreference) findPreference(PREF_SWIPE_THUMB_UPDATE);
         mLauncherMode = (SwitchPreference) findPreference(PREF_LAUNCHER_MODE);
         mLaunchStats = (SwitchPreference) findPreference(PREF_LAUNCH_STATS);
         mLaunchStatsDelete = (Preference) findPreference(PREF_LAUNCH_STATS_DELETE);
@@ -255,7 +252,6 @@ public class SettingsActivity extends PreferenceActivity implements
         boolean vertical = mLayoutStyle.getValue().equals("1");
         mRevertRecents.setEnabled(vertical);
         mThumbSize.setEnabled(vertical);
-        mThumbLoading.setEnabled(vertical);
 
         mPrefsListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs,
@@ -394,7 +390,6 @@ public class SettingsActivity extends PreferenceActivity implements
             boolean vertical = mLayoutStyle.getValue().equals("1");
             mRevertRecents.setEnabled(vertical);
             mThumbSize.setEnabled(vertical);
-            mThumbLoading.setEnabled(vertical);
             return true;
         } else if (preference == mAppFilterTime) {
             String value = (String) newValue;

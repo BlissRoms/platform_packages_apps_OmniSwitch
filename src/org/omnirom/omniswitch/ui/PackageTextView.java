@@ -79,16 +79,21 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
         return mTask;
     }
 
-    public void setTask(TaskDescription task, boolean loadThumb) {
+    public void setTask(TaskDescription task, boolean loadThumb, boolean showThumb) {
         mTask = task;
+        mTask.setThumbChangeListener(this);
         mLabel = mTask.getLabel();
         mThumbLoaded = false;
         mCachedThumb = null;
         if (loadThumb){
             Drawable cached = BitmapCache.getInstance(mContext).getSharedThumbnail(getTask());
             if (cached == null) {
-                mTask.setThumbChangeListener(this);
-                setDefaultThumb();
+                if (!mTask.isThumbPreloaded()) {
+                    setDefaultThumb();
+                } else {
+                    updateThumb(mTask.getThumbPreloaded(), true, showThumb);
+                    mTask.cleanThumbPreloaded();
+                }
             } else {
                 mThumbLoaded = true;
                 mCachedThumb = cached;
@@ -123,7 +128,7 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
         return getLabel().toString();
     }
 
-    private void updateThumb(final Bitmap thumb, boolean cache) {
+    private void updateThumb(final Bitmap thumb, boolean cache, boolean showThumb) {
         if (getTask() != null){
             // called because the thumb has changed from the default
             if (thumb != null){
@@ -159,7 +164,9 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
                     mThumbLoaded = true;
                     mCachedThumb = d;
                 }
-                setThumb(d);
+                if (showThumb) {
+                    setThumb(d);
+                }
             }
         }
     }
@@ -169,7 +176,7 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
             if (sDefaultThumb == null) {
                 sDefaultThumb = RecentTasksLoader.getInstance(mContext).getDefaultThumb();
             }
-            updateThumb(sDefaultThumb, false);
+            updateThumb(sDefaultThumb, false, true);
         }
     }
 
@@ -180,7 +187,7 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
                 mHandler.post(new Runnable(){
                     @Override
                     public void run() {
-                        updateThumb(thumb, true);
+                        updateThumb(thumb, true, true);
                     }});
             }
         }

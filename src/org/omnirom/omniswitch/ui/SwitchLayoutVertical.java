@@ -66,7 +66,6 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
     private FavoriteViewVertical mFavoriteListView;
     private RecentListAdapter mRecentListAdapter;
     private ScrollView mButtonList;
-    private boolean mShowThumbs;
     private Runnable mUpdateRamBarTask;
     private ImageView mRamDisplay;
     private View mRamDisplayContainer;
@@ -88,16 +87,14 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
             } else {
                 item = (PackageTextView) convertView;
             }
-            item.setTask(ad, true);
+            item.setTask(ad, true, true);
 
             // load thumb if not loaded so far
-            if (mShowThumbs) {
-                if (ad.isNeedsUpdate()) {
-                    item.reloadTaskThumb();
-                    ad.setNeedsUpdate(false);
-                }
-                item.loadTaskThumb();
+            if (ad.isNeedsUpdate()) {
+                item.reloadTaskThumb();
+                ad.setNeedsUpdate(false);
             }
+            item.loadTaskThumb();
             return item;
         }
     }
@@ -329,7 +326,6 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         });
         mView.setTranslationX(0);
         mVirtualBackKey = false;
-        mShowThumbs = mConfiguration.mLoadThumbOnSwipe;
         enableOpenFavoriteButton(true);
         mOpenFavorite.setRotation(getExpandRotation());
         if (Utils.isLockToAppEnabled(mContext)) {
@@ -628,10 +624,6 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
 
     @Override
     protected void afterShowDone() {
-        if (!mConfiguration.mLoadThumbOnSwipe) {
-            mShowThumbs = true;
-            mRecentListAdapter.notifyDataSetChanged();
-        }
     }
 
     private void createMemoryDisplay() {

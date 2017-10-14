@@ -96,8 +96,6 @@ public class SwitchConfiguration {
     public boolean mLaunchStatsEnabled;
     public boolean mRevertRecents;
     public int mIconSizeQuickPx = 100;
-    // TODO do we need a setting for this
-    public boolean mLoadThumbOnSwipe = true;
     public boolean mDimActionButton;
     public List<String> mLockedAppList = new ArrayList<String>();
     public boolean mTopSortLockedApps;
@@ -280,7 +278,6 @@ public class SwitchConfiguration {
         mFilterRunning = prefs.getBoolean(SettingsActivity.PREF_APP_FILTER_RUNNING, false);
         mLaunchStatsEnabled = prefs.getBoolean(SettingsActivity.PREF_LAUNCH_STATS, false);
         mRevertRecents = prefs.getBoolean(SettingsActivity.PREF_REVERT_RECENTS, false);
-        mLoadThumbOnSwipe = prefs.getBoolean(SettingsActivity.PREF_SWIPE_THUMB_UPDATE, true);
         mDimActionButton = prefs.getBoolean(SettingsActivity.PREF_DIM_ACTION_BUTTON, false);
         mLockedAppList.clear();
         String lockedAppsListString = prefs.getString(SettingsActivity.PREF_LOCKED_APPS_LIST, "");
