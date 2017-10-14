@@ -294,6 +294,7 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         if (DEBUG) {
             Log.d(TAG, "updateRecentsAppsList before notifyDataSetChanged " + System.currentTimeMillis());
         }
+        mRecentList.setVisibility(View.INVISIBLE);
         mRecentListAdapter.notifyDataSetChanged();
 
         if (mRecentsManager.getTasks().size() != 0) {
