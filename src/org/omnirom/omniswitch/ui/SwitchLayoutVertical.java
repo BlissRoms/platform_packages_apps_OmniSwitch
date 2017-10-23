@@ -291,7 +291,7 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         if (DEBUG) {
             Log.d(TAG, "updateRecentsAppsList before notifyDataSetChanged " + System.currentTimeMillis());
         }
-        mRecentList.setVisibility(View.INVISIBLE);
+        mRecentList.setAlpha(0f);
         mRecentListAdapter.notifyDataSetChanged();
 
         if (mRecentsManager.getTasks().size() != 0) {
@@ -300,9 +300,15 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
                 resetRecentsPosition();
             }
             mRecentList.setVisibility(View.VISIBLE);
+            if (mCurrentSlideWidth != 0) {
+                mRecentList.animate().alpha(1f).setDuration(200);
+            } else {
+                mRecentList.setAlpha(1f);
+            }
         } else {
             mNoRecentApps.setVisibility(View.VISIBLE);
             mRecentList.setVisibility(View.GONE);
+            mRecentList.setAlpha(1f);
         }
         mUpdateNoRecentsTasksDone = true;
     }

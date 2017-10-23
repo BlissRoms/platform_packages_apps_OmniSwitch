@@ -71,8 +71,8 @@ import android.widget.Toast;
 
 public abstract class AbstractSwitchLayout implements ISwitchLayout {
     protected static final int FAVORITE_DURATION = 200;
-    protected static final int SHOW_DURATION = 200;
-    protected static final int SHOW_DURATION_FAST = 100;
+    protected static final int SHOW_DURATION = 300;
+    protected static final int SHOW_DURATION_FAST = 200;
     protected static final int HIDE_DURATION = 200;
     protected static final int HIDE_DURATION_FAST = 100;
 
