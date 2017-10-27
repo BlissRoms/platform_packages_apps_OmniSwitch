@@ -38,11 +38,15 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 public class SwitchManager {
     private static final String TAG = "SwitchManager";
@@ -189,7 +193,6 @@ public class SwitchManager {
         mDockedTask = dockedTask;
         mPlaceholderTask = placeholderTask;
         mTopHomeTask = topHomeTask;
-        setFocusStack();
 
         if (!mRestoreStack) {
             mLoadedTasks.clear();
@@ -204,10 +207,15 @@ public class SwitchManager {
         if (ad.isKilled()) {
             return;
         }
+
+        if (Utils.isDockingActive(mContext) && !ad.isSupportsSplitScreen() && mConfiguration.mBlockSplitscreenBreakers) {
+            Toast.makeText(mContext, R.string.dock_non_resizeble_failed_to_dock_text, Toast.LENGTH_LONG).show();
+            return;
+        }
         if(close){
             hide(true);
         }
-
+        setFocusStack();
         try {
             ActivityOptions options = null;
             if (customAnim) {
@@ -380,10 +388,30 @@ public class SwitchManager {
     }
 
     public void startIntentFromtString(String intent, boolean close) {
-        if(close){
-            hide(true);
+        try {
+            Intent intentapp = Intent.parseUri(intent, 0);
+            ActivityInfo info = mContext.getPackageManager().getActivityInfo(intentapp.getComponent(), 0);
+            if (info != null && DEBUG) {
+                Log.d(TAG, "startIntentFromtString resizable = "  + info.resizeMode);
+            }
+            if (info != null && Utils.isDockingActive(mContext) && 
+                    info.resizeMode != ActivityInfo.RESIZE_MODE_RESIZEABLE &&
+                    info.resizeMode != ActivityInfo.RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION &&
+                    mConfiguration.mBlockSplitscreenBreakers) {
+                Toast.makeText(mContext, R.string.dock_non_resizeble_failed_to_dock_text, Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if(close){
+                hide(true);
+            }
+            setFocusStack();
+            startIntentFromtString(mContext, intent);
+        } catch (URISyntaxException e) {
+            Log.e(TAG, "URISyntaxException: [" + intent + "]");
+        } catch (NameNotFoundException e){
+            Log.e(TAG, "NameNotFoundException: [" + intent + "]");
         }
-        startIntentFromtString(mContext, intent);
     }
 
     public static void startIntentFromtString(Context context, String intent) {

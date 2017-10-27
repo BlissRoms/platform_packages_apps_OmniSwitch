@@ -131,7 +131,7 @@ public class RecentTasksLoader {
 
     // Create an TaskDescription, returning null if the title or icon is null
     TaskDescription createTaskDescription(int taskId, int persistentTaskId, int stackId,
-            Intent baseIntent, ComponentName origActivity) {
+            Intent baseIntent, ComponentName origActivity, boolean supportsSplitScreenMultiWindow) {
         // clear source bounds to find matching package intent
         baseIntent.setSourceBounds(null);
         Intent intent = new Intent(baseIntent);
@@ -145,7 +145,8 @@ public class RecentTasksLoader {
             if (DEBUG)
                 Log.v(TAG, "creating activity desc for id=" + persistentTaskId);
             TaskDescription ad = new TaskDescription(taskId,
-                    persistentTaskId, resolveInfo, baseIntent, stackId);
+                    persistentTaskId, resolveInfo, baseIntent, stackId,
+                    supportsSplitScreenMultiWindow);
             return ad;
         }
         return null;
@@ -288,7 +289,8 @@ public class RecentTasksLoader {
                     }
                     TaskDescription item = createTaskDescription(recentInfo.id,
                             recentInfo.persistentId, recentInfo.stackId,
-                            recentInfo.baseIntent, recentInfo.origActivity);
+                            recentInfo.baseIntent, recentInfo.origActivity,
+                            recentInfo.supportsSplitScreenMultiWindow);
 
                     if (item == null) {
                         continue;

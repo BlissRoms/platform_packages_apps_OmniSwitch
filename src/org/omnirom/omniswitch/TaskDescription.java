@@ -45,6 +45,7 @@ public final class TaskDescription {
     private String mLabel;
     private boolean mLocked;
     private boolean mNeedsUpdate;
+    private boolean mSupportsSplitScreen;
 
     public static interface ThumbChangeListener {
         public void thumbChanged(int pesistentTaskId, Bitmap thumb);
@@ -53,12 +54,13 @@ public final class TaskDescription {
 
     public TaskDescription(int _taskId, int _persistentTaskId,
             ResolveInfo _resolveInfo, Intent _intent,
-            int _stackId) {
+            int _stackId, boolean supportsSplitScreen) {
         resolveInfo = _resolveInfo;
         intent = _intent;
         taskId = _taskId;
         persistentTaskId = _persistentTaskId;
         stackId = _stackId;
+        mSupportsSplitScreen = supportsSplitScreen;
     }
 
     public Drawable getIcon() {
@@ -188,5 +190,9 @@ public final class TaskDescription {
 
     public void setNeedsUpdate(boolean value) {
         mNeedsUpdate = value;
+    }
+
+    public boolean isSupportsSplitScreen() {
+        return mSupportsSplitScreen;
     }
 }
