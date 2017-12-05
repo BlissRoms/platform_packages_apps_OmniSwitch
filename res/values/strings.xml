@@ -182,4 +182,6 @@
         <string name="dock_non_resizeble_failed_to_dock_text">App does not support split-screen</string>
         <string name="block_apps_on_splitscreen_summary">While in split-screen mode block switches to unsupported apps</string>
         <string name="block_apps_on_splitscreen_title">Block undockable apps</string>
+        <string name="use_power_hint_summary">Use power HAL hint to speed up. Device dependent!</string>
+        <string name="use_power_hint_title">Use power hint</string>
 </resources>

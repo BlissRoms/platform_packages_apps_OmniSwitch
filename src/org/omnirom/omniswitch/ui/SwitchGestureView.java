@@ -325,6 +325,7 @@ public class SwitchGestureView {
                     mFlingEnable = false;
                     mMoveStarted = false;
 
+                    mRecentsManager.startBoost();
                     mRecentsManager.clearTasks();
                     RecentTasksLoader.getInstance(mContext).cancelLoadingTasks();
                     RecentTasksLoader.getInstance(mContext).setSwitchManager(mRecentsManager);

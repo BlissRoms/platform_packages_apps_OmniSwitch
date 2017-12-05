@@ -1133,6 +1133,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
             updateRamDisplay();
         }
         afterShowDone();
+        mRecentsManager.stopBoost();
     }
 
     @Override

@@ -44,6 +44,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.os.PowerManager;
+import android.os.IPowerManager;
+import android.os.ServiceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
@@ -63,12 +66,14 @@ public class SwitchManager {
     private TaskDescription mTopHomeTask;
     private boolean mRestoreStack;
     private TaskDescription mPlaceholderTask;
+    private IPowerManager mPowerService;
 
     public SwitchManager(Context context, int layoutStyle) {
         mContext = context;
         mConfiguration = SwitchConfiguration.getInstance(mContext);
         mLayoutStyle = layoutStyle;
         mAm = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        mPowerService = IPowerManager.Stub.asInterface(ServiceManager.getService("power"));
         init();
     }
 
@@ -95,6 +100,7 @@ public class SwitchManager {
             if (DEBUG){
                 Log.d(TAG, "show");
             }
+            startBoost();
             mLayout.setHandleRecentsUpdate(true);
             mRestoreStack = false;
 
@@ -124,6 +130,7 @@ public class SwitchManager {
             if (DEBUG){
                 Log.d(TAG, "beforePreloadTasks");
             }
+            startBoost();
             clearTasks();
             mLayout.setHandleRecentsUpdate(true);
             mRestoreStack = false;
@@ -757,5 +764,25 @@ public class SwitchManager {
         mLoadedTasks.remove(ad);
         mLoadedTasksOriginal.remove(ad);
         mLayout.notifiyRecentsListChanged();
+    }
+
+    public void startBoost() {
+        if (mConfiguration.mUsePowerHint) {
+            try {
+                // TODO 8 is the POWER_HINT_LAUNCH but there is no way to access this from here
+                mPowerService.powerHint(8, 1);
+            } catch (RemoteException e){
+            }
+        }
+    }
+
+    public void stopBoost() {
+        if (mConfiguration.mUsePowerHint) {
+            try {
+                // TODO 8 is the POWER_HINT_LAUNCH
+                mPowerService.powerHint(8, 0);
+            } catch (RemoteException e){
+            }
+        }
     }
 }

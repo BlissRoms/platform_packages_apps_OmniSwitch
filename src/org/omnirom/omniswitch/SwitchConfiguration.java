@@ -102,6 +102,7 @@ public class SwitchConfiguration {
     private Context mContext;
     private boolean mDynamicDragHandleColor = true;
     public boolean mBlockSplitscreenBreakers = true;
+    public boolean mUsePowerHint;
 
     // old pref slots
     private static final String PREF_DRAG_HANDLE_COLOR = "drag_handle_color";
@@ -286,6 +287,7 @@ public class SwitchConfiguration {
         mTopSortLockedApps = prefs.getBoolean(SettingsActivity.PREF_LOCKED_APPS_SORT, false);
         mDynamicDragHandleColor = prefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, false);
         mBlockSplitscreenBreakers = prefs.getBoolean(SettingsActivity.PREF_BLOCK_APPS_ON_SPLITSCREEN, true);
+        mUsePowerHint = prefs.getBoolean(SettingsActivity.PREF_USE_POWER_HINT, false);
 
         for(OnSharedPreferenceChangeListener listener : mPrefsListeners) {
             if(DEBUG){
