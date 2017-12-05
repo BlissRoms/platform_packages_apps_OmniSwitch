@@ -39,7 +39,7 @@
             android:summary="@string/icon_size_normal"
             android:title="@string/icon_size_title" />
 
-        <Preference
+        <org.omnirom.omniswitch.ui.IconPackPreference
             android:key="iconpack"
             android:summary="@string/icon_pack_summary"
             android:title="@string/icon_pack_title" />

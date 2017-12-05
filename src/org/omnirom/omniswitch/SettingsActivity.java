@@ -133,7 +133,6 @@ public class SettingsActivity extends PreferenceActivity implements
     private String[] mButtonEntries;
     private Drawable[] mButtonImages;
     private String mButtons;
-    private Preference mIconpack;
     private Switch mToggleServiceSwitch;
     private SharedPreferences.OnSharedPreferenceChangeListener mPrefsListener;
     private Preference mSpeedSwitchButtonConfig;
@@ -201,7 +200,6 @@ public class SettingsActivity extends PreferenceActivity implements
         mButtonConfig = (Preference) findPreference(PREF_BUTTON_CONFIG);
         mButtons = mPrefs.getString(PREF_BUTTONS_NEW, PREF_BUTTON_DEFAULT_NEW);
         mFavoriteAppsConfig = (Preference) findPreference(PREF_FAVORITE_APPS_CONFIG);
-        mIconpack = (Preference) findPreference(PREF_ICONPACK);
         mSpeedSwitchItems = (NumberPickerPreference) findPreference(PREF_SPEED_SWITCHER_ITEMS);
         mSpeedSwitchItems.setMinValue(8);
         mSpeedSwitchItems.setMaxValue(20);
@@ -314,9 +312,6 @@ public class SettingsActivity extends PreferenceActivity implements
                     mSpeedSwitchButtonEntries, mSpeedSwitchButtonImages, buttons, new SpeedSwitchButtonsApplyRunnable(),
                     getResources().getString(R.string.buttons_title));
             dialog.show();
-            return true;
-        } else if (preference == mIconpack){
-            IconPackHelper.getInstance(SettingsActivity.this).pickIconPack(this);
             return true;
         } else if (preference == mFavoriteAppsConfig) {
             String favoriteListString = mPrefs.getString(PREF_FAVORITE_APPS, "");
