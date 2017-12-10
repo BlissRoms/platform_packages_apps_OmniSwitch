@@ -32,7 +32,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import android.util.Log;
 
-public class PackageTextView extends TextView implements TaskDescription.ThumbChangeListener {
+public class PackageTextView extends TextView {
     private static final String TAG = "PackageTextView";
     private static boolean DEBUG = false;
     private String mIntent;
@@ -41,11 +41,6 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
     private String mLabel;
     private Runnable mAction;
     private Handler mHandler = new Handler();
-    private static Bitmap sDefaultThumb;
-    private boolean mCanSideHeader;
-    private boolean mThumbLoaded;
-    private Drawable mCachedThumb;
-    private float mThumbRatio = 1.0f;
 
     public PackageTextView(Context context) {
         super(context);
@@ -79,26 +74,9 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
         return mTask;
     }
 
-    public void setTask(TaskDescription task, boolean loadThumb, boolean showThumb) {
+    public void setTask(TaskDescription task) {
         mTask = task;
-        mTask.setThumbChangeListener(this);
         mLabel = mTask.getLabel();
-        mThumbLoaded = false;
-        mCachedThumb = null;
-        if (loadThumb){
-            Drawable cached = BitmapCache.getInstance(mContext).getSharedThumbnail(getTask());
-            if (cached == null) {
-                if (!mTask.isThumbPreloaded()) {
-                    setDefaultThumb();
-                } else {
-                    updateThumb(mTask.getThumbPreloaded(), true, showThumb);
-                    mTask.cleanThumbPreloaded();
-                }
-            } else {
-                mThumbLoaded = true;
-                mCachedThumb = cached;
-            }
-        }
     }
 
     public String getLabel() {
@@ -128,117 +106,10 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
         return getLabel().toString();
     }
 
-    private void updateThumb(final Bitmap thumb, boolean cache, boolean showThumb) {
-        if (getTask() != null){
-            // called because the thumb has changed from the default
-            if (thumb != null){
-                if (DEBUG) {
-                    Log.d(TAG, "updateThumb: " + getLabel()
-                            + " " + getTask().getPersistentTaskId());
-                }
-                SwitchConfiguration configuration = SwitchConfiguration.getInstance(mContext);
-                // now we need to make sure we have the correct icon and label
-                if (!getTask().isPreloadedTask()) {
-                    RecentTasksLoader.getInstance(mContext).loadTaskInfo(getTask());
-                    mLabel = getTask().getLabel();
-                }
-
-                Drawable iconResized = BitmapUtils.resize(mContext.getResources(), getTask().getIcon(),
-                        configuration.mOverlayIconSizeDp, 0, configuration.mDensity);
-
-                Drawable d = BitmapUtils.overlay(mContext.getResources(), thumb,
-                        iconResized,
-                        (int)(configuration.mThumbnailWidth * mThumbRatio),
-                        (int)(configuration.mThumbnailHeight * mThumbRatio),
-                        (configuration.mShowLabels ? getLabel() : null),
-                        configuration.mDensity,
-                        configuration.mOverlayIconSizeDp,
-                        configuration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT,
-                        mCanSideHeader ? configuration.mSideHeader : false,
-                        configuration.getOverlayHeaderWidth(),
-                        getTask().isDocked(),
-                        getTask().isLocked(),
-                        configuration.mBackgroundOpacity);
-                if (cache) {
-                    BitmapCache.getInstance(mContext).putSharedThumbnail(getTask(), d);
-                    mThumbLoaded = true;
-                    mCachedThumb = d;
-                }
-                if (showThumb) {
-                    setThumb(d);
-                }
-            }
-        }
-    }
-
-    private void setDefaultThumb() {
-        if (getTask() != null && !mThumbLoaded){
-            if (sDefaultThumb == null) {
-                sDefaultThumb = RecentTasksLoader.getInstance(mContext).getDefaultThumb();
-            }
-            updateThumb(sDefaultThumb, false, true);
-        }
-    }
-
-    @Override
-    public void thumbChanged(final int persistentTaskId,  final Bitmap thumb) {
-        if (getTask() != null){
-            if (persistentTaskId == getTask().getPersistentTaskId()) {
-                mHandler.post(new Runnable(){
-                    @Override
-                    public void run() {
-                        updateThumb(thumb, true, true);
-                    }});
-            }
-        }
-    }
-
-    @Override
-    public int getPersistentTaskId() {
-        if (getTask() != null){
-            return getTask().getPersistentTaskId();
-        }
-        return -1;
-    }
-
-    private void setThumb(Drawable d) {
-        setCompoundDrawablesWithIntrinsicBounds(null, d,  null, null);
-    }
-
-    public void setCanSideHeader(boolean mCanSideHeader) {
-        this.mCanSideHeader = mCanSideHeader;
-    }
-
-    public void loadTaskThumb() {
-        if (getTask() != null) {
-            if (!mThumbLoaded) {
-                if (DEBUG) {
-                    Log.d(TAG, "loadTaskThumb new:" + getLabel()
-                            + " " + getTask().getPersistentTaskId());
-                }
-                RecentTasksLoader.getInstance(mContext).loadThumbnail(getTask(), true);
-            } else {
-                if (DEBUG) {
-                    Log.d(TAG, "loadTaskThumb cached:" + getLabel()
-                            + " " + getTask().getPersistentTaskId());
-                }
-                setThumb(mCachedThumb);
-            }
-        }
-    }
-
-    public void reloadTaskThumb() {
-        mThumbLoaded = false;
-    }
-
-    public void setThumbRatio(float thumbRatio) {
-        mThumbRatio = thumbRatio;
-    }
-
     public void setTaskInfo(SwitchConfiguration configuration) {
         if (getTask() != null) {
             // now we need to make sure we have the correct icon and label
-            if (!getTask().isPreloadedTask()) {
+            if (getTask().getIcon() == null) {
                 RecentTasksLoader.getInstance(mContext).loadTaskInfo(getTask());
                 mLabel = getTask().getLabel();
             }

@@ -50,7 +50,6 @@ import android.util.Log;
 public class RecentTasksLoader {
     private static final String TAG = "RecentTasksLoader";
     private static final boolean DEBUG = false;
-    private static final int THUMB_INIT_LOAD = 6;
     private static final int TASK_INIT_LOAD = 8;
 
     private Context mContext;
@@ -273,7 +272,6 @@ public class RecentTasksLoader {
                 final ActivityInfo homeInfo = new Intent(Intent.ACTION_MAIN)
                         .addCategory(Intent.CATEGORY_HOME).resolveActivityInfo(mPackageManager, 0);
                 boolean isFirstValidTask = true;
-                int preloadedThumbNum = 0;
                 int preloadTaskNum = 0;
                 final boolean withIconPack = IconPackHelper.getInstance(mContext).isIconPackLoaded();
 
@@ -410,20 +408,19 @@ public class RecentTasksLoader {
                             mLoadedTasks.add(item);
                         }
                     }
-                    if (withIcons && preloadTaskNum < TASK_INIT_LOAD) {
-                        String label = item.resolveInfo.loadLabel(mPackageManager).toString();
-                        loadTaskIcon(item, withIconPack, label);
-                        item.setLabel(label);
-                        preloadTaskNum++;
-                    } else {
-                        item.setDefaultIcon(mDefaultAppIcon);
-                    }
-                    if (withThumbs && mHasThumbPermissions && preloadedThumbNum < THUMB_INIT_LOAD) {
-                        Bitmap b = getThumbnail(item.persistentTaskId, true, preloadedThumbNum == 0);
-                        if (b != null) {
-                            item.setThumbPreloaded(b);
+                    if (preloadTaskNum < TASK_INIT_LOAD) {
+                        if (withIcons) {
+                            String label = item.resolveInfo.loadLabel(mPackageManager).toString();
+                            loadTaskIcon(item, withIconPack, label);
+                            item.setLabel(label);
                         }
-                        preloadedThumbNum++;
+                        if (withThumbs) {
+                            Bitmap b = getThumbnail(item.persistentTaskId, true, preloadTaskNum == 0);
+                            if (b != null) {
+                                item.setThumb(b, false);
+                            }
+                        }
+                        preloadTaskNum++;
                     }
                 }
                 if (!isCancelled()) {
@@ -531,18 +528,8 @@ public class RecentTasksLoader {
         return null;
     }
 
-    public void loadThumbnail(final TaskDescription td, boolean force) {
+    public void loadThumbnail(final TaskDescription td) {
         if (!mHasThumbPermissions) {
-            return;
-        }
-        if (td.isThumbPreloaded() && !force) {
-            Bitmap b = td.getThumbPreloaded();
-            if (b != null) {
-                if (DEBUG) {
-                    Log.d(TAG, "use preloaded thumb " + td + " " + td.persistentTaskId);
-                }
-                td.setThumb(b);
-            }
             return;
         }
         if (td.isThumbLoading()) {
@@ -564,7 +551,7 @@ public class RecentTasksLoader {
                 Bitmap b = getThumbnail(td.persistentTaskId, true, false);
                 if (b != null) {
                     td.setThumbLoading(false);
-                    td.setThumb(b);
+                    td.setThumb(b, true);
                 }
 
                 Process.setThreadPriority(origPri);
@@ -576,16 +563,14 @@ public class RecentTasksLoader {
 
     public void loadTaskInfo(final TaskDescription td) {
         synchronized(td) {
-            if (!td.isPreloadedTask()) {
-                String label = td.resolveInfo.loadLabel(mPackageManager).toString();
-                final boolean withIconPack = IconPackHelper.getInstance(mContext).isIconPackLoaded();
-                Drawable icon = getFullResIcon(td.resolveInfo, withIconPack, label);
-                if (icon == null) {
-                    icon = mDefaultAppIcon;
-                }
-                td.setIcon(icon);
-                td.setLabel(label);
+            String label = td.resolveInfo.loadLabel(mPackageManager).toString();
+            final boolean withIconPack = IconPackHelper.getInstance(mContext).isIconPackLoaded();
+            Drawable icon = getFullResIcon(td.resolveInfo, withIconPack, label);
+            if (icon == null) {
+                icon = mDefaultAppIcon;
             }
+            td.setIcon(icon);
+            td.setLabel(label);
         }
     }
 
@@ -605,12 +590,10 @@ public class RecentTasksLoader {
                         break;
                     }
                     synchronized(td) {
-                        if (!td.isPreloadedTask()) {
-                            if (DEBUG) {
-                                Log.d(TAG, "late load task info " + td + " " + td.persistentTaskId);
-                            }
-                            loadTaskInfo(td);
+                        if (DEBUG) {
+                            Log.d(TAG, "late load task info " + td + " " + td.persistentTaskId);
                         }
+                        loadTaskInfo(td);
                     }
                 }
                 if (DEBUG) {

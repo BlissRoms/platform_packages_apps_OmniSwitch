@@ -89,7 +89,7 @@ public class SwitchLayout extends AbstractSwitchLayout {
             } else {
                 item = (PackageTextView) convertView;
             }
-            item.setTask(ad, false, false);
+            item.setTask(ad);
             item.setTaskInfo(mConfiguration);
             return item;
         }
@@ -402,11 +402,6 @@ public class SwitchLayout extends AbstractSwitchLayout {
                 mConfiguration.mDimBehind ? WindowManager.LayoutParams.FLAG_DIM_BEHIND
                         : 0, PixelFormat.TRANSLUCENT);
 
-        // Turn on hardware acceleration for high end gfx devices.
-        if (ActivityManager.isHighEndGfx()) {
-            params.flags |= WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;
-            params.privateFlags |= WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED;
-        }
         if (mConfiguration.mDimBehind) {
             params.dimAmount = dimAmount;
         }

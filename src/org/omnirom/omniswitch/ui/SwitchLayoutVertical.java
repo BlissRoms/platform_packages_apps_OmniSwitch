@@ -81,20 +81,17 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             TaskDescription ad = getItem(getTaskPosition(position));
-            PackageTextView item = null;
+            ThumbnailTaskView item = null;
             if (convertView == null) {
                 item = getRecentItemTemplate();
             } else {
-                item = (PackageTextView) convertView;
+                item = (ThumbnailTaskView) convertView;
             }
-            item.setTask(ad, true, true);
+            item.setTask(ad, ad.isNeedsUpdate());
 
-            // load thumb if not loaded so far
             if (ad.isNeedsUpdate()) {
-                item.reloadTaskThumb();
                 ad.setNeedsUpdate(false);
             }
-            item.loadTaskThumb();
             return item;
         }
     }
@@ -388,11 +385,6 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
                 mConfiguration.mDimBehind ? WindowManager.LayoutParams.FLAG_DIM_BEHIND
                         : 0, PixelFormat.TRANSLUCENT);
 
-        // Turn on hardware acceleration for high end gfx devices.
-        if (ActivityManager.isHighEndGfx()) {
-            params.flags |= WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;
-            params.privateFlags |= WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED;
-        }
         if (mConfiguration.mDimBehind) {
             params.dimAmount = dimAmount;
         }
@@ -444,19 +436,8 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         }
     }
 
-    private PackageTextView getRecentItemTemplate() {
-        PackageTextView item = new PackageTextView(mContext);
-        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-            item.setTextColor(mContext.getResources().getColor(R.color.text_color_light));
-            item.setShadowLayer(0, 0, 0, Color.BLACK);
-        } else {
-            item.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-            item.setShadowLayer(5, 0, 0, Color.BLACK);
-        }
-        item.setTextSize(mConfiguration.mLabelFontSize);
-        item.setEllipsize(TextUtils.TruncateAt.END);
-        item.setGravity(Gravity.CENTER);
-        item.setMaxLines(1);
+    private ThumbnailTaskView getRecentItemTemplate() {
+        ThumbnailTaskView item = new ThumbnailTaskView(mContext);
         item.setCanSideHeader(true);
         item.setLayoutParams(getRecentListItemParams());
         item.setBackgroundResource(mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT ? R.drawable.ripple_dark

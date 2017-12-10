@@ -96,7 +96,7 @@ public class SwitchGestureView {
         }};
     private LinearInterpolator mLinearInterpolator = new LinearInterpolator();
     private Animator mToggleDragHandleAnim;
-    private List<PackageTextView> mRecentList;
+    private List<View> mRecentList;
     private boolean mHandleRecentsUpdate;
     private Runnable mLongPressRunnable = new Runnable(){
         @Override
@@ -109,16 +109,16 @@ public class SwitchGestureView {
             mHandleRecentsUpdate = true;
             RecentTasksLoader.getInstance(mContext).loadTasksInBackground(0, true, true);
         }};
-    private PackageTextView[] mCurrentItemEnv= new PackageTextView[3];
+    private View[] mCurrentItemEnv= new View[3];
 
     private int mCurrentRecentItemIndex;
     private boolean mLongPress;
     private int mLevel;
     private int mLockedLevel;
     private int[] mVerticalBorders = new int[4];
-    private List<PackageTextView> mFavoriteList;
+    private List<View> mFavoriteList;
     private int mCurrentFavoriteItemIndex;
-    private List<PackageTextView> mActionList;
+    private List<View> mActionList;
     private int mCurrentActionItemIndex;
     private int mLevelX = -1;
     private boolean mVirtualBackKey;
@@ -178,9 +178,9 @@ public class SwitchGestureView {
         mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         mConfiguration = SwitchConfiguration.getInstance(mContext);
         mHandler = new Handler();
-        mFavoriteList = new ArrayList<PackageTextView>();
-        mRecentList = new ArrayList<PackageTextView>();
-        mActionList = new ArrayList<PackageTextView>();
+        mFavoriteList = new ArrayList<View>();
+        mRecentList = new ArrayList<View>();
+        mActionList = new ArrayList<View>();
         ViewConfiguration vc = ViewConfiguration.get(context);
         mSlop = vc.getScaledTouchSlop() / 2;
 
@@ -244,11 +244,11 @@ public class SwitchGestureView {
                     if(mLongPress){
                         if (mCurrentItemEnv[1] != null){
                             if (mLevel == 0 ){
-                                mRecentsManager.switchTask(mCurrentItemEnv[1].getTask(), false, false);
+                                mRecentsManager.switchTask(((ThumbnailTaskView) mCurrentItemEnv[1]).getTask(), false, false);
                             } else if (mLevel == 1){
-                                mRecentsManager.startIntentFromtString(mCurrentItemEnv[1].getIntent(), false);
+                                mRecentsManager.startIntentFromtString(((PackageTextView) mCurrentItemEnv[1]).getIntent(), false);
                             } else if (mLevel == -1){
-                                mCurrentItemEnv[1].runAction();
+                                ((PackageTextView) mCurrentItemEnv[1]).runAction();
                             }
                         }
                         resetView();
@@ -737,10 +737,9 @@ public class SwitchGestureView {
         Iterator<TaskDescription> nextTask = mRecentsManager.getTasks().iterator();
         while(nextTask.hasNext() && i < mConfiguration.mLimitItemsX){
             TaskDescription ad = nextTask.next();
-            PackageTextView item = getPackageItemTemplate();
+            ThumbnailTaskView item = getRecentItemTemplate();
             item.setThumbRatio(mThumbRatio);
-            item.setTask(ad, true, true);
-            item.loadTaskThumb();
+            item.setTask(ad, false);
             mRecentList.add(item);
             i++;
         }
@@ -777,19 +776,19 @@ public class SwitchGestureView {
             mLevel = 0;
             mLockedLevel = mLevel;
             setViewBackground();
-            PackageTextView item = mRecentList.get(mCurrentRecentItemIndex);
+            ThumbnailTaskView item = (ThumbnailTaskView) mRecentList.get(mCurrentRecentItemIndex);
             layoutTask(item);
         } else if(mFavoriteList.size() > 0){
             mLevel = 1;
             mLockedLevel = mLevel;
             setViewBackground();
-            PackageTextView item = mFavoriteList.get(mCurrentFavoriteItemIndex);
+            PackageTextView item = (PackageTextView) mFavoriteList.get(mCurrentFavoriteItemIndex);
             layoutFavorite(item);
         } else if(mActionList.size() > 0){
             mLevel = -1;
             mLockedLevel = mLevel;
             setViewBackground();
-            PackageTextView item = mActionList.get(mCurrentActionItemIndex);
+            PackageTextView item = (PackageTextView) mActionList.get(mCurrentActionItemIndex);
             layoutAction(item);
         }
 
@@ -802,10 +801,7 @@ public class SwitchGestureView {
         }
     }
 
-    private void layoutTask(PackageTextView item){
-        if (DEBUG){
-            Log.d(TAG, "layoutTask:" + item.getLabel());
-        }
+    private void layoutTask(ThumbnailTaskView item){
         mCurrentItemEnv[1] = item;
         updateCurrentItemEnv();
     }
@@ -943,10 +939,10 @@ public class SwitchGestureView {
         resetEnvItems();
 
         int idx = 0;
-        PackageTextView item = null;
+        View item = null;
         HorizontalScrollView oldList = null;
 
-        List<PackageTextView> currentList = getCurrentList(levelToListLevel(mLevel));
+        List<View> currentList = getCurrentList(levelToListLevel(mLevel));
         if (currentList != null){
             idx = roundIndex(currentList, mLevelX);
             if (DEBUG){
@@ -965,27 +961,27 @@ public class SwitchGestureView {
             if (mRecentList.size() != 0){
                 mCurrentRecentItemIndex = idx;
                 setViewBackground();
-                layoutTask(item);
+                layoutTask((ThumbnailTaskView) item);
             } else if(mFavoriteList.size() > 0){
                 mCurrentFavoriteItemIndex = idx;
                 setViewBackground();
-                layoutFavorite(item);
+                layoutFavorite((PackageTextView) item);
             } else if(mActionList.size() > 0){
                 mCurrentActionItemIndex = idx;
                 setViewBackground();
-                layoutAction(item);
+                layoutAction((PackageTextView) item);
             }
         } else if (mLevel == 1){
             if (mFavoriteList.size() != 0){
                 mCurrentFavoriteItemIndex = idx;
                 setViewBackground();
-                layoutFavorite(item);
+                layoutFavorite((PackageTextView) item);
             }
         } else if (mLevel == -1){
             if (mActionList.size() != 0){
                 mCurrentActionItemIndex = idx;
                 setViewBackground();
-                layoutAction(item);
+                layoutAction((PackageTextView) item);
             }
         } else {
             if (finalOldList != null){
@@ -1046,7 +1042,7 @@ public class SwitchGestureView {
         return r.contains(xPos, yPos);
     }
 
-    private int roundIndex(List<PackageTextView> list, int idx){
+    private int roundIndex(List<View> list, int idx){
         if (idx < 0){
             idx = 0;
         } else if (idx > list.size() -1){
@@ -1068,7 +1064,7 @@ public class SwitchGestureView {
             idx = mCurrentActionItemIndex;
         }
 
-        List<PackageTextView> currentList = getCurrentList(levelToListLevel(mLevel));
+        List<View> currentList = getCurrentList(levelToListLevel(mLevel));
         if (currentList == null){
             return;
         }
@@ -1106,7 +1102,7 @@ public class SwitchGestureView {
 
     private void switchItem(){
         if (mLevel == 0 || mLevel == 1 || mLevel == -1){
-            List<PackageTextView> currentList = getCurrentList(levelToListLevel(mLevel));
+            List<View> currentList = getCurrentList(levelToListLevel(mLevel));
             if (currentList == null){
                 return;
             }
@@ -1114,23 +1110,23 @@ public class SwitchGestureView {
             if (DEBUG){
                 Log.d(TAG, "idx " + idx + " mLevelX " + mLevelX);
             }
-            PackageTextView item = currentList.get(idx);
+            View item = currentList.get(idx);
             final HorizontalScrollView actualView = mAllLists[levelToListLevel(mLevel)];
 
             if (mLevel == 0){
                 if (mRecentList.size() > 0){
                     mCurrentRecentItemIndex = idx;
-                    layoutTask(item);
+                    layoutTask((ThumbnailTaskView) item);
                 }
             } else if (mLevel == 1){
                 if (mFavoriteList.size() > 0){
                     mCurrentFavoriteItemIndex = idx;
-                    layoutFavorite(item);
+                    layoutFavorite((PackageTextView) item);
                 }
             } else if (mLevel == -1){
                 if (mActionList.size() > 0){
                     mCurrentActionItemIndex = idx;
-                    layoutAction(item);
+                    layoutAction((PackageTextView) item);
                 }
             }
             if (item != null){
@@ -1371,7 +1367,7 @@ public class SwitchGestureView {
         return -1;
     }
 
-    private List<PackageTextView> getCurrentList(int level){
+    private List<View> getCurrentList(int level){
         if (level == 0){
             return mActionList;
         }
@@ -1394,9 +1390,9 @@ public class SwitchGestureView {
         PackageTextView header = getPackageItemTemplate();
         listLayout.addView(header, getListItemParams(level));
 
-        Iterator<PackageTextView> nextItem = getCurrentList(level).iterator();
+        Iterator<View> nextItem = getCurrentList(level).iterator();
         while(nextItem.hasNext()){
-            PackageTextView item = nextItem.next();
+            View item = nextItem.next();
             listLayout.addView(item, getListItemParams(level));
         }
 
@@ -1489,5 +1485,10 @@ public class SwitchGestureView {
             }
             mLockToAppButton.setOriginalImage(d);
         }
+    }
+
+    private ThumbnailTaskView getRecentItemTemplate() {
+        ThumbnailTaskView item = new ThumbnailTaskView(mContext);
+        return item;
     }
 }

@@ -46,7 +46,7 @@ public class BitmapUtils {
     private static Paint sDockedAppsPaint;
     private static Paint sDefaultBgPaint;
 
-    private static TextPaint getLabelTextPaint(Resources resources) {
+    public static TextPaint getLabelTextPaint(Resources resources) {
         if (sTextPaint == null) {
             sTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
             Typeface font = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
@@ -58,7 +58,7 @@ public class BitmapUtils {
         return sTextPaint;
     }
 
-    private static Paint getLockedAppsPaint(Resources resources) {
+    public static Paint getLockedAppsPaint(Resources resources) {
         if (sLockedAppsPaint == null) {
             sLockedAppsPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             sLockedAppsPaint.setStyle(Paint.Style.FILL);
@@ -67,7 +67,7 @@ public class BitmapUtils {
         return sLockedAppsPaint;
     }
 
-    private static Paint geDockedAppsPaint(Resources resources) {
+    public static Paint geDockedAppsPaint(Resources resources) {
         if (sDockedAppsPaint == null) {
             sDockedAppsPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             sDockedAppsPaint.setStyle(Paint.Style.FILL);
@@ -76,7 +76,7 @@ public class BitmapUtils {
         return sDockedAppsPaint;
     }
 
-    private static Paint getDefaultBgPaint(Resources resources) {
+    public static Paint getDefaultBgPaint(Resources resources) {
         if (sDefaultBgPaint == null) {
             sDefaultBgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             sDefaultBgPaint.setStyle(Paint.Style.FILL);
@@ -190,79 +190,6 @@ public class BitmapUtils {
         }
         icon.setBounds(oldBounds);
         return new BitmapDrawable(resources, bitmap);
-    }
-
-    public static Drawable overlay(Resources resources, Bitmap b,
-            Drawable iconResized, int width, int height, String label, float density,
-            int iconSize, boolean bgStyle, boolean sideHeader,
-            int iconBorderSizePx, boolean dockedTask, boolean lockedTask,
-            float opacity) {
-        final Canvas canvas = new Canvas();
-        // TODO - finally needed?
-        canvas.setHwBitmapsInSwModeEnabled(true);
-        final int iconSizePx = Math.round(iconSize * density);
-        final int textInsetPx = Math.round(5 * density);
-
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.ANTI_ALIAS_FLAG,
-                Paint.FILTER_BITMAP_FLAG));
-        final Bitmap bmp = Bitmap.createBitmap(sideHeader ? width + iconBorderSizePx : width,
-                sideHeader ? height : height + iconBorderSizePx,
-                Bitmap.Config.ARGB_8888);
-        canvas.setBitmap(bmp);
-        int bSize = b.getWidth() > b.getHeight() ? b.getHeight() : b.getWidth();
-        Rect src = new Rect(0, 0, bSize, bSize);
-        Rect dest = new Rect(sideHeader ? iconBorderSizePx : 0, sideHeader ? 0 : iconBorderSizePx,
-                width + (sideHeader ? iconBorderSizePx : 0), height + (sideHeader ? 0 : iconBorderSizePx));
-        canvas.drawBitmap(b, src, dest, null);
-
-        final TextPaint textPaint = getLabelTextPaint(resources);
-        final int startTextPx = iconBorderSizePx + textInsetPx;
-        final int textSize = Math.round(14 * density);
-        textPaint.setTextSize(textSize);
-
-        Paint bgPaint = null;
-        if (dockedTask) {
-            bgPaint = geDockedAppsPaint(resources);
-        } else if (lockedTask) {
-            bgPaint = getLockedAppsPaint(resources);
-        } else {
-            bgPaint = getDefaultBgPaint(resources);
-        }
-        if (bgPaint != null) {
-            if (bgStyle) {
-                bgPaint.setAlpha(255);
-            } else {
-                bgPaint.setAlpha((int) (255 * opacity));
-            }
-            if (sideHeader)  {
-                canvas.drawRect(0, 0, iconBorderSizePx, height, bgPaint);
-            } else {
-                canvas.drawRect(0, 0, width, iconBorderSizePx, bgPaint);
-            }
-        }
-        if (iconResized != null) {
-            final int iconInset = (iconBorderSizePx - iconSizePx) / 2;
-            iconResized.setBounds(iconInset, iconInset, iconSizePx + iconInset, iconSizePx + iconInset);
-            iconResized.draw(canvas);
-        }
-        if (label != null) {
-            label = TextUtils.ellipsize(label, textPaint, width - startTextPx - textInsetPx, TextUtils.TruncateAt.END).toString();
-            if (sideHeader) {
-                canvas.save();
-                int xPos = (int) ((iconBorderSizePx / 2) - ((textPaint.descent() + textPaint.ascent()) / 2)) ; 
-                int yPos = height - textInsetPx;
-                canvas.rotate(270, xPos, yPos);
-                canvas.drawText(label, xPos, yPos, textPaint);
-                canvas.restore();
-            } else {
-                int yPos = (int) ((iconBorderSizePx / 2) - ((textPaint.descent() + textPaint.ascent()) / 2)) ; 
-                int xPos = startTextPx;
-                canvas.drawText(label, xPos, yPos, textPaint);
-            }
-        }
-        RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(resources, bmp);
-        dr.setCornerRadius(8);
-        return dr;
     }
 
     public static Drawable memImage(Resources resources, int size,

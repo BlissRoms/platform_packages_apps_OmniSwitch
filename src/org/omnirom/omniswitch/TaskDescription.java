@@ -38,10 +38,8 @@ public final class TaskDescription {
     private boolean mKilled;
     private ThumbChangeListener mListener;
     private boolean mThumbLoading;
-    private boolean mThumbPreloaded;
     private Bitmap mThumb;
     private boolean mDocked;
-    private boolean mDefaultIcon;
     private String mLabel;
     private boolean mLocked;
     private boolean mNeedsUpdate;
@@ -69,16 +67,6 @@ public final class TaskDescription {
 
     public void setIcon(Drawable icon) {
         mIcon = icon;
-        mDefaultIcon = false;
-    }
-
-    public void setDefaultIcon(Drawable icon) {
-        mIcon = icon;
-        mDefaultIcon = true;
-    }
-
-    public boolean isPreloadedTask() {
-        return !mDefaultIcon;
     }
 
     public int getTaskId() {
@@ -126,19 +114,22 @@ public final class TaskDescription {
         return intent.toString();
     }
 
-    public void setThumb(Bitmap thumb) {
-        callListener(thumb);
+    public void setThumb(Bitmap thumb, boolean callListener) {
+        mThumb = thumb;
+        if (callListener) {
+            callListener();
+        }
     }
 
     public void setThumbChangeListener(ThumbChangeListener client) {
         mListener = client;
     }
 
-    private void callListener(final Bitmap thumb) {
+    private void callListener() {
         if (mListener != null) {
             // only call back if the listener is still the one attached to us
             if (mListener.getPersistentTaskId() == persistentTaskId) {
-                mListener.thumbChanged(persistentTaskId, thumb);
+                mListener.thumbChanged(persistentTaskId, mThumb);
             }
         }
     }
@@ -151,21 +142,8 @@ public final class TaskDescription {
         this.mThumbLoading = thumbLoading;
     }
 
-    public void setThumbPreloaded(Bitmap thumb) {
-        mThumbPreloaded = true;
-        mThumb = thumb;
-    }
-
-    public Bitmap getThumbPreloaded() {
+    public Bitmap getThumb() {
         return mThumb;
-    }
-
-    public boolean isThumbPreloaded() {
-        return mThumbPreloaded;
-    }
-
-    public void cleanThumbPreloaded() {
-        mThumbPreloaded = false;
     }
 
     public void setDocked() {
