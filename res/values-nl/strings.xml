@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Stop</string>
   <string name="package_inspect_item_title">App informatie</string>
   <string name="start_on_boot_title">Start bij het opstarten</string>
   <string name="start_on_boot_summary">Schakel in bij opstarten van apparaat</string>
@@ -170,8 +169,6 @@
   <string name="dialog_overlay_perms_msg">\U0022Draw over andere apps\u0022-machtiging inschakelen</string>
   <string name="package_dock_task_title">Koppelen</string>
   <string name="package_undock_task_title">Loskoppelen</string>
-  <string name="swipe_thumb_update_summary">Miniaturen worden bijgewerkt tijdens tonen van de overlay</string>
-  <string name="swipe_thumb_update_title">Asynchroon laden van miniaturen</string>
   <string name="dim_action_buttons_summary">Extra achtergrond dim aan actieknoppen toevoegen</string>
   <string name="dim_action_buttons_title">Achtergrond van actieknoppen dimmen</string>
 </resources>

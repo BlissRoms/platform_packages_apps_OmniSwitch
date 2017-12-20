@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Остановить</string>
   <string name="package_inspect_item_title">Информация о приложении</string>
   <string name="start_on_boot_title">Запускать при загрузке</string>
   <string name="start_on_boot_summary">Запускать при загрузке устройства</string>
@@ -170,8 +169,6 @@
   <string name="dialog_overlay_perms_msg">Разрешить \u0022Наложение поверх других окон\u0022</string>
   <string name="package_dock_task_title">Закрепить</string>
   <string name="package_undock_task_title">Открепить</string>
-  <string name="swipe_thumb_update_summary">Экскизы будут обновлены во время показа панели</string>
-  <string name="swipe_thumb_update_title">Асинхронная загрузка эскизов</string>
   <string name="dim_action_buttons_summary">Добавить дополнительное затемнение иконок</string>
   <string name="dim_action_buttons_title">Затемнить фон кнопок</string>
 </resources>

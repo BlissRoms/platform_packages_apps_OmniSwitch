@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Állj</string>
   <string name="package_inspect_item_title">Alkalmazás infó</string>
   <string name="start_on_boot_title">Bootoláskor indul</string>
   <string name="start_on_boot_summary">Automatikusan indul a készülékkel</string>
@@ -170,8 +169,6 @@
   <string name="dialog_overlay_perms_msg">Engedélyezze a \u0022Megjelenítés más alkalmazások felett\u0022 engedélyt</string>
   <string name="package_dock_task_title">Dokkolás</string>
   <string name="package_undock_task_title">Dokkolás megszüntetése</string>
-  <string name="swipe_thumb_update_summary">Bélyegképek a fedvénybemutató során frissülnek</string>
-  <string name="swipe_thumb_update_title">Aszinkron bélyegkép betöltés</string>
   <string name="dim_action_buttons_summary">Extra háttér homályosítás a műveletgombokhoz</string>
   <string name="dim_action_buttons_title">Műveletgomb hátterének homályossága</string>
 </resources>

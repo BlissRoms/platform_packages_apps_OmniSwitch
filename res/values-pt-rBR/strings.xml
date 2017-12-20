@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Parar</string>
   <string name="package_inspect_item_title">Informações do Aplicativo</string>
   <string name="start_on_boot_title">Iniciar no boot</string>
   <string name="start_on_boot_summary">Iniciar e ativar no boot</string>
@@ -170,8 +169,6 @@
   <string name="dialog_overlay_perms_msg">Habilite a permissão de \u0022Sobrepor outros aplicativos\u0022</string>
   <string name="package_dock_task_title">Fixar</string>
   <string name="package_undock_task_title">Desafixar</string>
-  <string name="swipe_thumb_update_summary">Miniaturas serão atualizadas durante a demonstração</string>
-  <string name="swipe_thumb_update_title">Carregamento assíncrono das miniaturas</string>
   <string name="dim_action_buttons_summary">Adicionar escurecimento extra para o botão de ação</string>
   <string name="dim_action_buttons_title">Fundo do botão de ação escurecido</string>
 </resources>

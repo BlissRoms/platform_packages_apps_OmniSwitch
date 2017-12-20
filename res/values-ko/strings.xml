@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">중지</string>
   <string name="package_inspect_item_title">앱 정보</string>
   <string name="start_on_boot_title">부팅할 때 시작</string>
   <string name="start_on_boot_summary">부팅할 때 자동으로 시작하고 활성화</string>

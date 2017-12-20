@@ -17,7 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Stop</string>
+  <string name="package_remove_task_title">Rimuovi</string>
   <string name="package_inspect_item_title">App info</string>
   <string name="start_on_boot_title">Abilita all\'avvio</string>
   <string name="start_on_boot_summary">Abilita all\'avvio del dispositivo</string>
@@ -170,8 +170,15 @@
   <string name="dialog_overlay_perms_msg">Attivare \u0022 Sovrascrivere i permessi di altre apps di apps\u0022</string>
   <string name="package_dock_task_title">Dock</string>
   <string name="package_undock_task_title">Rimuovi dal dock</string>
-  <string name="swipe_thumb_update_summary">Le miniature verranno aggiornate durante la sovrapposizione</string>
-  <string name="swipe_thumb_update_title">Caricamento delle miniature asincrono</string>
   <string name="dim_action_buttons_summary">Oscura sfondo dei pulsanti di azione</string>
   <string name="dim_action_buttons_title">Opacità sfondo dei pulsanti di azione</string>
+  <string name="package_force_stop_title">Termina</string>
+  <string name="package_lock_app_title">Blocca app</string>
+  <string name="package_unlock_app_title">Sblocca app</string>
+  <string name="locked_apps_sort_summary">Le app bloccate saranno visualizzate in cima all\'elenco</string>
+  <string name="locked_apps_sort_title">Ordina app bloccate</string>
+  <string name="drag_handle_dynamic_color_title">Utilizza colore secondario</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">L\'app non supporta lo schermo diviso</string>
+  <string name="block_apps_on_splitscreen_summary">Durante lo schermo diviso blocca lo switch alle app non supportate</string>
+  <string name="block_apps_on_splitscreen_title">Blocca le app non inseribili nella dock</string>
 </resources>

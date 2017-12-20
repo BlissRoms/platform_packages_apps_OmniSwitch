@@ -17,7 +17,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Stopp</string>
   <string name="package_inspect_item_title">Info om app</string>
   <string name="start_on_boot_title">Start ved oppstart</string>
   <string name="start_on_boot_summary">Aktivering når enheten starter</string>
@@ -162,7 +161,5 @@
   <string name="dialog_overlay_perms_msg">Aktiver \u0022trekke over andre apper\u0022 tillatelse</string>
   <string name="package_dock_task_title">Forankringstasjon</string>
   <string name="package_undock_task_title">Bryte forankring</string>
-  <string name="swipe_thumb_update_summary">Miniatyrer vil bli oppdatert under overleggsvisning</string>
-  <string name="swipe_thumb_update_title">Asynkron miniatyrbilde lasting</string>
   <string name="dim_action_buttons_title">Demp handlingsknapp bakgrunn</string>
 </resources>

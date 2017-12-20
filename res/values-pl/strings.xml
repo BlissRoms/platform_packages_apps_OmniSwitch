@@ -17,7 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Zatrzymaj</string>
+  <string name="package_remove_task_title">Usuń</string>
   <string name="package_inspect_item_title">Informacje</string>
   <string name="start_on_boot_title">Uruchom przy starcie systemu</string>
   <string name="start_on_boot_summary">Uruchom i aktywuj przy starcie systemu</string>
@@ -163,4 +163,19 @@
   <string name="favorite_apps_config_stat_summary">Utwórz listę ulubionych, w oparciu o zebrane statystyki</string>
   <string name="launch_stats_delete_notice">Statystyki wyczyszczone</string>
   <string name="launch_stats_low_title">Zarządzaj ulubionymi</string>
+  <string name="launch_stats_low_notice">Brak wystarczającej ilości danych aby utworzyć listę ulubionych aplikacji. Czy na prawdę chcesz kontynuować?</string>
+  <string name="dialog_overlay_perms_title">Błąd dostępu OmniSwitch</string>
+  <string name="dialog_overlay_perms_msg">Włącz dost\u0119p do \u0022Wyświetlanie nad innymi aplikacjami\u0022</string>
+  <string name="package_dock_task_title">Dodaj aplikacje do dock\'a</string>
+  <string name="package_undock_task_title">Usuń aplikacje z dock\'a</string>
+  <string name="dim_action_buttons_summary">Dodaj dodatkowe przyciemnienie tła dla przycisków akcyjnych</string>
+  <string name="dim_action_buttons_title">Przyciemnij tło przycisków akcyjnych</string>
+  <string name="package_force_stop_title">Wymuś zatrzymanie</string>
+  <string name="package_lock_app_title">Zablokuj aplikację</string>
+  <string name="package_unlock_app_title">Odblokuj aplikację</string>
+  <string name="locked_apps_sort_summary">Zablokowane aplikacje będą wyświetlane na początku listy</string>
+  <string name="locked_apps_sort_title">Sortuj zablokowane aplikacje</string>
+  <string name="drag_handle_dynamic_color_title">Użyj koloru wiodącego</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">Aplikacja nie obsługuje dzielonego ekranu</string>
+  <string name="block_apps_on_splitscreen_summary">Podczas trybu dzielonego ekranu blokuje przejście do nieobsługiwanych aplikacji</string>
 </resources>

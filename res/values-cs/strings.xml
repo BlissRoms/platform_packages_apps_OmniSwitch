@@ -17,7 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Stop</string>
+  <string name="package_remove_task_title">Odstranit</string>
   <string name="package_inspect_item_title">Informace o aplikaci</string>
   <string name="start_on_boot_title">Spustit při startu</string>
   <string name="start_on_boot_summary">Spuštění při startu zařízení</string>
@@ -170,8 +170,15 @@
   <string name="dialog_overlay_perms_msg">Povolit \u0022vykreslování nad oprávněním\u0022 jiných aplikací</string>
   <string name="package_dock_task_title">Dokovací stanice</string>
   <string name="package_undock_task_title">Vyjmutí z doku</string>
-  <string name="swipe_thumb_update_summary">Miniatury budou aktualizovány při zobrazení překrytí</string>
-  <string name="swipe_thumb_update_title">Asynchronní načítání miniatur</string>
   <string name="dim_action_buttons_summary">Přidat tmavé pozadí tlačítek akcí</string>
   <string name="dim_action_buttons_title">Tmavé pozadí tlačítek akcí</string>
+  <string name="package_force_stop_title">Vynutit ukončení</string>
+  <string name="package_lock_app_title">Uzamknout aplikaci</string>
+  <string name="package_unlock_app_title">Odemknout aplikaci</string>
+  <string name="locked_apps_sort_summary">Uzamknuté aplikace se zobrazí na začátku seznamu</string>
+  <string name="locked_apps_sort_title">Seřadit uzamčené aplikace</string>
+  <string name="drag_handle_dynamic_color_title">Použít barvu zvýraznění</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">Aplikace nepodporuje rozdělenou obrazovku</string>
+  <string name="block_apps_on_splitscreen_summary">Během blokování v režimu rozdělené obrazovky se přepínají nepodporované aplikace</string>
+  <string name="block_apps_on_splitscreen_title">Blokovat nepřipojitelné aplikace</string>
 </resources>

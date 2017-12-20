@@ -17,7 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_stop_task_title">Detener</string>
+  <string name="package_remove_task_title">Eliminar</string>
   <string name="package_inspect_item_title">Información</string>
   <string name="start_on_boot_title">Ejecutar al arrancar</string>
   <string name="start_on_boot_summary">Ejecutar y activar en el arranque del dispositivo</string>
@@ -170,8 +170,6 @@
   <string name="dialog_overlay_perms_msg">Activa \u0022Draw sobre otros \u0022permisos de aplicaciones</string>
   <string name="package_dock_task_title">Conector</string>
   <string name="package_undock_task_title">Desacoplar</string>
-  <string name="swipe_thumb_update_summary">Las miniaturas se actualizarán durante la demostración de la superposición</string>
-  <string name="swipe_thumb_update_title">Carga asincrónica de la miniatura</string>
   <string name="dim_action_buttons_summary">Agregar fondo extra dim a los botones de acción</string>
   <string name="dim_action_buttons_title">Fondo del botón de acción débil</string>
 </resources>
