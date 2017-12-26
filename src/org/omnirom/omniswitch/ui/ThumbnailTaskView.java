@@ -194,7 +194,6 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Log.d(TAG, "onDraw " + getLabel() + " " + getTask().getPersistentTaskId());
         SwitchConfiguration configuration = SwitchConfiguration.getInstance(getContext());
         final int iconSizePx = Math.round(configuration.mOverlayIconSizeDp * configuration.mDensity);
         final int textInsetPx = Math.round(5 * configuration.mDensity);
