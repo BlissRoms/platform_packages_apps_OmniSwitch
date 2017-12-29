@@ -181,4 +181,6 @@
   <string name="dock_non_resizeble_failed_to_dock_text">L\'app non supporta lo schermo diviso</string>
   <string name="block_apps_on_splitscreen_summary">Durante lo schermo diviso blocca lo switch alle app non supportate</string>
   <string name="block_apps_on_splitscreen_title">Blocca le app non inseribili nella dock</string>
+  <string name="use_power_hint_summary">Utilizza potenza HAL hint per velocizzare. Dipende dal dispositivo!</string>
+  <string name="use_power_hint_title">Utilizza potenza hint</string>
 </resources>

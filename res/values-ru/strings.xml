@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Убрать</string>
   <string name="package_inspect_item_title">Информация о приложении</string>
   <string name="start_on_boot_title">Запускать при загрузке</string>
   <string name="start_on_boot_summary">Запускать при загрузке устройства</string>
@@ -171,4 +172,15 @@
   <string name="package_undock_task_title">Открепить</string>
   <string name="dim_action_buttons_summary">Добавить дополнительное затемнение иконок</string>
   <string name="dim_action_buttons_title">Затемнить фон кнопок</string>
+  <string name="package_force_stop_title">Остановить принудительно</string>
+  <string name="package_lock_app_title">Заблокировать приложение</string>
+  <string name="package_unlock_app_title">Разблокировать приложение</string>
+  <string name="locked_apps_sort_summary">Заблокированное приложение будет отображаться первым в списке</string>
+  <string name="locked_apps_sort_title">Сортировка заблокированных приложений</string>
+  <string name="drag_handle_dynamic_color_title">Использовать цвет акцента</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">Приложение не поддерживает разделение экрана</string>
+  <string name="block_apps_on_splitscreen_summary">В режиме разделения экрана переключаться на неподдерживаемые приложения</string>
+  <string name="block_apps_on_splitscreen_title">Блокировать незакрепляемые приложения</string>
+  <string name="use_power_hint_summary">Использовать аппаратное ускорение. Зависит от устройства!</string>
+  <string name="use_power_hint_title">Использовать аппаратное ускорение</string>
 </resources>

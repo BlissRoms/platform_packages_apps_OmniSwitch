@@ -172,4 +172,15 @@
   <string name="package_undock_task_title">Desacoplar</string>
   <string name="dim_action_buttons_summary">Agregar fondo extra dim a los botones de acción</string>
   <string name="dim_action_buttons_title">Fondo del botón de acción débil</string>
+  <string name="package_force_stop_title">Forzar detención</string>
+  <string name="package_lock_app_title">Bloquear aplicación</string>
+  <string name="package_unlock_app_title">Desbloquear aplicación</string>
+  <string name="locked_apps_sort_summary">Las aplicaciones bloqueadas se mostrarán primero en la lista</string>
+  <string name="locked_apps_sort_title">Ordenar aplicaciones cerradas</string>
+  <string name="drag_handle_dynamic_color_title">Utilizar color acentuado</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">La aplicación no permite pantalla dividida</string>
+  <string name="block_apps_on_splitscreen_summary">Mientras esté en modo de pantalla dividida bloque cambia a aplicaciones no compatibles</string>
+  <string name="block_apps_on_splitscreen_title">Bloquear aplicaciones que no se puedan cargar</string>
+  <string name="use_power_hint_summary">Use la pista HAL para acelerar. ¡Dependerá del dispositivo!</string>
+  <string name="use_power_hint_title">Use las sugerencia de poder</string>
 </resources>

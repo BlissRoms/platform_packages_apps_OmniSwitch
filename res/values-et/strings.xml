@@ -16,4 +16,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="ok">OK</string>
+  <string name="reset">Vaikimisi</string>
+  <string name="three_hours">3 tundi</string>
+  <string name="six_hours">6 tundi</string>
+  <string name="twelve_hours">12 tundi</string>
+  <string name="menu">Menüü</string>
+  <string name="menu_help">Menüü</string>
+</resources>

@@ -181,4 +181,6 @@
   <string name="dock_non_resizeble_failed_to_dock_text">Aplikace nepodporuje rozdělenou obrazovku</string>
   <string name="block_apps_on_splitscreen_summary">Během blokování v režimu rozdělené obrazovky se přepínají nepodporované aplikace</string>
   <string name="block_apps_on_splitscreen_title">Blokovat nepřipojitelné aplikace</string>
+  <string name="use_power_hint_summary">Použijte HAL pro zvýšení rychlosti. Závisí na zařízení!</string>
+  <string name="use_power_hint_title">Použijte nápovědu</string>
 </resources>
