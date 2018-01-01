@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.IconDrawableFactory;
 import android.util.LruCache;
 import android.util.Log;
 
@@ -41,16 +42,17 @@ public class BitmapCache {
     private Context mContext;
     private LruCache<String, Drawable> mMemoryCache;
     private HashMap<String, Drawable> mThumbnailMap;
+    private final IconDrawableFactory mDrawableFactory;
 
     public static BitmapCache getInstance(Context context) {
         if (sInstance == null){
-            sInstance = new BitmapCache();
+            sInstance = new BitmapCache(context);
         }
-        sInstance.setContext(context);
         return sInstance;
     }
 
-    private BitmapCache() {
+    private BitmapCache(Context context) {
+        mContext = context;
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
 
         // Use 1/4rd of the available memory for this memory cache.
@@ -73,10 +75,7 @@ public class BitmapCache {
             }
         };
         mThumbnailMap = new HashMap<String, Drawable>(25);
-    }
-
-    private void setContext(Context context) {
-        mContext = context;
+        mDrawableFactory = IconDrawableFactory.newInstance(mContext);
     }
 
     public void clear() {
@@ -104,6 +103,7 @@ public class BitmapCache {
         if (d == null){
             if (DEBUG) Log.d(TAG, "addToCache = " + key);
             d = getPackageIconUncached(resources, packageItem, configuration, configuration.mIconSize);
+            d = mDrawableFactory.getShadowedIcon(d);
             addBitmapToMemoryCache(key, d);
         }
         return d;

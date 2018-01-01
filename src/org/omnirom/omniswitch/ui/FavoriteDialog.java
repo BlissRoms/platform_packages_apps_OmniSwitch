@@ -34,6 +34,7 @@ import org.omnirom.omniswitch.dslv.DragSortListView;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -95,9 +96,10 @@ public class FavoriteDialog extends AlertDialog implements
             String intent = mFavoriteList.get(position);
             PackageManager.PackageItem packageItem = PackageManager.getInstance(getContext()).getPackageItem(intent);
             holder.item.setText(packageItem.getTitle());
-            holder.image.setImageDrawable(BitmapCache.getInstance(getContext())
+            Drawable d = BitmapCache.getInstance(getContext())
                         .getPackageIconCached(getContext().getResources(), packageItem,
-                        mConfiguration));
+                        mConfiguration);
+            holder.image.setImageDrawable(d.mutate());
             return convertView;
         }
     }
@@ -304,9 +306,10 @@ public class FavoriteDialog extends AlertDialog implements
                 }
                 PackageItem applicationInfo = getItem(position);
                 holder.item.setText(applicationInfo.getTitle());
-                holder.image.setImageDrawable(BitmapCache.getInstance(getContext())
+                Drawable d = BitmapCache.getInstance(getContext())
                         .getPackageIconCached(getContext().getResources(), applicationInfo,
-                        mConfiguration));
+                        mConfiguration);
+                holder.image.setImageDrawable(d.mutate());
                 holder.check.setChecked(mChangedFavoriteListSet
                         .contains(applicationInfo.getIntent()));
 
