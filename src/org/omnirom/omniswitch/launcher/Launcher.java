@@ -81,6 +81,7 @@ import org.omnirom.omniswitch.ui.FavoriteView;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -791,10 +792,13 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
     }
 
     @Override
-    public void applyChanges(List<String> favoriteList){
-        mPrefs.edit().putString(SettingsActivity.PREF_FAVORITE_APPS, Utils.flattenFavorites(favoriteList)).commit();
+    public void applyFavoritesChanges(List<String> favoriteList){
+        mPrefs.edit().putString(SettingsActivity.PREF_FAVORITE_APPS, Utils.flattenCollection(favoriteList)).commit();
     }
-    
+
+    @Override
+    public void applyHiddenAppsChanges(Collection<String> hiddenAppsList){
+    }
 
     private void hideOverlays() {
         hideAppDrawerPanel(true, true);

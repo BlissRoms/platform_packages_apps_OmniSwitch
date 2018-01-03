@@ -17,7 +17,9 @@
  */
 package org.omnirom.omniswitch;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +105,7 @@ public class SwitchConfiguration {
     private boolean mDynamicDragHandleColor = true;
     public boolean mBlockSplitscreenBreakers = true;
     public boolean mUsePowerHint;
+    public Set<String> mHiddenAppsList = new HashSet<String>();
 
     // old pref slots
     private static final String PREF_DRAG_HANDLE_COLOR = "drag_handle_color";
@@ -264,7 +267,7 @@ public class SwitchConfiguration {
 
         mFavoriteList.clear();
         String favoriteListString = prefs.getString(SettingsActivity.PREF_FAVORITE_APPS, "");
-        Utils.parseFavorites(favoriteListString, mFavoriteList);
+        Utils.parseCollection(favoriteListString, mFavoriteList);
         mSpeedSwitcher = prefs.getBoolean(SettingsActivity.PREF_SPEED_SWITCHER, true);
         mFilterBoot = prefs.getBoolean(SettingsActivity.PREF_APP_FILTER_BOOT, false);
         String filterTimeString = prefs.getString(SettingsActivity.PREF_APP_FILTER_TIME, "0");
@@ -288,6 +291,10 @@ public class SwitchConfiguration {
         mDynamicDragHandleColor = prefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, false);
         mBlockSplitscreenBreakers = prefs.getBoolean(SettingsActivity.PREF_BLOCK_APPS_ON_SPLITSCREEN, true);
         mUsePowerHint = prefs.getBoolean(SettingsActivity.PREF_USE_POWER_HINT, false);
+
+        mHiddenAppsList.clear();
+        String hiddenListString = prefs.getString(SettingsActivity.PREF_HIDDEN_APPS, "");
+        Utils.parseCollection(hiddenListString, mHiddenAppsList);
 
         for(OnSharedPreferenceChangeListener listener : mPrefsListeners) {
             if(DEBUG){

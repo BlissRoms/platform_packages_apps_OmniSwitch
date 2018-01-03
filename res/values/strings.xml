@@ -184,4 +184,9 @@
         <string name="block_apps_on_splitscreen_title">Block undockable apps</string>
         <string name="use_power_hint_summary">Use power HAL hint to speed up. Device dependent!</string>
         <string name="use_power_hint_title">Use power hint</string>
+        <string name="hidden_apps_config_summary">Define apps hidden in app drawer views</string>
+        <string name="hidden_apps_config_title">Hidden applications</string>
+        <string name="category_allapps_title">Application drawer</string>
+        <string name="hidden_apps_dialog_title">Hidden apps</string>
+        <string name="package_add_hidden_app_title">Hide app</string>
 </resources>

@@ -225,6 +225,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="category_allapps"
+        android:title="@string/category_allapps_title" >
+        <Preference
+            android:key="hidden_apps_config"
+            android:summary="@string/hidden_apps_config_summary"
+            android:title="@string/hidden_apps_config_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="category_launcher"
         android:title="@string/category_launcher_title" >
         <SwitchPreference

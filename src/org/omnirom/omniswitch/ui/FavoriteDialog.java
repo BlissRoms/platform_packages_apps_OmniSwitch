@@ -227,7 +227,7 @@ public class FavoriteDialog extends AlertDialog implements
     @Override
     public void onClick(DialogInterface dialog, int which) {
         if (which == DialogInterface.BUTTON_POSITIVE) {
-            mEditor.applyChanges(mFavoriteList);
+            mEditor.applyFavoritesChanges(mFavoriteList);
         } else if (which == DialogInterface.BUTTON_NEGATIVE) {
             cancel();
         }

@@ -54,6 +54,7 @@ import org.omnirom.omniswitch.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class AppDrawerView extends GridView {
     private static final String TAG = "AppDrawerView";
@@ -64,6 +65,7 @@ public class AppDrawerView extends GridView {
     private boolean mTransparent;
     private SwitchManager mRecentsManager;
     private Typeface mLabelFont;
+    private List<PackageManager.PackageItem> mFilteredPackagesList;
 
     public class AppDrawerListAdapter extends
             ArrayAdapter<PackageManager.PackageItem> {
@@ -100,9 +102,11 @@ public class AppDrawerView extends GridView {
         super(context, attrs);
         mConfiguration = SwitchConfiguration.getInstance(mContext);
         mLabelFont = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
+
+        mFilteredPackagesList = new ArrayList<PackageManager.PackageItem>();
+        mFilteredPackagesList.addAll(PackageManager.getInstance(mContext).getPackageList());
         mAppDrawerListAdapter = new AppDrawerListAdapter(mContext,
-                android.R.layout.simple_list_item_single_choice, PackageManager
-                        .getInstance(mContext).getPackageList());
+                android.R.layout.simple_list_item_single_choice, mFilteredPackagesList);
         setAdapter(mAppDrawerListAdapter);
         updateLayout();
         setVerticalScrollBarEnabled(false);
@@ -173,6 +177,9 @@ public class AppDrawerView extends GridView {
         if (key != null && key.equals(PackageManager.PACKAGES_UPDATED_TAG)) {
             mAppDrawerListAdapter.notifyDataSetChanged();
         }
+        if (key != null && key.equals(SettingsActivity.PREF_HIDDEN_APPS)) {
+            updateHiddenAppsList();
+        }
         updateLayout();
     }
 
@@ -200,8 +207,7 @@ public class AppDrawerView extends GridView {
     }
 
     protected void doOnCLickAction(int position) {
-        PackageManager.PackageItem packageItem = PackageManager
-                .getInstance(mContext).getPackageList().get(position);
+        PackageManager.PackageItem packageItem = mFilteredPackagesList.get(position);
         if (mRecentsManager != null) {
             mRecentsManager.startIntentFromtString(packageItem.getIntent(), true);
         } else {
@@ -210,13 +216,29 @@ public class AppDrawerView extends GridView {
     }
 
     protected void doOnLongCLickAction(int position, View view) {
-        PackageManager.PackageItem packageItem = PackageManager
-                .getInstance(mContext).getPackageList().get(position);
+        PackageManager.PackageItem packageItem = mFilteredPackagesList.get(position);
         handleLongPressAppDrawer(packageItem, view);
     }
 
     private void handleLongPressAppDrawer(final PackageManager.PackageItem packageItem, View view) {
         ContextMenuUtils.handleLongPressAppDrawer(mContext, packageItem,
                 mRecentsManager, view);
+    }
+
+    private void updateHiddenAppsList() {
+        Set<String> hiddenAppsList = mConfiguration.mHiddenAppsList;
+        if (DEBUG) {
+            Log.d(TAG, "updateHiddenAppsList " + hiddenAppsList);
+        }
+        mFilteredPackagesList.clear();
+
+        Iterator<PackageManager.PackageItem> nextApp = PackageManager.getInstance(mContext).getPackageList().iterator();
+        while (nextApp.hasNext()) {
+            PackageManager.PackageItem app = nextApp.next();
+            if (!hiddenAppsList.contains(app.getIntent())) {
+                mFilteredPackagesList.add(app);
+            }
+        }
+        mAppDrawerListAdapter.notifyDataSetChanged();
     }
 }

@@ -200,6 +200,7 @@ public class PackageManager {
 
         updateFavorites();
         updateLockedApps(packageNameList);
+        updateHiddenApps(packageNameList);
 
         Collections.sort(mInstalledPackagesList);
         mInitDone = true;
@@ -258,7 +259,7 @@ public class PackageManager {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         String favoriteListString = prefs.getString(SettingsActivity.PREF_FAVORITE_APPS, "");
         List<String> favoriteList = new ArrayList<String>();
-        Utils.parseFavorites(favoriteListString, favoriteList);
+        Utils.parseCollection(favoriteListString, favoriteList);
         boolean changed = false;
 
         List<String> newFavoriteList = new ArrayList<String>();
@@ -274,7 +275,7 @@ public class PackageManager {
         }
         if (changed) {
             prefs.edit()
-                    .putString(SettingsActivity.PREF_FAVORITE_APPS, Utils.flattenFavorites(newFavoriteList))
+                    .putString(SettingsActivity.PREF_FAVORITE_APPS, Utils.flattenCollection(newFavoriteList))
                     .commit();
         }
     }
@@ -299,6 +300,31 @@ public class PackageManager {
         if (changed) {
             prefs.edit()
                     .putString(SettingsActivity.PREF_LOCKED_APPS_LIST, TextUtils.join(",", newAppsList))
+                    .commit();
+        }
+    }
+
+    private synchronized void updateHiddenApps(Set<String> packageNameList) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String hiddenAppsListString = prefs.getString(SettingsActivity.PREF_HIDDEN_APPS, "");
+        List<String> hiddenAppsList = new ArrayList<String>();
+        Utils.parseCollection(hiddenAppsListString, hiddenAppsList);
+        boolean changed = false;
+
+        List<String> newHiddenAppsList = new ArrayList<String>();
+        Iterator<String> nextHiddenApp = hiddenAppsList.iterator();
+        while (nextHiddenApp.hasNext()) {
+            String hiddenApp = nextHiddenApp.next();
+            // DONT USE getPackageMap() here!
+            if (!mInstalledPackages.containsKey(hiddenApp)){
+                changed = true;
+                continue;
+            }
+            newHiddenAppsList.add(hiddenApp);
+        }
+        if (changed) {
+            prefs.edit()
+                    .putString(SettingsActivity.PREF_HIDDEN_APPS, Utils.flattenCollection(newHiddenAppsList))
                     .commit();
         }
     }

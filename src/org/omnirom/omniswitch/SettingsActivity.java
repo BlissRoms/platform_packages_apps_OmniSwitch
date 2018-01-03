@@ -17,12 +17,16 @@
  */
 package org.omnirom.omniswitch;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
+import java.util.Set;
 
 import org.omnirom.omniswitch.ui.BitmapUtils;
 import org.omnirom.omniswitch.ui.CheckboxListDialog;
+import org.omnirom.omniswitch.ui.HiddenAppsDialog;
 import org.omnirom.omniswitch.ui.IconPackHelper;
 import org.omnirom.omniswitch.ui.NumberPickerPreference;
 import org.omnirom.omniswitch.ui.SeekBarPreference;
@@ -63,7 +67,7 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String PREF_DRAG_HANDLE_COLOR_NEW = "drag_handle_color_new";
     public static final String PREF_SHOW_RAMBAR = "show_rambar";
     public static final String PREF_SHOW_LABELS = "show_labels";
-    public static final String PREF_FAVORITE_APPS_CONFIG = "favorite_apps_config";
+    private static final String PREF_FAVORITE_APPS_CONFIG = "favorite_apps_config";
     public static final String PREF_FAVORITE_APPS = "favorite_apps";
     public static final String PREF_HANDLE_POS_START_RELATIVE = "handle_pos_start_relative";
     public static final String PREF_HANDLE_HEIGHT = "handle_height";
@@ -103,6 +107,8 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String PREF_COLOR_CHANGED ="color_changed";
     public static final String PREF_BLOCK_APPS_ON_SPLITSCREEN = "block_apps_on_splitscreen";
     public static final String PREF_USE_POWER_HINT = "use_power_hint";
+    private static final String PREF_HIDDEN_APPS_CONFIG = "hidden_apps_config";
+    public static final String PREF_HIDDEN_APPS = "hidden_apps";
 
     public static int BUTTON_KILL_ALL = 0;
     public static int BUTTON_KILL_OTHER = 1;
@@ -152,6 +158,7 @@ public class SettingsActivity extends PreferenceActivity implements
     private SwitchPreference mLaunchStats;
     private Preference mFavoriteAppsConfigStat;
     private CheckBoxPreference mRevertRecents;
+    private Preference mHiddenAppsConfig;
 
     @Override
     public void onPause() {
@@ -253,6 +260,8 @@ public class SettingsActivity extends PreferenceActivity implements
         mRevertRecents.setEnabled(vertical);
         mThumbSize.setEnabled(vertical);
 
+        mHiddenAppsConfig = findPreference(PREF_HIDDEN_APPS_CONFIG);
+
         mPrefsListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs,
                     String key) {
@@ -317,8 +326,14 @@ public class SettingsActivity extends PreferenceActivity implements
         } else if (preference == mFavoriteAppsConfig) {
             String favoriteListString = mPrefs.getString(PREF_FAVORITE_APPS, "");
             List<String> favoriteList = new ArrayList<String>();
-            Utils.parseFavorites(favoriteListString, favoriteList);
+            Utils.parseCollection(favoriteListString, favoriteList);
             doShowFavoritesList(favoriteList);
+            return true;
+        } else if (preference == mHiddenAppsConfig) {
+            String hiddenAppsListString = mPrefs.getString(PREF_HIDDEN_APPS, "");
+            Set<String> hiddenAppsList = new HashSet<String>();
+            Utils.parseCollection(hiddenAppsListString, hiddenAppsList);
+            doShowHiddenAppsList(hiddenAppsList);
             return true;
         } else if (preference == mFavoriteAppsConfigStat) {
             final List<String> favoriteList = Utils.getFavoriteListFromStats(this, 10);
@@ -412,10 +427,18 @@ public class SettingsActivity extends PreferenceActivity implements
     }
 
     @Override
-    public void applyChanges(List<String> favoriteList){
+    public void applyFavoritesChanges(List<String> favoriteList){
         mPrefs.edit()
                 .putString(PREF_FAVORITE_APPS,
-                        Utils.flattenFavorites(favoriteList))
+                        Utils.flattenCollection(favoriteList))
+                .commit();
+    }
+
+    @Override
+    public void applyHiddenAppsChanges(Collection<String> hiddenAppsList){
+        mPrefs.edit()
+                .putString(PREF_HIDDEN_APPS,
+                        Utils.flattenCollection(hiddenAppsList))
                 .commit();
     }
 
@@ -476,6 +499,11 @@ public class SettingsActivity extends PreferenceActivity implements
 
     private void doShowFavoritesList(List<String> favoriteList) {
         FavoriteDialog dialog = new FavoriteDialog(this, this, favoriteList);
+        dialog.show();
+    }
+
+    private void doShowHiddenAppsList(Collection<String> hiddenApsList) {
+        HiddenAppsDialog dialog = new HiddenAppsDialog(this, this, hiddenApsList);
         dialog.show();
     }
 }

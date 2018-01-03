@@ -125,8 +125,7 @@ public class ContextMenuUtils {
         final PopupMenu popup = new PopupMenu(wrapper, view);
         popup.getMenuInflater().inflate(R.menu.package_popup_menu,
                 popup.getMenu());
-        final List<String> favoritList = new ArrayList<String>();
-        Utils.updateFavoritesList(context, configuration, favoritList);
+        final List<String> favoritList = configuration.mFavoriteList;
         boolean addFavEnabled = !favoritList.contains(packageItem.getIntent());
         if (!addFavEnabled) {
             popup.getMenu().removeItem(R.id.package_add_favorite);
@@ -159,6 +158,9 @@ public class ContextMenuUtils {
                 } else if (item.getItemId() == R.id.package_add_favorite) {
                     Utils.addToFavorites(context, packageItem.getIntent(),
                             favoritList);
+                } else if (item.getItemId() == R.id.package_add_hidden_app) {
+                    Utils.addToHiddenApps(context, packageItem.getIntent(),
+                            configuration.mHiddenAppsList);
                 } else {
                     ShortcutInfo sc = scMap.get(item.getItemId());
                     if (sc != null) {

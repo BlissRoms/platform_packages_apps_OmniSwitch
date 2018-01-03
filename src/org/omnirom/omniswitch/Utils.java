@@ -47,6 +47,7 @@ import android.view.WindowManagerGlobal;
 import android.view.WindowManager;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -54,27 +55,27 @@ import org.omnirom.omniswitch.launcher.Launcher;
 
 public class Utils {
 
-    public static void parseFavorites(String favoriteListString,
-            List<String> favoriteList) {
-        if (favoriteListString.length() == 0){
+    public static void parseCollection(String listString,
+            Collection<String> list) {
+        if (listString.length() == 0){
             return;
         }
 
-        if (favoriteListString.indexOf("##") == -1){
-            favoriteList.add(favoriteListString);
+        if (listString.indexOf("##") == -1){
+            list.add(listString);
             return;
         }
-        String[] split = favoriteListString.split("##");
+        String[] split = listString.split("##");
         for (int i = 0; i < split.length; i++) {
-            favoriteList.add(split[i]);
+            list.add(split[i]);
         }
     }
 
-    public static String flattenFavorites(List<String> favoriteList) {
-        Iterator<String> nextFavorite = favoriteList.iterator();
+    public static String flattenCollection(Collection<String> list) {
+        Iterator<String> nextItem = list.iterator();
         StringBuffer buffer = new StringBuffer();
-        while (nextFavorite.hasNext()) {
-            String favorite = nextFavorite.next();
+        while (nextItem.hasNext()) {
+            String favorite = nextItem.next();
             buffer.append(favorite + "##");
         }
         if (buffer.length() != 0) {
@@ -174,7 +175,7 @@ public class Utils {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             favoriteList.remove(item);
             prefs.edit().putString(SettingsActivity.PREF_FAVORITE_APPS,
-                    Utils.flattenFavorites(favoriteList)).commit();
+                    Utils.flattenCollection(favoriteList)).commit();
         }
     }
 
@@ -183,7 +184,7 @@ public class Utils {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             favoriteList.add(item);
             prefs.edit().putString(SettingsActivity.PREF_FAVORITE_APPS,
-                    Utils.flattenFavorites(favoriteList)).commit();
+                    Utils.flattenCollection(favoriteList)).commit();
         }
     }
 
@@ -222,7 +223,7 @@ public class Utils {
         favoriteList.clear();
         favoriteList.addAll(config.mFavoriteList);
 
-        List<String> fList = new ArrayList<String>();
+        /*List<String> fList = new ArrayList<String>();
         fList.addAll(favoriteList);
         Iterator<String> nextFavorite = fList.iterator();
         while (nextFavorite.hasNext()) {
@@ -232,7 +233,7 @@ public class Utils {
             if (packageItem == null) {
                 favoriteList.remove(intent);
             }
-        }
+        }*/
     }
 
     public static boolean isPrefKeyForForceUpdate(String key) {
@@ -308,6 +309,15 @@ public class Utils {
         String[] split = lockedAppsListString.split(",");
         for (int i = 0; i < split.length; i++) {
             appsList.add(split[i]);
+        }
+    }
+
+    public static void addToHiddenApps(Context context, String item, Collection<String> hiddenAppsList) {
+        if (!hiddenAppsList.contains(item)){
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            hiddenAppsList.add(item);
+            prefs.edit().putString(SettingsActivity.PREF_HIDDEN_APPS,
+                    Utils.flattenCollection(hiddenAppsList)).commit();
         }
     }
 }

@@ -17,9 +17,10 @@
  */
 package org.omnirom.omniswitch;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface IEditFavoriteActivity {
-
-    public void applyChanges(List<String> favoriteList);
+    public void applyFavoritesChanges(List<String> favoriteList);
+    public void applyHiddenAppsChanges(Collection<String> hiddenAppsList);
 }
