@@ -104,7 +104,7 @@ public class AppDrawerView extends GridView {
         mLabelFont = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
 
         mFilteredPackagesList = new ArrayList<PackageManager.PackageItem>();
-        mFilteredPackagesList.addAll(PackageManager.getInstance(mContext).getPackageList());
+        updateHiddenAppsList();
         mAppDrawerListAdapter = new AppDrawerListAdapter(mContext,
                 android.R.layout.simple_list_item_single_choice, mFilteredPackagesList);
         setAdapter(mAppDrawerListAdapter);
@@ -179,6 +179,7 @@ public class AppDrawerView extends GridView {
         }
         if (key != null && key.equals(SettingsActivity.PREF_HIDDEN_APPS)) {
             updateHiddenAppsList();
+            mAppDrawerListAdapter.notifyDataSetChanged();
         }
         updateLayout();
     }
@@ -239,6 +240,5 @@ public class AppDrawerView extends GridView {
                 mFilteredPackagesList.add(app);
             }
         }
-        mAppDrawerListAdapter.notifyDataSetChanged();
     }
 }
