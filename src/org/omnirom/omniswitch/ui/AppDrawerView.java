@@ -174,10 +174,8 @@ public class AppDrawerView extends GridView {
         if (key != null && Utils.isPrefKeyForForceUpdate(key)) {
             setAdapter(mAppDrawerListAdapter);
         }
-        if (key != null && key.equals(PackageManager.PACKAGES_UPDATED_TAG)) {
-            mAppDrawerListAdapter.notifyDataSetChanged();
-        }
-        if (key != null && key.equals(SettingsActivity.PREF_HIDDEN_APPS)) {
+        if (key != null && (key.equals(PackageManager.PACKAGES_UPDATED_TAG) ||
+                key.equals(SettingsActivity.PREF_HIDDEN_APPS))) {
             updateHiddenAppsList();
             mAppDrawerListAdapter.notifyDataSetChanged();
         }
