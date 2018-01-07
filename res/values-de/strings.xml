@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Entfernen</string>
   <string name="package_inspect_item_title">App Info</string>
   <string name="start_on_boot_title">Beim Booten starten</string>
   <string name="start_on_boot_summary">Aktivieren beim Gerätestart</string>
@@ -171,4 +172,11 @@
   <string name="package_undock_task_title">Abdocken</string>
   <string name="dim_action_buttons_summary">Fügt eine zusätzliche Hintergrundabdunklung für Aktions-Tasten hinzu</string>
   <string name="dim_action_buttons_title">Hintergrund der Aktions-Tasten abdunkeln</string>
+  <string name="package_force_stop_title">Beenden erzwingen</string>
+  <string name="package_lock_app_title">App sperren</string>
+  <string name="package_unlock_app_title">App freigeben</string>
+  <string name="locked_apps_sort_summary">Gesperrte Apps werden zuerst in der Liste angezeigt</string>
+  <string name="locked_apps_sort_title">Gesperrte Apps sortieren</string>
+  <string name="drag_handle_dynamic_color_title">Akzentfarbe verwenden</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">App unterstützt keinen geteilten Bildschirm</string>
 </resources>

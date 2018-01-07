@@ -181,4 +181,6 @@
   <string name="dock_non_resizeble_failed_to_dock_text">Aplicativo não oferece suporte a tela dividida</string>
   <string name="block_apps_on_splitscreen_summary">Enquanto no modo de tela dividida muda para aplicativos não suportados</string>
   <string name="block_apps_on_splitscreen_title">Bloquear aplicativos desmarcáveis</string>
+  <string name="use_power_hint_summary">Para acelerar, use a sugestão de energia HAL. Depende do dispositivo!</string>
+  <string name="use_power_hint_title">Use sugestão de energia</string>
 </resources>

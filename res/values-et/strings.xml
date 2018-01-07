@@ -19,9 +19,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="ok">OK</string>
   <string name="reset">Vaikimisi</string>
+  <string name="kill_all_apps_help">Sundsulge kõik rakendused</string>
+  <string name="kill_other_apps_help">Sundsulge teised rakendused</string>
+  <string name="kill_all_apps">Sundsulge kõik</string>
+  <string name="kill_other_apps">Sundsulge teised</string>
+  <string name="kill_current">Sundsulge praegused</string>
+  <string name="kill_current_help">Sundsulge praegune rakendus</string>
   <string name="three_hours">3 tundi</string>
   <string name="six_hours">6 tundi</string>
   <string name="twelve_hours">12 tundi</string>
   <string name="menu">Menüü</string>
   <string name="menu_help">Menüü</string>
+  <string name="adjust_handle_width">Laius</string>
+  <string name="package_full_task_title">Täissuurus</string>
 </resources>

@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Eltávolítás</string>
   <string name="package_inspect_item_title">Alkalmazás infó</string>
   <string name="start_on_boot_title">Bootoláskor indul</string>
   <string name="start_on_boot_summary">Automatikusan indul a készülékkel</string>
@@ -171,4 +172,15 @@
   <string name="package_undock_task_title">Dokkolás megszüntetése</string>
   <string name="dim_action_buttons_summary">Extra háttér homályosítás a műveletgombokhoz</string>
   <string name="dim_action_buttons_title">Műveletgomb hátterének homályossága</string>
+  <string name="package_force_stop_title">Kényszerített leállítás</string>
+  <string name="package_lock_app_title">Alkalmazás zárolása</string>
+  <string name="package_unlock_app_title">Alkalmazás feloldása</string>
+  <string name="locked_apps_sort_summary">Zárolt alkalmazások a lista elején jelennek meg</string>
+  <string name="locked_apps_sort_title">Zárolt alkalmazások rendezése</string>
+  <string name="drag_handle_dynamic_color_title">Másodlagos szín használata</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">Az alkalmazás nem támogatja az osztott képernyőt</string>
+  <string name="block_apps_on_splitscreen_summary">Az osztott képernyős módban tiltsa le a nem támogatott alkalmazásokra váltást</string>
+  <string name="block_apps_on_splitscreen_title">A nem dokkolható alkalmazások letiltása</string>
+  <string name="use_power_hint_summary">Használjon hardveres gyorsítást. Az eszköztől függ!</string>
+  <string name="use_power_hint_title">Használjon hardveres gyorsítást</string>
 </resources>

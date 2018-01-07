@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Odstrániť</string>
   <string name="package_inspect_item_title">Informácie o aplikácii</string>
   <string name="start_on_boot_title">Spustiť pri štarte</string>
   <string name="start_on_boot_summary">Spustiť a povoliť pri štarte zariadenia</string>
@@ -167,6 +168,19 @@
   <string name="revert_recents_title">Otočiť zoznam nedávnych aplikácií</string>
   <string name="dialog_overlay_perms_title">Nedostatok práv pre OmniSwitch</string>
   <string name="dialog_overlay_perms_msg">Povoliť \u0022Prekreslenie cez ostatné aplikácie\u0022</string>
+  <string name="package_dock_task_title">Pripnúť aplikáciu</string>
+  <string name="package_undock_task_title">Odopnúť aplikáciu</string>
   <string name="dim_action_buttons_summary">Pridanie navyše stmavenia na pozadí tlačidiel akcií</string>
   <string name="dim_action_buttons_title">Stmaviť pozadie tlačidiel akcií</string>
+  <string name="package_force_stop_title">Vynútiť zastavenie</string>
+  <string name="package_lock_app_title">Uzamknúť aplikáciu</string>
+  <string name="package_unlock_app_title">Odomknúť aplikáciu</string>
+  <string name="locked_apps_sort_summary">Uzamknuté aplikácie budú zobrazené v zozname ako prvé</string>
+  <string name="locked_apps_sort_title">Usporiadať uzamknuté aplikácie</string>
+  <string name="drag_handle_dynamic_color_title">Použiť farbu zvýraznenia</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">Aplikácia nepodporuje rozdelenú obrazovku</string>
+  <string name="block_apps_on_splitscreen_summary">V režime rozdelenej obrazovky sa blokuje prepínanie nepodporovaných aplikácií</string>
+  <string name="block_apps_on_splitscreen_title">Blokovať aplikácie, ktoré nejdú pripnúť</string>
+  <string name="use_power_hint_summary">Použiť HAL pre zvýšenie rýchlosti. Závisí na zariadení!</string>
+  <string name="use_power_hint_title">Použiť nápovedu</string>
 </resources>
