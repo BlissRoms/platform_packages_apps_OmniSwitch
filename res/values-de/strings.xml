@@ -179,4 +179,8 @@
   <string name="locked_apps_sort_title">Gesperrte Apps sortieren</string>
   <string name="drag_handle_dynamic_color_title">Akzentfarbe verwenden</string>
   <string name="dock_non_resizeble_failed_to_dock_text">App unterstützt keinen geteilten Bildschirm</string>
+  <string name="block_apps_on_splitscreen_summary">Während dem Split-Screen-Modus den Wechsel zu nicht unterstützen Apps verhindern</string>
+  <string name="block_apps_on_splitscreen_title">Nicht-fixierbare Apps blockieren</string>
+  <string name="use_power_hint_summary">Den Power HAL zur Beschleunigung nutzen. Geräteabhängig!</string>
+  <string name="use_power_hint_title">Power Hint nutzen</string>
 </resources>
