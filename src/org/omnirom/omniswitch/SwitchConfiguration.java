@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Point;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -422,7 +423,7 @@ public class SwitchConfiguration {
 
     public int getDragHandleColor() {
         if (mDynamicDragHandleColor) {
-            int color = mContext.getResources().getColor(R.color.colorAccent);
+            int color = getAttrColor(android.R.attr.colorAccent);
             return color;
         }
         return mDragHandleColor;
@@ -430,5 +431,12 @@ public class SwitchConfiguration {
 
     public int getDefaultDragHandleColor() {
         return mContext.getResources().getColor(R.color.colorAccent);
+    }
+
+    public int getAttrColor(int attr) {
+        TypedArray ta = mContext.obtainStyledAttributes(new int[]{attr});
+        int color = ta.getColor(0, 0);
+        ta.recycle();
+        return color;
     }
 }
