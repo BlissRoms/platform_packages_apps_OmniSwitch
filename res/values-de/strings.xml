@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Nicht-fixierbare Apps blockieren</string>
   <string name="use_power_hint_summary">Den Power HAL zur Beschleunigung nutzen. Geräteabhängig!</string>
   <string name="use_power_hint_title">Power Hint nutzen</string>
+  <string name="hidden_apps_config_summary">Definieren Sie in App-Drawer-Ansichten versteckte Apps</string>
+  <string name="hidden_apps_config_title">Versteckte Anwendungen</string>
+  <string name="category_allapps_title">Anwendungs-Drawer</string>
+  <string name="hidden_apps_dialog_title">Versteckte Apps</string>
+  <string name="package_add_hidden_app_title">Alle ausblenden</string>
 </resources>

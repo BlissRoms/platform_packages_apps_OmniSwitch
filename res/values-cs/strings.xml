@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Blokovat nepřipojitelné aplikace</string>
   <string name="use_power_hint_summary">Použijte HAL pro zvýšení rychlosti. Závisí na zařízení!</string>
   <string name="use_power_hint_title">Použijte nápovědu</string>
+  <string name="hidden_apps_config_summary">Vyberte aplikace, které se zobrazí v panelu aplikací</string>
+  <string name="hidden_apps_config_title">Skryté aplikace</string>
+  <string name="category_allapps_title">Panel aplikací</string>
+  <string name="hidden_apps_dialog_title">Skryté aplikace</string>
+  <string name="package_add_hidden_app_title">Skrýt aplikace</string>
 </resources>

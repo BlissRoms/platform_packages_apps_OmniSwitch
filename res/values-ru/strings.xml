@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Блокировать незакрепляемые приложения</string>
   <string name="use_power_hint_summary">Использовать аппаратное ускорение. Зависит от устройства!</string>
   <string name="use_power_hint_title">Использовать аппаратное ускорение</string>
+  <string name="hidden_apps_config_summary">Выбрать приложения, которые не будут отображаться в меню приложений</string>
+  <string name="hidden_apps_config_title">Скрытые приложения</string>
+  <string name="category_allapps_title">Меню приложений</string>
+  <string name="hidden_apps_dialog_title">Скрытые приложения</string>
+  <string name="package_add_hidden_app_title">Скрыть приложение</string>
 </resources>

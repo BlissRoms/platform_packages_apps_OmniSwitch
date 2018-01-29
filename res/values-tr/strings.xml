@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Kenetlenemeyen uygulamaları engelle</string>
   <string name="use_power_hint_summary">Hızlandırmak için power HAL hint\'i kullan. Cihazdan cihaza değişir!</string>
   <string name="use_power_hint_title">Power hint kullan</string>
+  <string name="hidden_apps_config_summary">Uygulama menüsündeki saklanmış uygulamaları belirleyin</string>
+  <string name="hidden_apps_config_title">Saklanmış uygulamalar</string>
+  <string name="category_allapps_title">Uygulama menüsü</string>
+  <string name="hidden_apps_dialog_title">Saklanmış uygulamalar</string>
+  <string name="package_add_hidden_app_title">Uygulamayı sakla</string>
 </resources>

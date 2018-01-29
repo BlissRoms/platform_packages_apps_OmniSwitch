@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Bloquear aplicativos desmarcáveis</string>
   <string name="use_power_hint_summary">Para acelerar, use a sugestão de energia HAL. Depende do dispositivo!</string>
   <string name="use_power_hint_title">Use sugestão de energia</string>
+  <string name="hidden_apps_config_summary">Definir apps escondidos em vistas de gaveta app</string>
+  <string name="hidden_apps_config_title">Aplicativos ocultos</string>
+  <string name="category_allapps_title">Gaveta de aplicação</string>
+  <string name="hidden_apps_dialog_title">Aplicativos ocultos</string>
+  <string name="package_add_hidden_app_title">Esconder aplicativo</string>
 </resources>

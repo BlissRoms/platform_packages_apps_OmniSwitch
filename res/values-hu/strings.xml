@@ -183,4 +183,9 @@
   <string name="block_apps_on_splitscreen_title">A nem dokkolható alkalmazások letiltása</string>
   <string name="use_power_hint_summary">Használjon hardveres gyorsítást. Az eszköztől függ!</string>
   <string name="use_power_hint_title">Használjon hardveres gyorsítást</string>
+  <string name="hidden_apps_config_summary">Alkalmazás fiókban elrejtett alkalmazások meghatározása</string>
+  <string name="hidden_apps_config_title">Rejtett alkalmazások</string>
+  <string name="category_allapps_title">Alkalmazás fiók</string>
+  <string name="hidden_apps_dialog_title">Rejtett alkalmazások</string>
+  <string name="package_add_hidden_app_title">Alkalmazás elrejtése</string>
 </resources>
