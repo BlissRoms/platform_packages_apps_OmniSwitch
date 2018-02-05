@@ -31,7 +31,7 @@
   <string name="icon_size_large">Nagy</string>
   <string name="icon_size_title">Méret</string>
   <string name="ok">OKÉ</string>
-  <string name="cancel">Mégsem</string>
+  <string name="cancel">Mégse</string>
   <string name="drag_handle_color_title">Szín</string>
   <string name="drag_handle_color_dialog_title">Szín</string>
   <string name="service_background_processes">%1$s szabad</string>
