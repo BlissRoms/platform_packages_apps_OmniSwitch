@@ -37,9 +37,9 @@
   <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> boş</string>
   <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> kullanılıyor</string>
   <string name="show_rambar_title">Hafıza kullanımını göster</string>
-  <string name="show_rambar_summary">Boş ve kullanılan hafıza miktarını görüntüle</string>
+  <string name="show_rambar_summary">Boş ve kullanılan hafıza miktarını göster</string>
   <string name="show_app_labels">Uygulama adını göster</string>
-  <string name="show_app_labels_summary">Uygulama adı simge ile birlikte görüntülenir</string>
+  <string name="show_app_labels_summary">Uygulama adı simge ile birlikte gösterilir</string>
   <string name="category_overlay_title">Yardımcı grafik</string>
   <string name="category_drag_handle_title">Sürükleme kolu</string>
   <string name="category_favorite_title">En sevilenler</string>
@@ -82,7 +82,7 @@
   <string name="icon_pack_title">Simge paketi</string>
   <string name="icon_pack_summary">Uygulama simgeleri için simge paketi kullan</string>
   <string name="category_speed_switcher_title">Hızlı Değiştirici</string>
-  <string name="speed_switcher_enable_summary">Etkinleştirmek için sürükleme koluna uzun dokunun</string>
+  <string name="speed_switcher_enable_summary">Etkinleştirmek için sürükleme koluna uzun müddet dokunun</string>
   <string name="speed_switcher_enable_title">Etkinleştir</string>
   <string name="back">Geri tuşu</string>
   <string name="back_help">Geri tuşu</string>
@@ -108,7 +108,7 @@
   <string name="bg_style_solid_dark">Koyu</string>
   <string name="bg_style_transparent">Şeffaf</string>
   <string name="bg_style_title">Arka plan tarzı</string>
-  <string name="lock_to_app">Uygulamayı sabitle</string>
+  <string name="lock_to_app">Uygulama sabitle</string>
   <string name="lock_app_help">Mevcûd uygulamayı sabitle</string>
   <string name="app_filter_category_title">Uygulama filtresi</string>
   <string name="app_filter_boot_title">Açılıştan itibâren fa’âl</string>
@@ -130,7 +130,7 @@
   <string name="thumb_size_normal">Normal</string>
   <string name="thumb_size_small">Küçük</string>
   <string name="thumb_size_medium">Orta</string>
-  <string name="package_lock_task_title">Uygulamayı sabitle</string>
+  <string name="package_lock_task_title">Uygulama sabitle</string>
   <string name="lock_app_not_enabled">Ekran sabitleme güvenlik ayarlarında etkin değil</string>
   <string name="app_filter_running_title">Sadece çalışan</string>
   <string name="menu">Menü tuşu</string>
@@ -149,7 +149,7 @@
   <string name="settings_button_text">Ayarlar</string>
   <string name="wallpaper_button_text">Duvar kâğıdı</string>
   <string name="category_launcher_title">Başlatıcı modu</string>
-  <string name="launcher_mode_summary">OmniSwitch uygulamasını başlatıcınız olarak da çalıştırın. Etkinleştirdikten sonra ana ekran tuşuna dokunun ve OmniSwİtch uygulamasını seçin</string>
+  <string name="launcher_mode_summary">OmniSwitch uygulamasını başlatıcınız olarak da çalıştırın. Etkinleştirdikten sonra ana ekran düğmesine dokunun ve OmniSwİtch uygulamasını seçin</string>
   <string name="launcher_mode_title">Etkinleştir</string>
   <string name="launcher_mode_enable_check">Başlatıcı modu etkinse devre dışı bırakılamaz. Başlatıcı modu etkin olduğunda tekrar etkinleştirilecek</string>
   <string name="welcome_cling_header">OmniSwitch başlatıcı moduna hoş geldiniz</string>
@@ -175,9 +175,9 @@
   <string name="package_force_stop_title">Durmaya mecbûr et</string>
   <string name="package_lock_app_title">Uygulama kilitle</string>
   <string name="package_unlock_app_title">Uygulama kilidini aç</string>
-  <string name="locked_apps_sort_summary">Kilitli uygulamalar listenin en başında görüntülenecektir</string>
+  <string name="locked_apps_sort_summary">Kilitli uygulamalar listenin en başında gösterilecektir</string>
   <string name="locked_apps_sort_title">Kilitli uygulamaları sırala</string>
-  <string name="drag_handle_dynamic_color_title">Vurgu rengini kullan</string>
+  <string name="drag_handle_dynamic_color_title">Ara rengi kullan</string>
   <string name="dock_non_resizeble_failed_to_dock_text">Uygulama bölünmüş ekranı desteklemiyor</string>
   <string name="block_apps_on_splitscreen_summary">Bölünmüş ekran modunda desteklenmeyen uygulamalara geçişleri engelle</string>
   <string name="block_apps_on_splitscreen_title">Kenetlenemeyen uygulamaları engelle</string>

@@ -86,6 +86,8 @@
   <string name="speed_switch_button_summary">Seadista kiirvahetaja vaates olevaid tegevusnuppe</string>
   <string name="speed_switch_items_summary">Maksimaalne taseme üksuste arv</string>
   <string name="speed_switch_item">Taseme üksuste piir</string>
+  <string name="package_add_favorite_title">Lisa lemmikutesse</string>
+  <string name="package_remove_favorite_title">Eemalda lemmikutest</string>
   <string name="button_pos_title">Nupu asukoht</string>
   <string name="button_pos_top">Üleval/Vasakul</string>
   <string name="button_pos_bottom">All/Paremal</string>
@@ -149,6 +151,8 @@
   <string name="dock_non_resizeble_failed_to_dock_text">Rakendus ei toeta poolitatud ekraani</string>
   <string name="block_apps_on_splitscreen_summary">Keela poolitatud ekraani režiimis mittetoetatud rakendusele vahetamine</string>
   <string name="block_apps_on_splitscreen_title">Blokeeri mittedokitavad rakendused</string>
+  <string name="hidden_apps_config_title">Peidetud rakendused</string>
+  <string name="category_allapps_title">Rakendustesahtel</string>
   <string name="hidden_apps_dialog_title">Peidetud rakendused</string>
   <string name="package_add_hidden_app_title">Peida rakendus</string>
 </resources>

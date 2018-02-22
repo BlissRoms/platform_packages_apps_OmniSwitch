@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">移除</string>
   <string name="package_inspect_item_title">应用信息</string>
   <string name="start_on_boot_title">开机启动</string>
   <string name="start_on_boot_summary">设备开机时启动</string>
@@ -171,4 +172,18 @@
   <string name="package_undock_task_title">取消固定</string>
   <string name="dim_action_buttons_summary">添加额外的背景昏暗到动作按钮</string>
   <string name="dim_action_buttons_title">昏暗动作按钮背景</string>
+  <string name="package_force_stop_title">强行停止</string>
+  <string name="package_lock_app_title">锁定应用</string>
+  <string name="package_unlock_app_title">解锁应用</string>
+  <string name="locked_apps_sort_summary">被锁定的应用将优先显示在列表中</string>
+  <string name="locked_apps_sort_title">对锁定的应用进行排序</string>
+  <string name="drag_handle_dynamic_color_title">使用强调色</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">该应用不支持分屏</string>
+  <string name="block_apps_on_splitscreen_summary">分屏模式下禁止切换到不支持分屏的应用</string>
+  <string name="block_apps_on_splitscreen_title">阻止不可停靠的应用</string>
+  <string name="use_power_hint_title">使用电量提示</string>
+  <string name="hidden_apps_config_title">隐藏应用</string>
+  <string name="category_allapps_title">应用抽屉</string>
+  <string name="hidden_apps_dialog_title">隐藏的应用</string>
+  <string name="package_add_hidden_app_title">隐藏应用</string>
 </resources>

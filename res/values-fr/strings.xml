@@ -175,16 +175,17 @@
   <string name="package_force_stop_title">Forcer l\'arrêt</string>
   <string name="package_lock_app_title">Verrouiller l\'app</string>
   <string name="package_unlock_app_title">Déverrouiller l\'app</string>
-  <string name="locked_apps_sort_summary">Apps verrouillées seront affichées en premier dans la liste</string>
-  <string name="locked_apps_sort_title">Trier les apps vérouillées</string>
-  <string name="dock_non_resizeble_failed_to_dock_text">L\'application ne supporte pas la fonction d\'écran partagé</string>
+  <string name="locked_apps_sort_summary">Les applications verrouillées seront affichées en tête de liste</string>
+  <string name="locked_apps_sort_title">Trier les applications verrouillées</string>
+  <string name="drag_handle_dynamic_color_title">Utilisez une coloration accentuée</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">L\'application ne prend pas en charge le mode écran partagé</string>
   <string name="block_apps_on_splitscreen_summary">Bloquer les boutons pour les app ne supportant pas le mode d\'écran partagé</string>
   <string name="block_apps_on_splitscreen_title">Bloquer les app ne pouvant être ancrées</string>
   <string name="use_power_hint_summary">Utiliser les indications de Power HAL pour accélérer l\'appareil. Dépend de l\'appareil !</string>
   <string name="use_power_hint_title">Utiliser les indications d\'alimentation</string>
   <string name="hidden_apps_config_summary">Définir les apps cachée de le panneau des apps</string>
   <string name="hidden_apps_config_title">Applications cachées</string>
-  <string name="category_allapps_title">Panneau d\'applications</string>
+  <string name="category_allapps_title">Tiroir d\'application</string>
   <string name="hidden_apps_dialog_title">Applications masquées</string>
   <string name="package_add_hidden_app_title">Masquer l\'application</string>
 </resources>
