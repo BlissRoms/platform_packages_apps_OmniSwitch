@@ -264,6 +264,7 @@ public class SwitchService extends Service {
         if(DEBUG){
             Log.d(TAG, "updatePrefs " + key);
         }
+        BitmapUtils.clearCachedColors();
         IconPackHelper.getInstance(this).updatePrefs(prefs, key);
         mConfiguration.updatePrefs(prefs, key);
         mManager.updatePrefs(prefs, key);
@@ -282,7 +283,8 @@ public class SwitchService extends Service {
                     updatePrefs(mPrefs, DPI_CHANGE);
                     updateDone = true;
                 }
-                if (!updateDone && mConfiguration.mDynamicDragHandleColor) {
+                if (!updateDone && (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_SYSTEM ||
+                        mConfiguration.mDynamicDragHandleColor)) {
                     updatePrefs(mPrefs, SettingsActivity.PREF_BG_STYLE);
                 }
                 mManager.updateLayout();

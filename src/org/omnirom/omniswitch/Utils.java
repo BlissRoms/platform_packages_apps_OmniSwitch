@@ -29,6 +29,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.hardware.input.InputManager;
 import android.os.Build;
 import android.os.Handler;
@@ -319,5 +320,22 @@ public class Utils {
             prefs.edit().putString(SettingsActivity.PREF_HIDDEN_APPS,
                     Utils.flattenCollection(hiddenAppsList)).commit();
         }
+    }
+
+    public static boolean isBrightColor(int color) {
+        if (color == -3) {
+            return false;
+        } else if (color == Color.TRANSPARENT) {
+            return false;
+        } else if (color == Color.WHITE) {
+            return true;
+        }
+        int[] rgb = { Color.red(color), Color.green(color), Color.blue(color) };
+        int brightness = (int) Math.sqrt(rgb[0] * rgb[0] * .241 + rgb[1]
+            * rgb[1] * .691 + rgb[2] * rgb[2] * .068);
+        if (brightness >= 170) {
+            return true;
+        }
+        return false;
     }
 }

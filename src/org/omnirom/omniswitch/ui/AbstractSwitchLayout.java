@@ -350,7 +350,8 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
     protected View getActionButtonTemplate(Drawable image) {
         View v = mInflater.inflate(R.layout.action_button, null, false);
         ImageView item = (ImageView) v.findViewById(R.id.action_button_image);
-        BitmapUtils.colorize(mContext.getResources(), mContext.getResources().getColor(R.color.text_color_dark), image);
+        BitmapUtils.colorize(mContext.getResources(), mConfiguration.getCurrentButtonTint(
+                mConfiguration.getButtonBackgroundColor()), image);
         item.setImageDrawable(image);
         return v;
     }
@@ -648,13 +649,8 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
 
     protected PackageTextView getPackageItemTemplate() {
         PackageTextView item = new PackageTextView(mContext);
-        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-            item.setTextColor(mContext.getResources().getColor(R.color.text_color_light));
-            item.setShadowLayer(0, 0, 0, Color.BLACK);
-        } else {
-            item.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-            item.setShadowLayer(5, 0, 0, Color.BLACK);
-        }
+        item.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
+        item.setShadowLayer(mConfiguration.getShadowColorValue(), 0, 0, Color.BLACK);
         item.setTextSize(mConfiguration.mLabelFontSize);
         item.setEllipsize(TextUtils.TruncateAt.END);
         item.setGravity(Gravity.CENTER);
@@ -662,8 +658,8 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         item.setPadding(0, mConfiguration.mIconBorderPx, 0, 0);
         item.setMaxLines(1);
         item.setTypeface(mLabelFont);
-        item.setBackgroundResource(mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT ? R.drawable.ripple_dark
-                : R.drawable.ripple_light);
+        item.setBackgroundResource(mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT
+                ? R.drawable.ripple_dark : R.drawable.ripple_light);
         return item;
     }
 
@@ -801,8 +797,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
 
     protected void handleLongPressRecent(final TaskDescription ad, final View view) {
         final Context wrapper = new ContextThemeWrapper(mContext,
-                mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT
-                ? R.style.PopupMenuLight : R.style.PopupMenuDark);
+                mConfiguration.getPopupMenuStyle());
         final String intentStr = getRecentsItemIntent(ad);
         final PopupMenu popup = new PopupMenu(wrapper, view);
         popup.getMenuInflater().inflate(R.menu.recent_popup_menu,
@@ -1258,7 +1253,8 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
             } else {
                 image = mContext.getResources().getDrawable(R.drawable.ic_pin);
             }
-            BitmapUtils.colorize(mContext.getResources(), mContext.getResources().getColor(R.color.text_color_dark), image);
+            BitmapUtils.colorize(mContext.getResources(), mConfiguration.getCurrentButtonTint(
+                    mConfiguration.getButtonBackgroundColor()), image);
             lockAppButtonImage.setImageDrawable(image);
         }
     }

@@ -96,13 +96,6 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         }
     }
 
-    private static final ViewOutlineProvider BUTTON_OUTLINE_PROVIDER = new ViewOutlineProvider() {
-        @Override
-        public void getOutline(View view, Outline outline) {
-            outline.setRect(0, 0, view.getWidth(), view.getHeight());
-        }
-    };
-
     public SwitchLayoutVertical(SwitchManager manager, Context context) {
         super(manager, context);
         mRecentListAdapter = new RecentListAdapter(mContext,
@@ -133,7 +126,9 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
                                 sizeStr);
                 mRamDisplay.setImageDrawable(BitmapUtils.memImage(mContext.getResources(),
                         mConfiguration.mMemDisplaySize, mConfiguration.mDensity,
-                        mConfiguration.mLayoutStyle == 0, usedMemStr, availMemStr));
+                        mConfiguration.mLayoutStyle == 0, usedMemStr, availMemStr,
+                        mConfiguration, mConfiguration.getCurrentButtonTint(
+                        mConfiguration.getButtonBackgroundColor())));
             }
         };
     }
@@ -535,36 +530,19 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         if (DEBUG) {
             Log.d(TAG, "updateStyle");
         }
-        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-            mNoRecentApps.setTextColor(mContext.getResources().getColor(R.color.text_color_light));
-            mNoRecentApps.setShadowLayer(0, 0, 0, Color.BLACK);
-        } else {
-            mNoRecentApps.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-            mNoRecentApps.setShadowLayer(5, 0, 0, Color.BLACK);
-        }
-        if (mConfiguration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT) {
-            mButtonListContainer.setBackground(mContext.getResources()
-                    .getDrawable(R.drawable.overlay_bg_button_gradient));
-            mButtonListContainer.setOutlineProvider(BUTTON_OUTLINE_PROVIDER);
-        } else {
+        mNoRecentApps.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
+        mNoRecentApps.setShadowLayer(mConfiguration.getShadowColorValue(), 0, 0, Color.BLACK);
+
+        mButtonListContainer.setBackgroundColor(mConfiguration.getButtonBackgroundColor());
+        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.TRANSPARENT) {
             if (mConfiguration.mDimActionButton) {
-                mButtonListContainer.setBackground(mContext.getResources().getDrawable(
-                        R.drawable.overlay_bg));
                 mButtonListContainer.getBackground().setAlpha(50);
             } else {
                 mButtonListContainer.setBackground(null);
             }
-            mButtonListContainer.setOutlineProvider(null);
         }
-        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg_flat_gradient));
-        } else if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_DARK) {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg_flat_dark_gradient));
-        } else {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg));
+        mView.setBackgroundColor(mConfiguration.getViewBackgroundColor());
+        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.TRANSPARENT) {
             if (!mConfiguration.mDimBehind) {
                 mView.getBackground().setAlpha(
                         (int) (255 * mConfiguration.mBackgroundOpacity));
@@ -618,7 +596,8 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         mRamDisplay = (ImageView) mRamDisplayContainer.findViewById(R.id.memory_image);
         mRamDisplay.setImageDrawable(BitmapUtils.memImage(mContext.getResources(),
                 mConfiguration.mMemDisplaySize, mConfiguration.mDensity,
-                mConfiguration.mLayoutStyle == 0, "", ""));
+                mConfiguration.mLayoutStyle == 0, "", "", mConfiguration,
+                mConfiguration.getCurrentButtonTint(mConfiguration.getButtonBackgroundColor())));
     }
 
     private void addMemoryDisplay() {

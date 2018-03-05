@@ -17,17 +17,15 @@
 -->
 <resources>
     <color name="text_shadow">#000000</color>
+    <color name="bg_transparent">#000000</color>
     <color name="bg_flat_color">#ffe0e0e0</color>
-    <color name="bg_flat_color_gradient">#fff5f5f5</color>
     <color name="bg_flat_color_dark">#ff424242</color>
-    <color name="bg_flat_color_dark_gradient">#ff757575</color>
     <color name="button_bg_flat_color">#ff303030</color>
-    <color name="button_bg_flat_color_gradient">#ff424242</color>
     <color name="ripple_material_light">#40000000</color>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="fake_window_shade_color">#40424242</color>
-    <color name="rambar_left_color">@color/colorPrimary</color>
-    <color name="rambar_middle_color">@color/colorPrimary</color>
+    <color name="rambar_left_color">#ff4caf50</color>
+    <color name="rambar_middle_color">#ff4caf50</color>
     <color name="rambar_right_color">#ff888888</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_grey_50">#fffafafa</color>
@@ -37,9 +35,6 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
-    <color name="colorAccent">#ff4caf50</color>
-    <color name="colorPrimary">#ff4caf50</color>
-    <color name="colorPrimaryDark">#ff388e3c</color>
     <color name="ic_setting_icon_color">#FFFFFFFF</color>
     <color name="ic_wallpaper_icon_color">#FFFFFFFF</color>
     <color name="ic_widget_icon_color">#FFFFFFFF</color>
@@ -50,5 +45,10 @@
     <color name="locked_task_bg_color">#ffb52a2a</color>
     <color name="text_color_dark">@color/material_grey_100</color>
     <color name="text_color_light">@color/material_grey_900</color>
-    <color name="ic_launcher_background">@color/colorAccent</color>
+    <color name="ic_launcher_background">#ff4caf50</color>
+    <color name="system_default_accent">#ff009688</color>
+    <color name="system_default_primary">#fff5f5f5</color>
+    <color name="system_default_primary_dark">#ffeeeeee</color>
+    <color name="system_default_text_color">#ff000000</color>
+    <color name="default_drag_handle_color">#ff4caf50</color>
 </resources>

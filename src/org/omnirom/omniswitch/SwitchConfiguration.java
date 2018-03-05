@@ -28,9 +28,13 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.View;
 import android.view.WindowManager;
 
 public class SwitchConfiguration {
@@ -103,7 +107,8 @@ public class SwitchConfiguration {
     public List<String> mLockedAppList = new ArrayList<String>();
     public boolean mTopSortLockedApps;
     private Context mContext;
-    public boolean mDynamicDragHandleColor = true;
+    private ContextThemeWrapper mThemeContext;
+    public boolean mDynamicDragHandleColor;
     public boolean mBlockSplitscreenBreakers = true;
     public boolean mUsePowerHint;
     public Set<String> mHiddenAppsList = new HashSet<String>();
@@ -124,7 +129,8 @@ public class SwitchConfiguration {
     public enum BgStyle {
         TRANSPARENT,
         SOLID_LIGHT,
-        SOLID_DARK
+        SOLID_DARK,
+        SOLID_SYSTEM
     }
 
     public static SwitchConfiguration getInstance(Context context) {
@@ -136,6 +142,7 @@ public class SwitchConfiguration {
 
     private SwitchConfiguration(Context context) {
         mContext = context;
+        mThemeContext = new ContextThemeWrapper(context, R.style.AppThemeSystem);
         mWindowManager = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
 
@@ -262,6 +269,8 @@ public class SwitchConfiguration {
             mBgStyle = BgStyle.SOLID_LIGHT;
         } else if(bgStyleInt == 1) {
             mBgStyle = BgStyle.TRANSPARENT;
+        } else if(bgStyleInt == 3) {
+            mBgStyle = BgStyle.SOLID_SYSTEM;
         } else {
             mBgStyle = BgStyle.SOLID_DARK;
         }
@@ -296,6 +305,10 @@ public class SwitchConfiguration {
         mHiddenAppsList.clear();
         String hiddenListString = prefs.getString(SettingsActivity.PREF_HIDDEN_APPS, "");
         Utils.parseCollection(hiddenListString, mHiddenAppsList);
+
+        Log.d(TAG, "accentColor = " + prettyPrintColor(getDefaultDragHandleColor()));
+        Log.d(TAG, "colorPrimary = " + prettyPrintColor(getSystemPrimaryColor()));
+        Log.d(TAG, "colorPrimaryDark = " + prettyPrintColor(getSystemPrimaryDarkColor()));
 
         for(OnSharedPreferenceChangeListener listener : mPrefsListeners) {
             if(DEBUG){
@@ -423,20 +436,91 @@ public class SwitchConfiguration {
 
     public int getDragHandleColor() {
         if (mDynamicDragHandleColor) {
-            int color = getAttrColor(android.R.attr.colorAccent);
-            return color;
+            return getSystemAccentColor();
         }
         return mDragHandleColor;
     }
 
     public int getDefaultDragHandleColor() {
-        return mContext.getResources().getColor(R.color.colorAccent);
+        return mContext.getResources().getColor(R.color.default_drag_handle_color);
     }
 
-    public int getAttrColor(int attr) {
-        TypedArray ta = mContext.obtainStyledAttributes(new int[]{attr});
+    public int getSystemPrimaryColor() {
+        return getAttrColor(mThemeContext, android.R.attr.colorPrimary);
+    }
+
+    public int getSystemPrimaryDarkColor() {
+        return getAttrColor(mThemeContext, android.R.attr.colorPrimaryDark);
+    }
+
+    public int getSystemAccentColor() {
+        return getAttrColor(mThemeContext, android.R.attr.colorAccent);
+    }
+
+    public int getTaskHeaderColor() {
+        return getButtonBackgroundColor();
+    }
+
+    public int getCurrentButtonTint(int color) {
+        if (Utils.isBrightColor(color)) {
+            return mContext.getResources().getColor(R.color.text_color_light);
+        } else {
+            return mContext.getResources().getColor(R.color.text_color_dark);
+        }
+    }
+
+    public int getCurrentTextTint(int color) {
+        return getCurrentButtonTint(color);
+    }
+
+    public int getButtonBackgroundColor() {
+        if (mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT) {
+            if (mBgStyle == SwitchConfiguration.BgStyle.SOLID_SYSTEM) {
+                return getSystemPrimaryDarkColor();
+            } else {
+                return mContext.getResources().getColor(R.color.button_bg_flat_color);
+            }
+        }
+        return mContext.getResources().getColor(R.color.bg_transparent);
+    }
+
+    public int getViewBackgroundColor() {
+        if (mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
+            return mContext.getResources().getColor(R.color.bg_flat_color);
+        } else if (mBgStyle == SwitchConfiguration.BgStyle.SOLID_DARK) {
+            return mContext.getResources().getColor(R.color.bg_flat_color_dark);
+        } else if (mBgStyle == SwitchConfiguration.BgStyle.SOLID_SYSTEM) {
+            return getSystemPrimaryColor();
+        }
+        return mContext.getResources().getColor(R.color.bg_transparent);
+    }
+
+    public int getShadowColorValue() {
+        if (mBgStyle == BgStyle.TRANSPARENT) {
+            return 5;
+        }
+        return 0;
+    }
+
+    public int getPopupMenuStyle() {
+        if (mBgStyle == BgStyle.SOLID_LIGHT) {
+           return R.style.PopupMenuLight;
+        } else if (mBgStyle == BgStyle.SOLID_DARK || mBgStyle == BgStyle.TRANSPARENT) {
+            return R.style.PopupMenuDark;
+        } else if (mBgStyle == BgStyle.SOLID_SYSTEM) {
+            return R.style.PopupMenuSystem;
+        }
+        return R.style.PopupMenuLight;
+    }
+
+    public int getAttrColor(Context context, int attr) {
+        TypedArray ta = context.obtainStyledAttributes(new int[]{attr});
         int color = ta.getColor(0, 0);
         ta.recycle();
         return color;
+    }
+
+    private String prettyPrintColor(int color) {
+        return String.format("#%08X", color);
     }
 }

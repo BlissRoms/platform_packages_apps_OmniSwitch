@@ -542,7 +542,7 @@ public class SettingsGestureView implements DialogInterface.OnDismissListener {
 
     private int getDragHandleColor() {
         if (mDragHandleDynamicColor.isChecked()) {
-            return mConfiguration.getAttrColor(android.R.attr.colorAccent);
+            return mConfiguration.getSystemAccentColor();
         }
         return mColor;
     }

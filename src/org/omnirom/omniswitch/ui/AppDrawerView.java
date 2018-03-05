@@ -141,15 +141,10 @@ public class AppDrawerView extends GridView {
         PackageTextView item = new PackageTextView(mContext);
         if (mTransparent) {
             item.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-            item.setShadowLayer(5, 0, 0, Color.BLACK);
+            item.setShadowLayer(5f, 0, 0, Color.BLACK);
         } else {
-            if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-                item.setTextColor(mContext.getResources().getColor(R.color.text_color_light));
-                item.setShadowLayer(0, 0, 0, Color.BLACK);
-            } else {
-                item.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-                item.setShadowLayer(5, 0, 0, Color.BLACK);
-            }
+            item.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
+            item.setShadowLayer(mConfiguration.getShadowColorValue(), 0, 0, Color.BLACK);
         }
         item.setTextSize(mConfiguration.mLabelFontSize);
         item.setEllipsize(TextUtils.TruncateAt.END);

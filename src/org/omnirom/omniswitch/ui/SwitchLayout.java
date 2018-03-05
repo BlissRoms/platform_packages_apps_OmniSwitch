@@ -91,23 +91,14 @@ public class SwitchLayout extends AbstractSwitchLayout {
             }
             item.setTask(ad);
             item.setTaskInfo(mConfiguration);
+            if (ad.isLocked() || ad.isDocked()) {
+                item.setTextColor(Color.WHITE);
+            } else {
+                item.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
+            }
             return item;
         }
     }
-
-    private static final ViewOutlineProvider BUTTON_OUTLINE_PROVIDER = new ViewOutlineProvider() {
-        @Override
-        public void getOutline(View view, Outline outline) {
-            outline.setRect(0, 0, view.getWidth(), view.getHeight());
-        }
-    };
-
-    private static final ViewOutlineProvider BAR_OUTLINE_PROVIDER = new ViewOutlineProvider() {
-        @Override
-        public void getOutline(View view, Outline outline) {
-            outline.setRect(0, 0, view.getWidth(), view.getHeight());
-        }
-    };
 
     public SwitchLayout(SwitchManager manager, Context context) {
         super(manager, context);
@@ -526,52 +517,37 @@ public class SwitchLayout extends AbstractSwitchLayout {
     }
 
     private void updateStyle() {
+        mNoRecentApps.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
+        mNoRecentApps.setShadowLayer(mConfiguration.getShadowColorValue(), 0, 0, Color.BLACK);
+
         if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
             mForegroundProcessText.setShadowLayer(0, 0, 0, Color.BLACK);
             mBackgroundProcessText.setShadowLayer(0, 0, 0, Color.BLACK);
-            mNoRecentApps.setTextColor(mContext.getResources().getColor(R.color.text_color_light));
-            mNoRecentApps.setShadowLayer(0, 0, 0, Color.BLACK);
+
             ((ImageView) mOpenFavorite).setImageDrawable(BitmapUtils.colorize(
                     mContext.getResources(),
                     mContext.getResources().getColor(
                             R.color.button_bg_flat_color),
                     mContext.getResources().getDrawable(
                             R.drawable.ic_expand)));
-            mRamUsageBarContainer.setOutlineProvider(BAR_OUTLINE_PROVIDER);
         } else {
             mForegroundProcessText.setShadowLayer(5, 0, 0, Color.BLACK);
             mBackgroundProcessText.setShadowLayer(5, 0, 0, Color.BLACK);
-            mNoRecentApps.setTextColor(mContext.getResources().getColor(R.color.text_color_dark));
-            mNoRecentApps.setShadowLayer(5, 0, 0, Color.BLACK);
             ((ImageView) mOpenFavorite).setImageDrawable(BitmapUtils.shadow(
                     mContext.getResources(),
                     mContext.getResources().getDrawable(
                             R.drawable.ic_expand)));
-            mRamUsageBarContainer.setOutlineProvider(null);
         }
-        if (mConfiguration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT) {
-            mButtonListContainer.setBackground(mContext.getResources()
-                    .getDrawable(R.drawable.overlay_bg_button_flat));
-            mButtonListContainer.setOutlineProvider(BUTTON_OUTLINE_PROVIDER);
-        } else {
+        mButtonListContainer.setBackgroundColor(mConfiguration.getButtonBackgroundColor());
+        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.TRANSPARENT) {
             if (mConfiguration.mDimActionButton) {
-                mButtonListContainer.setBackground(mContext.getResources().getDrawable(
-                        R.drawable.overlay_bg));
                 mButtonListContainer.getBackground().setAlpha(50);
             } else {
                 mButtonListContainer.setBackground(null);
             }
-            mButtonListContainer.setOutlineProvider(null);
         }
-        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT) {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg_flat_gradient));
-        } else if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_DARK) {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg_flat_dark));
-        } else {
-            mView.setBackground(mContext.getResources().getDrawable(
-                    R.drawable.overlay_bg));
+        mView.setBackgroundColor(mConfiguration.getViewBackgroundColor());
+        if (mConfiguration.mBgStyle == SwitchConfiguration.BgStyle.TRANSPARENT) {
             if (!mConfiguration.mDimBehind) {
                 mView.getBackground().setAlpha(
                         (int) (255 * mConfiguration.mBackgroundOpacity));

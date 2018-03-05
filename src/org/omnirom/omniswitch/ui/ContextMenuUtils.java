@@ -58,8 +58,7 @@ public class ContextMenuUtils {
         final SwitchConfiguration configuration = SwitchConfiguration.getInstance(context);
         final DeepShortcutManager shortcutManager = new DeepShortcutManager(context);
         final Context wrapper = new ContextThemeWrapper(context,
-                configuration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT
-                ? R.style.PopupMenuLight : R.style.PopupMenuDark);
+                configuration.getPopupMenuStyle());
         final PopupMenu popup = new PopupMenu(wrapper, view);
         popup.getMenuInflater().inflate(R.menu.favorite_popup_menu,
                 popup.getMenu());
@@ -120,8 +119,7 @@ public class ContextMenuUtils {
         final SwitchConfiguration configuration = SwitchConfiguration.getInstance(context);
         final DeepShortcutManager shortcutManager = new DeepShortcutManager(context);
         final Context wrapper = new ContextThemeWrapper(context,
-                configuration.mBgStyle == SwitchConfiguration.BgStyle.SOLID_LIGHT
-                ? R.style.PopupMenuLight : R.style.PopupMenuDark);
+                configuration.getPopupMenuStyle());
         final PopupMenu popup = new PopupMenu(wrapper, view);
         popup.getMenuInflater().inflate(R.menu.package_popup_menu,
                 popup.getMenu());

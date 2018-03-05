@@ -18,6 +18,7 @@
 package org.omnirom.omniswitch.ui;
 
 import org.omnirom.omniswitch.R;
+import org.omnirom.omniswitch.SwitchConfiguration;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -51,8 +52,6 @@ public class BitmapUtils {
             sTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
             Typeface font = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
             sTextPaint.setTypeface(font);
-            sTextPaint.setColor(resources.getColor(R.color.text_color_dark));
-            sTextPaint.setShadowLayer(5.0f, 0.0f, 0.0f, Color.BLACK);
             sTextPaint.setTextAlign(Paint.Align.LEFT);
         }
         return sTextPaint;
@@ -76,11 +75,11 @@ public class BitmapUtils {
         return sDockedAppsPaint;
     }
 
-    public static Paint getDefaultBgPaint(Resources resources) {
+    public static Paint getDefaultBgPaint(Resources resources, SwitchConfiguration configuration) {
         if (sDefaultBgPaint == null) {
             sDefaultBgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             sDefaultBgPaint.setStyle(Paint.Style.FILL);
-            sDefaultBgPaint.setColor(resources.getColor(R.color.button_bg_flat_color));
+            sDefaultBgPaint.setColor(configuration.getTaskHeaderColor());
         }
         return sDefaultBgPaint;
     }
@@ -193,7 +192,8 @@ public class BitmapUtils {
     }
 
     public static Drawable memImage(Resources resources, int size,
-            float density, boolean horizontal, String line1, String line2) {
+            float density, boolean horizontal, String line1, String line2,
+            SwitchConfiguration configuration, int tintColor) {
         final Canvas canvas = new Canvas();
         final int borderPx = Math.round(5 * density);
         final int width = size;
@@ -206,11 +206,10 @@ public class BitmapUtils {
         final TextPaint textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         Typeface font = Typeface.create("sans-serif-condensed", Typeface.NORMAL);
         textPaint.setTypeface(font);
-        textPaint.setColor(resources.getColor(R.color.text_color_dark));
+        textPaint.setColor(tintColor);
         textPaint.setTextAlign(Paint.Align.LEFT);
         final int textSize = Math.round(14 * density);
         textPaint.setTextSize(textSize);
-        textPaint.setShadowLayer(5.0f, 0.0f, 0.0f, Color.BLACK);
 
         line1 = TextUtils.ellipsize(line1, textPaint, height, TextUtils.TruncateAt.END).toString();
         line2 = TextUtils.ellipsize(line2, textPaint, height, TextUtils.TruncateAt.END).toString();

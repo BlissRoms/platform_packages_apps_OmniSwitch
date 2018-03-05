@@ -19,6 +19,7 @@ package org.omnirom.omniswitch.ui;
 
 import org.omnirom.omniswitch.SwitchConfiguration;
 import org.omnirom.omniswitch.TaskDescription;
+import org.omnirom.omniswitch.Utils;
 import org.omnirom.omniswitch.RecentTasksLoader;
 import org.omnirom.omniswitch.R;
 
@@ -27,6 +28,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Rect;
@@ -48,17 +50,11 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
     private boolean mCanSideHeader;
     private float mThumbRatio = 1.0f;
     private static Bitmap sDefaultThumb;
+    private SwitchConfiguration mConfiguration;
 
     public ThumbnailTaskView(Context context) {
         super(context);
-    }
-
-    public ThumbnailTaskView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public ThumbnailTaskView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+        mConfiguration = SwitchConfiguration.getInstance(context);
     }
 
     public void setIntent(String intent) {
@@ -184,9 +180,8 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
         if (getTask() != null) {
             Drawable d = getTask().getIcon();
             if (d != null) {
-                SwitchConfiguration configuration = SwitchConfiguration.getInstance(getContext());
                 return BitmapUtils.resize(getContext().getResources(), d,
-                        configuration.mOverlayIconSizeDp, 0, configuration.mDensity);
+                        mConfiguration.mOverlayIconSizeDp, 0, mConfiguration.mDensity);
             }
         }
         return null;
@@ -194,13 +189,12 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
 
     @Override
     protected void onDraw(Canvas canvas) {
-        SwitchConfiguration configuration = SwitchConfiguration.getInstance(getContext());
-        final int iconSizePx = Math.round(configuration.mOverlayIconSizeDp * configuration.mDensity);
-        final int textInsetPx = Math.round(5 * configuration.mDensity);
-        final int width = (int)(configuration.mThumbnailWidth * mThumbRatio);
-        final int height = (int)(configuration.mThumbnailHeight * mThumbRatio);
-        final boolean sideHeader = mCanSideHeader ? configuration.mSideHeader : false;
-        final int iconBorderSizePx = configuration.getOverlayHeaderWidth();
+        final int iconSizePx = Math.round(mConfiguration.mOverlayIconSizeDp * mConfiguration.mDensity);
+        final int textInsetPx = Math.round(5 * mConfiguration.mDensity);
+        final int width = (int)(mConfiguration.mThumbnailWidth * mThumbRatio);
+        final int height = (int)(mConfiguration.mThumbnailHeight * mThumbRatio);
+        final boolean sideHeader = mCanSideHeader ? mConfiguration.mSideHeader : false;
+        final int iconBorderSizePx = mConfiguration.getOverlayHeaderWidth();
         Resources resources = getContext().getResources();
 
         canvas.setHwBitmapsInSwModeEnabled(true);
@@ -222,22 +216,25 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
 
         final TextPaint textPaint = BitmapUtils.getLabelTextPaint(resources);
         final int startTextPx = iconBorderSizePx + textInsetPx;
-        final int textSize = Math.round(14 * configuration.mDensity);
+        final int textSize = Math.round(14 * mConfiguration.mDensity);
         textPaint.setTextSize(textSize);
 
         Paint bgPaint = null;
         if (getTask().isDocked()) {
             bgPaint = BitmapUtils.geDockedAppsPaint(resources);
+            textPaint.setColor(Color.WHITE);
         } else if (getTask().isLocked()) {
             bgPaint = BitmapUtils.getLockedAppsPaint(resources);
+            textPaint.setColor(Color.WHITE);
         } else {
-            bgPaint = BitmapUtils.getDefaultBgPaint(resources);
+            bgPaint = BitmapUtils.getDefaultBgPaint(resources, mConfiguration);
+            textPaint.setColor(mConfiguration.getCurrentTextTint(bgPaint.getColor()));
         }
         if (bgPaint != null) {
-            if (configuration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT) {
+            if (mConfiguration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT) {
                 bgPaint.setAlpha(255);
             } else {
-                bgPaint.setAlpha((int) (255 * configuration.mBackgroundOpacity));
+                bgPaint.setAlpha((int) (255 * mConfiguration.mBackgroundOpacity));
             }
             if (sideHeader)  {
                 canvas.drawRect(0, 0, iconBorderSizePx, height, bgPaint);
@@ -250,7 +247,7 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
             taskIcon.setBounds(iconInset, iconInset, iconSizePx + iconInset, iconSizePx + iconInset);
             taskIcon.draw(canvas);
         }
-        if (getLabel() != null && configuration.mShowLabels) {
+        if (getLabel() != null && mConfiguration.mShowLabels) {
             String label = TextUtils.ellipsize(getLabel(), textPaint, width - startTextPx - textInsetPx, TextUtils.TruncateAt.END).toString();
             if (sideHeader) {
                 canvas.save();
