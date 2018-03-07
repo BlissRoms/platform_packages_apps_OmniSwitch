@@ -103,7 +103,7 @@ public class SwitchConfiguration {
     public List<String> mLockedAppList = new ArrayList<String>();
     public boolean mTopSortLockedApps;
     private Context mContext;
-    private boolean mDynamicDragHandleColor = true;
+    public boolean mDynamicDragHandleColor = true;
     public boolean mBlockSplitscreenBreakers = true;
     public boolean mUsePowerHint;
     public Set<String> mHiddenAppsList = new HashSet<String>();

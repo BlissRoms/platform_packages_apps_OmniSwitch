@@ -513,21 +513,6 @@ public class SwitchGestureView {
         }
 
         if (mConfiguration.mDragHandleShow) {
-            // TODO
-            /*if (key != null && key.equals(SettingsActivity.PREF_COLOR_CHANGED)) {
-                // this comes from package receiver which is sometimes too early to fetch new value
-                // so wait a few secs
-                Log.d(TAG, "updatePrefs  " + SettingsActivity.PREF_COLOR_CHANGED + " " + Integer.toHexString(mConfiguration.getDragHandleColor()));
-
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, "handle  " + SettingsActivity.PREF_COLOR_CHANGED + " " + Integer.toHexString(mConfiguration.getDragHandleColor()));
-                        colorizeDragHandleImage();
-                        updateButton(true);
-                    }
-                }, 3000);
-            }*/
             colorizeDragHandleImage();
             updateButton(true);
         }

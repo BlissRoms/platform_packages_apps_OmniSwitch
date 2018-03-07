@@ -431,7 +431,7 @@ public class SwitchLayout extends AbstractSwitchLayout {
         }
         buildButtonList();
         if (mView != null) {
-            if (key.equals(SettingsActivity.PREF_BUTTON_POS)) {
+            if (key != null && key.equals(SettingsActivity.PREF_BUTTON_POS)) {
                 selectButtonContainer();
             }
             updateStyle();

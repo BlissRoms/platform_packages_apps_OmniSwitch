@@ -429,7 +429,7 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         enableOpenFavoriteButton(!mShowAppDrawer);
 
         if (mView != null) {
-            if (key.equals(SettingsActivity.PREF_BUTTON_POS)) {
+            if (key != null && key.equals(SettingsActivity.PREF_BUTTON_POS)) {
                 selectButtonContainer();
             }
             updateStyle();

@@ -277,8 +277,13 @@ public class SwitchService extends Service {
         }
         try {
             if (mIsRunning) {
+                boolean updateDone = false;
                 if (mConfiguration.onConfigurationChanged(this)) {
                     updatePrefs(mPrefs, DPI_CHANGE);
+                    updateDone = true;
+                }
+                if (!updateDone && mConfiguration.mDynamicDragHandleColor) {
+                    updatePrefs(mPrefs, SettingsActivity.PREF_BG_STYLE);
                 }
                 mManager.updateLayout();
             }
