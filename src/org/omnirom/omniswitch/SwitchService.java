@@ -33,6 +33,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.os.Binder;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.preference.PreferenceManager;
@@ -156,15 +157,16 @@ public class SwitchService extends Service {
         mCommitSuicide = false;
     }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    public class LocalBinder extends Binder {
+        public SwitchService getService() {
+            return SwitchService.this;
+        }
     }
+    private final LocalBinder mBinder = new LocalBinder();
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        super.onStartCommand(intent, flags, startId);
-        return START_STICKY;
+    public IBinder onBind(Intent intent) {
+        return mBinder;
     }
 
     public static class RecentsReceiver extends BroadcastReceiver {
