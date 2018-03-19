@@ -451,7 +451,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
 
         if (buttonId == SettingsActivity.BUTTON_SETTINGS) {
             mSettingsButton = getActionButtonTemplate(mContext.getResources()
-                    .getDrawable(R.drawable.ic_settings_small));
+                    .getDrawable(R.drawable.ic_settings));
             mSettingsButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     mRecentsManager.startSettingsActivity();

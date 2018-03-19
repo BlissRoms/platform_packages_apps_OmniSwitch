@@ -149,7 +149,7 @@
         <string name="adjust_handle_summary">Configure position size and color</string>
         <string name="settings_button_text">Settings</string>
         <string name="wallpaper_button_text">Wallpaper</string>
-        <string name="category_launcher_title">Launcher mode</string>
+        <string name="category_launcher_title">Launcher</string>
         <string name="launcher_mode_summary">Run OmniSwitch also as your launcher. After enabling press home and select OmniSwitch</string>
         <string name="launcher_mode_title">Enable</string>
         <string name="launcher_mode_enable_check">Disable is not possible if launcher mode is active. Will be enabled again when launcher mode gets active</string>
@@ -190,4 +190,24 @@
         <string name="hidden_apps_dialog_title">Hidden apps</string>
         <string name="package_add_hidden_app_title">Hide app</string>
         <string name="bg_style_system">System</string>
+        <string name="omnijaws_current_text">Now</string>
+        <string name="calendar_view_status_perms">Touch to setup</string>
+        <string name="launcher_settings">Launcher settings</string>
+        <string name="calendar_event_no_title_label">No title</string>
+        <string name="weather_icon_pack_title">Weather condition icon pack</string>
+        <string name="hotseat_category_title">Dock</string>
+        <string name="pref_allDayEvents_title">Show all day events</string>
+        <string name="pref_allDayEvents_summary"></string>
+        <string name="preferences_widget_days_title">Display period</string>
+        <string name="two_weeks">2 weeks</string>
+        <string name="three_weeks">3 weeks</string>
+        <string name="one_month">1 month</string>
+        <string name="three_months">3 months</string>
+        <string name="preferences_widget_days_default" translatable="false" >14</string>
+        <string name="pref_show_today_title">Show date</string>
+        <string name="pref_show_today_summary"></string>
+        <string name="show_top_widget_title">Show top widget</string>
+        <string name="show_top_widget_summary"></string>
+        <string name="pref_show_events_title">Show upcoming events</string>
+        <string name="pref_show_events_summary"></string>
 </resources>

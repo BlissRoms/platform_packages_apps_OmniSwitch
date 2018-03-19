@@ -29,6 +29,18 @@
 
         <LinearLayout
             android:layout_width="@dimen/landscape_launcher_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <include
+                layout="@layout/top_container"
+                android:id="@+id/top_container" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/landscape_launcher_width"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
@@ -65,11 +77,10 @@
 
                 <ImageView
                     android:id="@+id/essentials_button"
-                    android:layout_height="56dp"
-                    android:layout_width="56dp"
+                    android:layout_height="@dimen/action_button_size"
+                    android:layout_width="@dimen/action_button_size"
                     android:src="@drawable/ic_essentials"
-                    android:scaleType="centerInside"
-                    android:padding="10dp" />
+                    android:scaleType="centerInside" />
 
                 <Space
                     android:layout_width="0dp"
@@ -78,11 +89,10 @@
 
                 <ImageView
                     android:id="@+id/edit_favorite_button"
-                    android:layout_height="56dp"
-                    android:layout_width="56dp"
+                    android:layout_height="@dimen/action_button_size"
+                    android:layout_width="@dimen/action_button_size"
                     android:src="@drawable/ic_favorite_edit"
                     android:scaleType="centerInside"
-                    android:padding="10dp"
                     android:visibility="gone" />
 
                 <Space
@@ -94,11 +104,10 @@
 
                 <ImageView
                     android:id="@+id/favorite_button"
-                    android:layout_height="56dp"
-                    android:layout_width="56dp"
+                    android:layout_height="@dimen/action_button_size"
+                    android:layout_width="@dimen/action_button_size"
                     android:src="@drawable/ic_favorite"
-                    android:scaleType="centerInside"
-                    android:padding="10dp" />
+                    android:scaleType="centerInside" />
 
                 <Space
                     android:layout_width="0dp"
@@ -107,11 +116,10 @@
 
                 <ImageView
                     android:id="@+id/app_drawer_button"
-                    android:layout_height="56dp"
-                    android:layout_width="56dp"
-                    android:src="@drawable/ic_app_drawer"
-                    android:scaleType="centerInside"
-                    android:padding="10dp" />
+                    android:layout_height="@dimen/action_button_size"
+                    android:layout_width="@dimen/action_button_size"
+                    android:src="@drawable/ic_apps"
+                    android:scaleType="centerInside" />
 
             </LinearLayout>
         </LinearLayout>

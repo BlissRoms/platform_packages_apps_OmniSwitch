@@ -37,6 +37,8 @@ import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.WindowManager;
 
+import org.omnirom.omniswitch.launcher.Launcher;
+
 public class SwitchConfiguration {
     private final static String TAG = "SwitchConfiguration";
     private static boolean DEBUG = false;
@@ -112,6 +114,7 @@ public class SwitchConfiguration {
     public boolean mBlockSplitscreenBreakers = true;
     public boolean mUsePowerHint;
     public Set<String> mHiddenAppsList = new HashSet<String>();
+    public Launcher mLauncher;
 
     // old pref slots
     private static final String PREF_DRAG_HANDLE_COLOR = "drag_handle_color";
@@ -305,10 +308,6 @@ public class SwitchConfiguration {
         mHiddenAppsList.clear();
         String hiddenListString = prefs.getString(SettingsActivity.PREF_HIDDEN_APPS, "");
         Utils.parseCollection(hiddenListString, mHiddenAppsList);
-
-        Log.d(TAG, "accentColor = " + prettyPrintColor(getDefaultDragHandleColor()));
-        Log.d(TAG, "colorPrimary = " + prettyPrintColor(getSystemPrimaryColor()));
-        Log.d(TAG, "colorPrimaryDark = " + prettyPrintColor(getSystemPrimaryDarkColor()));
 
         for(OnSharedPreferenceChangeListener listener : mPrefsListeners) {
             if(DEBUG){
@@ -520,7 +519,32 @@ public class SwitchConfiguration {
         return color;
     }
 
-    private String prettyPrintColor(int color) {
-        return String.format("#%08X", color);
+    private static SharedPreferences getPrefs(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+    public static String getWeatherIconPack(Context context) {
+        return getPrefs(context).getString(SettingsActivity.WEATHER_ICON_PACK_PREFERENCE_KEY, null);
+    }
+
+    public static boolean isShowAllDayEvents(Context context) {
+        return getPrefs(context).getBoolean(SettingsActivity.SHOW_ALL_DAY_EVENTS_PREFERENCE_KEY, false);
+    }
+
+    public static boolean isShowToday(Context context) {
+        return getPrefs(context).getBoolean(SettingsActivity.SHOW_TODAY_PREFERENCE_KEY, true);
+    }
+
+    public static int getEventDisplayPeriod(Context context) {
+        return Integer.valueOf(getPrefs(context).getString(SettingsActivity.SHOW_EVENTS_PERIOD_PREFERENCE_KEY,
+                context.getResources().getString(R.string.preferences_widget_days_default)));
+    }
+
+    public static boolean isShowEvents(Context context) {
+        return getPrefs(context).getBoolean(SettingsActivity.SHOW_EVENTS_PREFERENCE_KEY, true);
+    }
+
+    public static boolean isTopSpaceReserved(Context context) {
+        return getPrefs(context).getBoolean(SettingsActivity.SHOW_TOP_WIDGET_PREFERENCE_KEY, true);
     }
 }

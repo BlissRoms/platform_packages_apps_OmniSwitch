@@ -23,11 +23,10 @@
 
             <ImageView
                 android:id="@+id/phone_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_phone"
                 android:scaleType="centerInside"
-                android:padding="10dp"
                 android:visibility="gone" />
 
             <Space
@@ -39,11 +38,10 @@
 
             <ImageView
                 android:id="@+id/camera_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_camera"
-                android:scaleType="centerInside"
-                android:padding="10dp" />
+                android:scaleType="centerInside" />
 
             <Space
                 android:layout_width="0dp"
@@ -52,11 +50,10 @@
 
             <ImageView
                 android:id="@+id/assist_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_assist"
                 android:scaleType="centerInside"
-                android:padding="10dp"
                 android:visibility="gone"/>
 
             <Space
@@ -68,11 +65,10 @@
 
             <ImageView
                 android:id="@+id/voice_assist_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_voice_assist"
                 android:scaleType="centerInside"
-                android:padding="10dp"
                 android:visibility="gone"/>
 
             <Space
@@ -84,11 +80,10 @@
 
             <ImageView
                 android:id="@+id/wallpaper_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_wallpaper"
-                android:scaleType="centerInside"
-                android:padding="10dp" />
+                android:scaleType="centerInside" />
 
             <Space
                 android:layout_width="0dp"
@@ -97,9 +92,8 @@
 
             <ImageView
                 android:id="@+id/settings_button"
-                android:layout_height="56dp"
-                android:layout_width="56dp"
+                android:layout_height="@dimen/action_button_size"
+                android:layout_width="@dimen/action_button_size"
                 android:src="@drawable/ic_settings"
-                android:scaleType="centerInside"
-                android:padding="10dp" />
+                android:scaleType="centerInside" />
 </LinearLayout>

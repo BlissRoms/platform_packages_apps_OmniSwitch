@@ -17,6 +17,7 @@
  */
 package org.omnirom.omniswitch.launcher;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -74,6 +75,7 @@ import org.omnirom.omniswitch.SwitchConfiguration;
 import org.omnirom.omniswitch.SwitchManager;
 import org.omnirom.omniswitch.SwitchService;
 import org.omnirom.omniswitch.Utils;
+import org.omnirom.omniswitch.launcher.topwidget.TopWidgetView;
 import org.omnirom.omniswitch.ui.AppDrawerView;
 import org.omnirom.omniswitch.ui.FavoriteDialog;
 import org.omnirom.omniswitch.ui.FavoriteViewHorizontal;
@@ -93,6 +95,7 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
     public static final String STATE_ESSENTIALS_EXPANDED = "state_essentials_expanded";
     // 0 1=fav 2=app drawer
     public static final String STATE_PANEL_SHOWN = "state_panel_shown";
+    private static final int REQUEST_PERMISSION_CALENDAR = 1;
 
     private static final Intent PHONE_INTENT = new Intent(Intent.ACTION_DIAL);
     private static final float ROTATE_0_DEGREE = 0f;
@@ -130,6 +133,7 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
     private ImageView mEssentialsButton;
     private boolean mEssentialsPanelVisibile;
     private ImageView mCameraButton;
+    private TopWidgetView mTopContainer;
 
     private Runnable mLongPressRunnable = new Runnable(){
     @Override
@@ -192,6 +196,8 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
                 }
                 mAppDrawer.updatePrefs(prefs, key);
                 mFavoriteGrid.updatePrefs(prefs, key);
+                updateTopWidgetVisibility();
+                updateTopWidgetSettings();
             } catch(Exception e) {
                 Log.e(TAG, "updatePrefs", e);
             }
@@ -497,6 +503,10 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
         mFavoriteGrid = (FavoriteView) findViewById(R.id.favorite_grid);
         mFavoriteGrid.setTransparentMode(true);
         mFavoriteGrid.init();
+
+        mConfiguration.mLauncher = this;
+        mTopContainer = (TopWidgetView) findViewById(R.id.top_container);
+        updateTopWidgetVisibility();
     }
 
     private LinearLayout.LayoutParams getListParams() {
@@ -891,6 +901,47 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
 
     private boolean isDeviceProvisioned() {
         return (Settings.Global.getInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0) != 0);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == REQUEST_PERMISSION_CALENDAR) {
+            if (grantResults.length > 0
+                    && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                if (mTopContainer != null) {
+                    mTopContainer.checkPermissions();
+                }
+            }
+        }
+    }
+
+    public boolean isCalendarPermissionEnabled() {
+        if (checkSelfPermission(Manifest.permission.READ_CONTACTS) != android.content.pm.PackageManager.PERMISSION_GRANTED ||
+                checkSelfPermission(Manifest.permission.READ_CALENDAR) != android.content.pm.PackageManager.PERMISSION_GRANTED||
+                checkSelfPermission(Manifest.permission.WRITE_CALENDAR) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+        return true;
+    }
+
+    public void requestCalendarPermission() {
+        requestPermissions(new String[]{Manifest.permission.READ_CONTACTS,
+                Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR},
+                REQUEST_PERMISSION_CALENDAR);
+    }
+
+    public void updateTopWidgetVisibility() {
+        boolean visible = SwitchConfiguration.isTopSpaceReserved(this);
+        if (mTopContainer != null) {
+            mTopContainer.updateTopWidgetVisibility(visible);
+        }
+    }
+
+    public void updateTopWidgetSettings() {
+        if (mTopContainer != null) {
+            mTopContainer.updateSettings();
+        }
     }
 }
 
