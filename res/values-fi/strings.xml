@@ -16,4 +16,62 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Poista</string>
+  <string name="package_inspect_item_title">Sovelluksen tiedot</string>
+  <string name="start_on_boot_title">Aloita käynnistyksen yhteydessä</string>
+  <string name="opacity_title">Läpinäkyvyys</string>
+  <string name="icon_size_normal">Normaali</string>
+  <string name="icon_size_small">Pieni</string>
+  <string name="icon_size_large">Suuri</string>
+  <string name="icon_size_title">Kuvakkeen koko</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Peruuta</string>
+  <string name="drag_handle_color_title">Väri</string>
+  <string name="drag_handle_color_dialog_title">Väri</string>
+  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> vapaana</string>
+  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> käytetty</string>
+  <string name="show_rambar_title">Näytä muistin kulutus</string>
+  <string name="show_rambar_summary">Näytä vapaan ja käytetyn muistin määrä</string>
+  <string name="show_app_labels">Näytä sovelluksen nimi</string>
+  <string name="category_favorite_title">Suosikit</string>
+  <string name="favorite_apps_config_title">Järjestä suosikit</string>
+  <string name="favorite_apps_add_dialog_title">Lisää sovelluksia</string>
+  <string name="favorite_add">Lisää\u2026</string>
+  <string name="location_left">Vasen</string>
+  <string name="location_right">Oikea</string>
+  <string name="reset">Oletus</string>
+  <string name="toggle_last_app">Viimeisin sovellus</string>
+  <string name="kill_all_apps_help">Tapa kaikki sovellukset</string>
+  <string name="kill_other_apps_help">Tapa mut sovellukset</string>
+  <string name="settings_help">Asetukset</string>
+  <string name="settings">Asetukset</string>
+  <string name="auto_hide_handle">Piilota automaattisesti</string>
+  <string name="drag_handle_opacity_title">Läpinäkyvyys</string>
+  <string name="button_pos_top">Ylhäällä/Vasemmalla</string>
+  <string name="button_pos_bottom">Alhaalla/Oikealla</string>
+  <string name="bg_style_solid_light">Vaalea</string>
+  <string name="bg_style_solid_dark">Tumma</string>
+  <string name="bg_style_transparent">Läpinäkyvä</string>
+  <string name="bg_style_title">Taustan tyyli</string>
+  <string name="layout_style_title">Tyyli</string>
+  <string name="one_hour">1 tunti</string>
+  <string name="three_hours">3 tuntia</string>
+  <string name="six_hours">6 tuntia</string>
+  <string name="twelve_hours">12 tuntia</string>
+  <string name="one_day">1 päivä</string>
+  <string name="two_days">2 päivää</string>
+  <string name="one_week">1 viikko</string>
+  <string name="close">Sulje</string>
+  <string name="thumb_size_normal">Normaali</string>
+  <string name="thumb_size_small">Pieni</string>
+  <string name="thumb_size_medium">Keskikokoinen</string>
+  <string name="settings_button_text">Asetukset</string>
+  <string name="wallpaper_button_text">Taustakuva</string>
+  <string name="package_force_stop_title">Pakota lopetus</string>
+  <string name="package_lock_app_title">Lukitse sovellus</string>
+  <string name="package_unlock_app_title">Poista sovelluksen lukitus</string>
+  <string name="category_allapps_title">Sovellusvalikko</string>
+  <string name="hidden_apps_dialog_title">Piilotetut sovellukset</string>
+  <string name="package_add_hidden_app_title">Piilota sovellus</string>
+</resources>

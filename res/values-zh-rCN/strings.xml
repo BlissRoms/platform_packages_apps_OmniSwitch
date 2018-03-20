@@ -181,7 +181,9 @@
   <string name="dock_non_resizeble_failed_to_dock_text">该应用不支持分屏</string>
   <string name="block_apps_on_splitscreen_summary">分屏模式下禁止切换到不支持分屏的应用</string>
   <string name="block_apps_on_splitscreen_title">阻止不可停靠的应用</string>
+  <string name="use_power_hint_summary">使用电源 HAL 提示加快。设备依赖!</string>
   <string name="use_power_hint_title">使用电量提示</string>
+  <string name="hidden_apps_config_summary">定义隐藏在应用程序抽屉视图中的应用程序</string>
   <string name="hidden_apps_config_title">隐藏应用</string>
   <string name="category_allapps_title">应用抽屉</string>
   <string name="hidden_apps_dialog_title">隐藏的应用</string>

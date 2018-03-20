@@ -183,4 +183,8 @@
   <string name="block_apps_on_splitscreen_title">Bloquear aplicaciones que no se puedan cargar</string>
   <string name="use_power_hint_summary">Use la pista HAL para acelerar. ¡Dependerá del dispositivo!</string>
   <string name="use_power_hint_title">Use las sugerencia de poder</string>
+  <string name="hidden_apps_config_title">Aplicaciones ocultas</string>
+  <string name="category_allapps_title">Cajón de aplicación</string>
+  <string name="hidden_apps_dialog_title">Aplicaciones ocultas</string>
+  <string name="package_add_hidden_app_title">Ocultar aplicación</string>
 </resources>

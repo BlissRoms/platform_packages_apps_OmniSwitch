@@ -17,12 +17,15 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Fjern</string>
   <string name="package_inspect_item_title">Info om app</string>
   <string name="start_on_boot_title">Start ved oppstart</string>
   <string name="start_on_boot_summary">Aktivering når enheten starter</string>
   <string name="opacity_title">Transparens</string>
   <string name="opacity_summary">Bakgrunnstransparens av overleggsvisning</string>
   <string name="animate_title">Animere</string>
+  <string name="animate_title_summary">Animasjon når du viser/ gjemmer</string>
+  <string name="adjust_handle_help">Flytte og skaleringshåndtak</string>
   <string name="icon_size_normal">Vanlig</string>
   <string name="icon_size_small">Liten</string>
   <string name="icon_size_large">Stor</string>
@@ -38,6 +41,7 @@
   <string name="show_app_labels">Vis app navn</string>
   <string name="show_app_labels_summary">App navn vises med ikonet</string>
   <string name="category_overlay_title">Overlegg</string>
+  <string name="category_drag_handle_title">Skaleringshåndtak</string>
   <string name="category_favorite_title">Favoritter</string>
   <string name="favorite_apps_config_title">Administrere favoritter</string>
   <string name="favorite_apps_config_summary">Velg apper i favorittvisning</string>
@@ -67,8 +71,10 @@
   <string name="allapps_help">App skuff</string>
   <string name="allapps">Apper</string>
   <string name="dim_behind_title">Demp bakgrunn</string>
+  <string name="dim_behind_summary">Bruke transparens for å fylle skjerm</string>
   <string name="gravity_title">Vannrett gravitasjon</string>
   <string name="gravity_center">Sentrere</string>
+  <string name="gravity_drag">Skaleringshåndtak side</string>
   <string name="dialog_pick_iconpack_title">Velg ikonpakke</string>
   <string name="default_iconpack_title">Standardikoner</string>
   <string name="icon_packs_title">Ikonpakker</string>
@@ -76,6 +82,7 @@
   <string name="icon_pack_title">Ikonpakke</string>
   <string name="icon_pack_summary">Bruk ikonpakke for app ikoner</string>
   <string name="category_speed_switcher_title">Hurtigveksler</string>
+  <string name="speed_switcher_enable_summary">Langt trykk på skaleringshåndtak for aktivering</string>
   <string name="speed_switcher_enable_title">Aktiver</string>
   <string name="back">Tilbake</string>
   <string name="back_help">Tilbake</string>
@@ -86,6 +93,7 @@
   <string name="speed_switch_limit_summary">Begrens område for endringer</string>
   <string name="speed_switch_limit">Nivåendringsområde</string>
   <string name="speed_switch_button_title">Knapper</string>
+  <string name="speed_switch_button_summary">Konfigurer handlingsknapper i hurtigvekslervisning</string>
   <string name="speed_switch_items_summary">Maksimalt antall nivå elementer</string>
   <string name="speed_switch_item">Nivå elementgrense</string>
   <string name="immersive_mode">Fullskjermmodus</string>
@@ -136,6 +144,7 @@
   <string name="package_right_task_title">Høyre</string>
   <string name="package_full_task_title">Full størrelse</string>
   <string name="shortcut_label_toggle_overlay">Vis/Skjul overlegg</string>
+  <string name="adjust_handle_title_new">Konfigurere skaleringshåndtak</string>
   <string name="adjust_handle_summary">Konfigurere posisjon, størrelse og farge</string>
   <string name="settings_button_text">Innstillinger</string>
   <string name="wallpaper_button_text">Bakgrunn</string>
@@ -161,5 +170,11 @@
   <string name="dialog_overlay_perms_msg">Aktiver \u0022trekke over andre apper\u0022 tillatelse</string>
   <string name="package_dock_task_title">Forankringstasjon</string>
   <string name="package_undock_task_title">Bryte forankring</string>
+  <string name="dim_action_buttons_summary">Gi ekstra bakgrunnsdemping til handlingsknapper</string>
   <string name="dim_action_buttons_title">Demp handlingsknapp bakgrunn</string>
+  <string name="package_force_stop_title">Tving avslutning</string>
+  <string name="package_lock_app_title">Lås app</string>
+  <string name="package_unlock_app_title">Lås opp app</string>
+  <string name="locked_apps_sort_summary">Låste apper vises først i liste</string>
+  <string name="locked_apps_sort_title">Sorter låste apper</string>
 </resources>
