@@ -81,7 +81,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
     protected static final float ROTATE_180_DEGREE = 180f;
     protected static final float ROTATE_270_DEGREE = 270f;
     protected static final float ROTATE_360_DEGREE = 360f;
-    protected static final String TAG = "SwitchLayout";
+    protected static final String TAG = "OmniSwitch:SwitchLayout";
     protected static final boolean DEBUG = false;
 
     protected WindowManager mWindowManager;

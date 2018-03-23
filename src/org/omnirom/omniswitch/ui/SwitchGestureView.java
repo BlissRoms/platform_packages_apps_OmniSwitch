@@ -67,7 +67,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class SwitchGestureView {
-    private final static String TAG = "SwitchGestureView";
+    private final static String TAG = "OmniSwitch:SwitchGestureView";
     private static final boolean DEBUG = false;
 
     private static final int FLIP_DURATION_DEFAULT = 200;
@@ -427,6 +427,12 @@ public class SwitchGestureView {
         return lp;
     }
 
+    public WindowManager.LayoutParams getCustomParamsSmall(int height) {
+        WindowManager.LayoutParams lp = getParamsSmall();
+        lp.y = mConfiguration.getCurrentOffsetStart(height);
+        return lp;
+    }
+
     private FrameLayout.LayoutParams getDragHandleLayoutParamsSmall() {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 mConfiguration.mDragHandleWidth,
@@ -587,9 +593,12 @@ public class SwitchGestureView {
         return mShowing;
     }
 
-    public void updateLayout() {
+    public void updateDragHandlePosition(int height) {
         if (mShowing){
-            mWindowManager.updateViewLayout(mView, getParamsSmall());
+            if (DEBUG){
+                Log.d(TAG, "updateLayout " + mConfiguration.getCurrentOffsetStart(height));
+            }
+            mWindowManager.updateViewLayout(mView, getCustomParamsSmall(height));
         }
     }
 

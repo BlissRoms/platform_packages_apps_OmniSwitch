@@ -52,7 +52,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class SwitchManager {
-    private static final String TAG = "SwitchManager";
+    private static final String TAG = "OmniSwitch:SwitchManager";
     private static final boolean DEBUG = false;
     private List<TaskDescription> mLoadedTasks;
     private List<TaskDescription> mLoadedTasksOriginal;
@@ -433,12 +433,12 @@ public class SwitchManager {
         }
     }
 
-    public void updateLayout() {
+    public void updateLayout(int height) {
         if (mLayout.isShowing()){
             mLayout.updateLayout();
         }
         if (mGestureView.isShowing()){
-            mGestureView.updateLayout();
+            mGestureView.updateDragHandlePosition(height);
         }
     }
 

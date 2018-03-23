@@ -40,7 +40,7 @@ import android.view.WindowManager;
 import org.omnirom.omniswitch.launcher.Launcher;
 
 public class SwitchConfiguration {
-    private final static String TAG = "SwitchConfiguration";
+    private final static String TAG = "OmniSwitch:SwitchConfiguration";
     private static boolean DEBUG = false;
 
     public float mBackgroundOpacity = 0.7f;
@@ -352,6 +352,10 @@ public class SwitchConfiguration {
 
     public int getCurrentOffsetStart() {
         return (getCurrentDisplayHeight() / 100) * mStartYRelative;
+    }
+
+    public int getCurrentOffsetStart(int height) {
+        return (height / 100) * mStartYRelative;
     }
 
     public int getCustomOffsetStart(int startYRelative) {

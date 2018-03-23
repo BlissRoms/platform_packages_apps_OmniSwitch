@@ -44,7 +44,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 public class SwitchService extends Service {
-    private final static String TAG = "SwitchService";
+    private final static String TAG = "OmniSwitch:SwitchService";
     private static boolean DEBUG = false;
 
     private static final int START_SERVICE_ERROR_ID = 0;
@@ -289,7 +289,11 @@ public class SwitchService extends Service {
                         mConfiguration.mDynamicDragHandleColor)) {
                     updatePrefs(mPrefs, SettingsActivity.PREF_BG_STYLE);
                 }
-                mManager.updateLayout();
+                int newScreenHeight = Math.round(newConfig.screenHeightDp * mConfiguration.mDensity);
+                if(DEBUG){
+                    Log.d(TAG, "newScreenHeight = " + newScreenHeight);
+                }
+                mManager.updateLayout(newScreenHeight);
             }
         } catch(Exception e) {
             Log.e(TAG, "onConfigurationChanged", e);
