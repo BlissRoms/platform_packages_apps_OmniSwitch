@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">配置位置、 大小和颜色</string>
   <string name="settings_button_text">选项</string>
   <string name="wallpaper_button_text">壁纸</string>
-  <string name="category_launcher_title">启动器模式</string>
+  <string name="category_launcher_title">启动器</string>
   <string name="launcher_mode_summary">启用OmniSwitch作为启动器。启用后按home键并选择OmniSwitch</string>
   <string name="launcher_mode_title">启用</string>
   <string name="launcher_mode_enable_check">无法在启动器模式激活时禁用，将会在启动器模式激活时再次启用</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">应用抽屉</string>
   <string name="hidden_apps_dialog_title">隐藏的应用</string>
   <string name="package_add_hidden_app_title">隐藏应用</string>
+  <string name="bg_style_system">系统</string>
+  <string name="omnijaws_current_text">现在</string>
+  <string name="calendar_view_status_perms">触摸设置</string>
+  <string name="launcher_settings">启动器设置</string>
+  <string name="calendar_event_no_title_label">无标题</string>
+  <string name="weather_icon_pack_title">天气状况图标</string>
+  <string name="hotseat_category_title">底座</string>
+  <string name="pref_allDayEvents_title">显示所有日期事件</string>
+  <string name="preferences_widget_days_title">显示周期</string>
+  <string name="two_weeks">2 周</string>
+  <string name="three_weeks">3 周</string>
+  <string name="one_month">1 个月</string>
+  <string name="three_months">3 个月</string>
+  <string name="pref_show_today_title">显示日期</string>
+  <string name="show_top_widget_title">显示顶部小部件</string>
+  <string name="pref_show_events_title">显示即将发生事件</string>
 </resources>

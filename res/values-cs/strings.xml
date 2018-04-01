@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Nastavit pozici velikosti a barvy</string>
   <string name="settings_button_text">Nastavení</string>
   <string name="wallpaper_button_text">Tapeta</string>
-  <string name="category_launcher_title">Režim spuštění</string>
+  <string name="category_launcher_title">Spouštěč</string>
   <string name="launcher_mode_summary">OmniSwitch můžete použít také jako launcher. Pro zapnutí stiskněte tlačítko Domů a vyberte OmniSwitch</string>
   <string name="launcher_mode_title">Zapnout</string>
   <string name="launcher_mode_enable_check">Vypnutí není možné, pokud je aktivní režim launcheru. Znovu může být zapnut, když bude launcher aktivován</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Panel aplikací</string>
   <string name="hidden_apps_dialog_title">Skryté aplikace</string>
   <string name="package_add_hidden_app_title">Skrýt aplikace</string>
+  <string name="bg_style_system">Systém</string>
+  <string name="omnijaws_current_text">Nyní</string>
+  <string name="calendar_view_status_perms">Dotykem nastavíte</string>
+  <string name="launcher_settings">Nastavení spouštěče</string>
+  <string name="calendar_event_no_title_label">Bez názvu</string>
+  <string name="weather_icon_pack_title">Balíček ikon stavu počasí</string>
+  <string name="hotseat_category_title">Dok</string>
+  <string name="pref_allDayEvents_title">Zobrazit všechny denní události</string>
+  <string name="preferences_widget_days_title">Doba zobrazení</string>
+  <string name="two_weeks">2 týdny</string>
+  <string name="three_weeks">3 týdny</string>
+  <string name="one_month">1 měsíc</string>
+  <string name="three_months">3 měsíce</string>
+  <string name="pref_show_today_title">Zobrazit datum</string>
+  <string name="show_top_widget_title">Zobrazit widget nahoře</string>
+  <string name="pref_show_events_title">Zobrazit nadcházející události</string>
 </resources>

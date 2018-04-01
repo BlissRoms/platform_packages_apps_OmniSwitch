@@ -148,7 +148,6 @@
   <string name="adjust_handle_summary">Position, Größe und Farbe konfigurieren</string>
   <string name="settings_button_text">Einstellungen</string>
   <string name="wallpaper_button_text">Hintergrundbild</string>
-  <string name="category_launcher_title">Startseitenmodus</string>
   <string name="launcher_mode_summary">OmniSwitch auch als Startseite verwenden. Nach Aktivierung Home-Taste drücken und OmniSwitch wählen</string>
   <string name="launcher_mode_title">Einschalten</string>
   <string name="launcher_mode_enable_check">Deaktivieren ist nicht möglich, wenn der Startseitenmodus aktiv ist. Wird wieder aktiviert, wenn Startseitemodus aktiv wird</string>

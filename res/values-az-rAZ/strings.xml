@@ -147,7 +147,6 @@
   <string name="adjust_handle_summary">Məkanı, ölçünü və rəngi təyin et</string>
   <string name="settings_button_text">Parametrlər</string>
   <string name="wallpaper_button_text">Divar kağızı</string>
-  <string name="category_launcher_title">Başladıcı modu</string>
   <string name="launcher_mode_summary">OmniSwitch tətbiqetməsini başladıcınız kimi də işlədin. Aktivləşdirdikdən sonra ana ekran düyməsinə toxunun və OmniSwitch tətbiqini seçin</string>
   <string name="launcher_mode_title">Aktivləşdir</string>
   <string name="launcher_mode_enable_check">Başladıcı modu aktivdirsə qeyri-aktiv edilmir. Başladıcı modu aktiv olanda təkrardan aktivləşdiriləcək</string>

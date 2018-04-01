@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Konumu, boyutu ve rengi yapılandırın</string>
   <string name="settings_button_text">Ayarlar</string>
   <string name="wallpaper_button_text">Duvar kâğıdı</string>
-  <string name="category_launcher_title">Başlatıcı modu</string>
+  <string name="category_launcher_title">Başlatıcı</string>
   <string name="launcher_mode_summary">OmniSwitch uygulamasını başlatıcınız olarak da çalıştırın. Etkinleştirdikten sonra ana ekran düğmesine dokunun ve OmniSwİtch uygulamasını seçin</string>
   <string name="launcher_mode_title">Etkinleştir</string>
   <string name="launcher_mode_enable_check">Başlatıcı modu etkinse devre dışı bırakılamaz. Başlatıcı modu etkin olduğunda tekrar etkinleştirilecek</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Uygulama menüsü</string>
   <string name="hidden_apps_dialog_title">Saklanmış uygulamalar</string>
   <string name="package_add_hidden_app_title">Uygulamayı sakla</string>
+  <string name="bg_style_system">Sistem</string>
+  <string name="omnijaws_current_text">Şu ân</string>
+  <string name="calendar_view_status_perms">Kurmak için dokunun</string>
+  <string name="launcher_settings">Başlatıcı ayarları</string>
+  <string name="calendar_event_no_title_label">Başlık yok</string>
+  <string name="weather_icon_pack_title">Hava durumu simge paketi</string>
+  <string name="hotseat_category_title">Alt menü</string>
+  <string name="pref_allDayEvents_title">Gün boyu süren faaliyetleri göster</string>
+  <string name="preferences_widget_days_title">Gösterme devri</string>
+  <string name="two_weeks">2 hafta</string>
+  <string name="three_weeks">3 hafta</string>
+  <string name="one_month">1 ay</string>
+  <string name="three_months">3 ay</string>
+  <string name="pref_show_today_title">Târihi göster</string>
+  <string name="show_top_widget_title">En iyi widget\'ı göster</string>
+  <string name="pref_show_events_title">Yaklaşan faaliyetleri göster</string>
 </resources>

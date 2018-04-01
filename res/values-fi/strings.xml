@@ -46,8 +46,10 @@
   <string name="kill_other_apps_help">Tapa mut sovellukset</string>
   <string name="settings_help">Asetukset</string>
   <string name="settings">Asetukset</string>
+  <string name="buttons_title">Näppäimet</string>
   <string name="auto_hide_handle">Piilota automaattisesti</string>
   <string name="drag_handle_opacity_title">Läpinäkyvyys</string>
+  <string name="speed_switch_button_title">Näppäimet</string>
   <string name="button_pos_top">Ylhäällä/Vasemmalla</string>
   <string name="button_pos_bottom">Alhaalla/Oikealla</string>
   <string name="bg_style_solid_light">Vaalea</string>
@@ -74,4 +76,6 @@
   <string name="category_allapps_title">Sovellusvalikko</string>
   <string name="hidden_apps_dialog_title">Piilotetut sovellukset</string>
   <string name="package_add_hidden_app_title">Piilota sovellus</string>
+  <string name="pref_allDayEvents_title">Näytä koko päivän tapahtumat</string>
+  <string name="pref_show_events_title">Näytä tulevat tapahtumat</string>
 </resources>

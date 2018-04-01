@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Nastaviť umiestnenie a farbu</string>
   <string name="settings_button_text">Nastavenia</string>
   <string name="wallpaper_button_text">Tapeta</string>
-  <string name="category_launcher_title">Režim spúšťača</string>
+  <string name="category_launcher_title">Spúšťač</string>
   <string name="launcher_mode_summary">Používať OmniSwitch aj ako spúšťač. Po nastavení stlačte Domov a vyberte OmniSwitch</string>
   <string name="launcher_mode_title">Povoliť</string>
   <string name="launcher_mode_enable_check">Zrušenie nie je možné pokiaľ je spúšťač aktívny. Bude znova povolený pri ďaľšej aktivácií</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Zoznam aplikácií</string>
   <string name="hidden_apps_dialog_title">Skryté aplikácie</string>
   <string name="package_add_hidden_app_title">Skryť aplikáciu</string>
+  <string name="bg_style_system">Systém</string>
+  <string name="omnijaws_current_text">Teraz</string>
+  <string name="calendar_view_status_perms">Nastavíte dotykom</string>
+  <string name="launcher_settings">Nastavenia spúšťača</string>
+  <string name="calendar_event_no_title_label">Bez názvu</string>
+  <string name="weather_icon_pack_title">Balíček ikon stavu počasia</string>
+  <string name="hotseat_category_title">Dok</string>
+  <string name="pref_allDayEvents_title">Zobraziť všetky denné udalosti</string>
+  <string name="preferences_widget_days_title">Časový interval zobrazenia</string>
+  <string name="two_weeks">2 týždne</string>
+  <string name="three_weeks">3 týždne</string>
+  <string name="one_month">1 mesiac</string>
+  <string name="three_months">3 mesiace</string>
+  <string name="pref_show_today_title">Zobraziť dátum</string>
+  <string name="show_top_widget_title">Zobraziť najlepšie miniaplikácie</string>
+  <string name="pref_show_events_title">Zobraziť nadchádzajúce udalosti</string>
 </resources>

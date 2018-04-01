@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Configurer la taille, la position et la couleur</string>
   <string name="settings_button_text">Paramètres</string>
   <string name="wallpaper_button_text">Fond d’écran</string>
-  <string name="category_launcher_title">Mode lanceur</string>
+  <string name="category_launcher_title">Lanceur d\'applications</string>
   <string name="launcher_mode_summary">Exécuter également OmniSwitch en tant que « lanceur d\'applications ». Après activation, appuyer sur le bouton Accueil et sélectionner OmniSwitch</string>
   <string name="launcher_mode_title">Activer</string>
   <string name="launcher_mode_enable_check">Impossible de désactiver si le mode « lanceur d\'applications » est actif. OmniSwitch sera de nouveau activé lorsque ce mode sera exécuté</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Tiroir d\'application</string>
   <string name="hidden_apps_dialog_title">Applications masquées</string>
   <string name="package_add_hidden_app_title">Masquer l\'application</string>
+  <string name="bg_style_system">Système</string>
+  <string name="omnijaws_current_text">Maintenant</string>
+  <string name="calendar_view_status_perms">Touchez pour configurer</string>
+  <string name="launcher_settings">Paramètres du lanceur</string>
+  <string name="calendar_event_no_title_label">Pas de titre</string>
+  <string name="weather_icon_pack_title">Pack d\'icônes de condition météo</string>
+  <string name="hotseat_category_title">Dock</string>
+  <string name="pref_allDayEvents_title">Afficher tous les événements de la journée</string>
+  <string name="preferences_widget_days_title">Période d’affichage</string>
+  <string name="two_weeks">2 semaines</string>
+  <string name="three_weeks">3 semaines</string>
+  <string name="one_month">1 mois</string>
+  <string name="three_months">3 mois</string>
+  <string name="pref_show_today_title">Afficher la date</string>
+  <string name="show_top_widget_title">Afficher le widget supérieur</string>
+  <string name="pref_show_events_title">Afficher les événements à venir</string>
 </resources>

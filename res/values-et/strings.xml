@@ -138,7 +138,7 @@
   <string name="adjust_handle_summary">Seadista positsiooni suurust ja värvi</string>
   <string name="settings_button_text">Seaded</string>
   <string name="wallpaper_button_text">Taustapilt</string>
-  <string name="category_launcher_title">Käivitaja režiim</string>
+  <string name="category_launcher_title">Käivitaja</string>
   <string name="launcher_mode_summary">Kasuta OmniSwitchi ka oma käivitajana. Peale lubamist vajuta kodunuppu ja vali OmniSwitch</string>
   <string name="launcher_mode_title">Luba</string>
   <string name="launcher_mode_enable_check">Keelamine ei ole võimalik, kui käivitajarežiim on sees. Lubatakse uuesti, kui käivitajarežiim aktiveerub</string>
@@ -172,4 +172,20 @@
   <string name="category_allapps_title">Rakendustesahtel</string>
   <string name="hidden_apps_dialog_title">Peidetud rakendused</string>
   <string name="package_add_hidden_app_title">Peida rakendus</string>
+  <string name="bg_style_system">Süsteem</string>
+  <string name="omnijaws_current_text">Nüüd</string>
+  <string name="calendar_view_status_perms">Koputa seadistamiseks</string>
+  <string name="launcher_settings">Käivitaja seaded</string>
+  <string name="calendar_event_no_title_label">Pealkirja pole</string>
+  <string name="weather_icon_pack_title">Ilmateate ikoonipakk</string>
+  <string name="hotseat_category_title">Dokk</string>
+  <string name="pref_allDayEvents_title">Kuva kogu päeva sündmusi</string>
+  <string name="preferences_widget_days_title">Kuvatav periood</string>
+  <string name="two_weeks">2 nädalat</string>
+  <string name="three_weeks">3 nädalat</string>
+  <string name="one_month">1 kuu</string>
+  <string name="three_months">3 kuud</string>
+  <string name="pref_show_today_title">Näita kuupäeva</string>
+  <string name="show_top_widget_title">Näita ülavidinat</string>
+  <string name="pref_show_events_title">Näita tulevaid sündmusi</string>
 </resources>

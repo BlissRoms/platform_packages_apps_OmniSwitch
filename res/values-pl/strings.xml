@@ -148,7 +148,6 @@
   <string name="adjust_handle_summary">Skonfiguruj rozmiar położenia i kolor</string>
   <string name="settings_button_text">Ustawienia</string>
   <string name="wallpaper_button_text">Tapeta</string>
-  <string name="category_launcher_title">Tryb Launchera</string>
   <string name="launcher_mode_summary">Użyj OmniSwitch jako Launchera. Po włączeniu naciśnij przycisk Home i wybierz OmniSwitch</string>
   <string name="launcher_mode_title">Włącz</string>
   <string name="launcher_mode_enable_check">Wyłączenie nie jest możliwe, jeśli aktywny jest tryb Launchera. Zostanie włączone ponownie, gdy będzie uruchomiony tryb Launchera</string>

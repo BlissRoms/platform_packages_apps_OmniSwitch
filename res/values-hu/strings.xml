@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Állítsa be a pozíció méretét és a színét</string>
   <string name="settings_button_text">Beállitások</string>
   <string name="wallpaper_button_text">Háttérkép</string>
-  <string name="category_launcher_title">Indító mód</string>
+  <string name="category_launcher_title">Indító</string>
   <string name="launcher_mode_summary">OmniSwitch, mint indító futtatása. Engedélyezés után nyomja meg a kezdőlapot, majd válassza az OmniSwitch-t</string>
   <string name="launcher_mode_title">Engedélyezés</string>
   <string name="launcher_mode_enable_check">Letiltás nem lehetséges, ha az indító üzemmód aktív. Amikor indító mód aktív lesz, újra aktiválódik</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Alkalmazás fiók</string>
   <string name="hidden_apps_dialog_title">Rejtett alkalmazások</string>
   <string name="package_add_hidden_app_title">Alkalmazás elrejtése</string>
+  <string name="bg_style_system">Rendszer</string>
+  <string name="omnijaws_current_text">Most</string>
+  <string name="calendar_view_status_perms">Érintse meg a beállításhoz</string>
+  <string name="launcher_settings">Indító beállításai</string>
+  <string name="calendar_event_no_title_label">Nincs cím</string>
+  <string name="weather_icon_pack_title">Időjárás állapot ikon csomag</string>
+  <string name="hotseat_category_title">Dokkoló</string>
+  <string name="pref_allDayEvents_title">Egész napos események megjelenítése</string>
+  <string name="preferences_widget_days_title">Időszak megjelenítése</string>
+  <string name="two_weeks">2 hét</string>
+  <string name="three_weeks">3 hét</string>
+  <string name="one_month">1 hónap</string>
+  <string name="three_months">3 hónap</string>
+  <string name="pref_show_today_title">Dátum megjelenítése</string>
+  <string name="show_top_widget_title">Legjobb modulok megjelenítése</string>
+  <string name="pref_show_events_title">Közelgő események megjelenítése</string>
 </resources>

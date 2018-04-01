@@ -141,9 +141,7 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
         if (DEBUG){
             Log.d(TAG, "mLongPressRunnable");
         }
-        if (getRecentsManager() != null) {
-            getRecentsManager().hideHidden();
-        }
+        SwitchManager.startOmniSwitchSettingsActivity(Launcher.this);
         mLongPress = true;
     }};
 

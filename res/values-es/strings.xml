@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Configurar posición, tamaño y color</string>
   <string name="settings_button_text">Configuraciones</string>
   <string name="wallpaper_button_text">Fondo de pantalla</string>
-  <string name="category_launcher_title">Modo de lanzador</string>
+  <string name="category_launcher_title">Lanzador</string>
   <string name="launcher_mode_summary">Ejecutar OmniSwitch también como su lanzador. Después de activarlo, pulse Inicio y seleccione OmniSwitch</string>
   <string name="launcher_mode_title">Habilitar</string>
   <string name="launcher_mode_enable_check">No es posible deshabilitar si está activado el modo de lanzador. Se habilitará otra vez cuando se active el modo de lanzador</string>
@@ -183,8 +183,24 @@
   <string name="block_apps_on_splitscreen_title">Bloquear aplicaciones que no se puedan cargar</string>
   <string name="use_power_hint_summary">Use la pista HAL para acelerar. ¡Dependerá del dispositivo!</string>
   <string name="use_power_hint_title">Use las sugerencia de poder</string>
+  <string name="hidden_apps_config_summary">Definir aplicaciones ocultas en vistas de cajón de aplicación</string>
   <string name="hidden_apps_config_title">Aplicaciones ocultas</string>
   <string name="category_allapps_title">Cajón de aplicación</string>
   <string name="hidden_apps_dialog_title">Aplicaciones ocultas</string>
   <string name="package_add_hidden_app_title">Ocultar aplicación</string>
+  <string name="bg_style_system">Sistema</string>
+  <string name="omnijaws_current_text">Ahora</string>
+  <string name="calendar_view_status_perms">Toca para configurar</string>
+  <string name="launcher_settings">Configuración del lanzador</string>
+  <string name="calendar_event_no_title_label">Sin título</string>
+  <string name="weather_icon_pack_title">Paquete de iconos de condiciones meteorológicas</string>
+  <string name="pref_allDayEvents_title">Mostrar todos los eventos del día</string>
+  <string name="preferences_widget_days_title">Período de visualización</string>
+  <string name="two_weeks">2 semanas</string>
+  <string name="three_weeks">3 semanas</string>
+  <string name="one_month">1 mes</string>
+  <string name="three_months">3 meses</string>
+  <string name="pref_show_today_title">Mostrar fecha</string>
+  <string name="show_top_widget_title">Mostrar widget superiores</string>
+  <string name="pref_show_events_title">Ver próximos eventos</string>
 </resources>

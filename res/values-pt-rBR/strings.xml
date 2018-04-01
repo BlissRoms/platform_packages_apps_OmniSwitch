@@ -147,7 +147,6 @@
   <string name="adjust_handle_summary">Configurar a posição do tamanho e cor</string>
   <string name="settings_button_text">Configurações</string>
   <string name="wallpaper_button_text">Papel de parede</string>
-  <string name="category_launcher_title">Modo de lançador</string>
   <string name="launcher_mode_summary">Execute OmniSwitch também como seu lançador. Após precionar tecla inicio, selecione OmniSwitch</string>
   <string name="launcher_mode_title">Ativado</string>
   <string name="launcher_mode_enable_check">Desabilitar não é possível se o lançador modo está ativo. Será habilitado novamente quando o modo lançador fica ativo</string>

@@ -110,7 +110,6 @@
   <string name="adjust_handle_summary">Konfigurera position, storlek och färg</string>
   <string name="settings_button_text">Inställningar</string>
   <string name="wallpaper_button_text">Bakgrundsbild</string>
-  <string name="category_launcher_title">Launcher-läge</string>
   <string name="launcher_mode_title">Aktivera</string>
   <string name="welcome_cling_header">Välkommen till OmniSwitch launcher-läge</string>
   <string name="welcome_cling_dismiss">Jag förstår</string>

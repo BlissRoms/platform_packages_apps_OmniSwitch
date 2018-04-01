@@ -148,7 +148,6 @@
   <string name="adjust_handle_summary">Konfigurasi posisi ukuran dan warna</string>
   <string name="settings_button_text">Pengaturan</string>
   <string name="wallpaper_button_text">Wallpaper</string>
-  <string name="category_launcher_title">Modus peluncur</string>
   <string name="launcher_mode_summary">Jalankan OmniSwitch juga sebagai peluncur Anda. Setelah pengaktifan tekan beranda dan pilih OmniSwitch</string>
   <string name="launcher_mode_title">Mengaktifkan</string>
   <string name="launcher_mode_enable_check">Nonaktifkan tidak mungkin jika mode peluncur aktif. Akan diaktifkan lagi saat mode peluncur aktif</string>

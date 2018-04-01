@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Настройка цвета и размера позиции</string>
   <string name="settings_button_text">Настройки</string>
   <string name="wallpaper_button_text">Обои</string>
-  <string name="category_launcher_title">Режим запуска</string>
+  <string name="category_launcher_title">Лаунчер</string>
   <string name="launcher_mode_summary">Использовать OmniSwitch в качестве рабочего стола. После выбора данной опции, нажмите кнопку Домой и выберите OmniSwitch</string>
   <string name="launcher_mode_title">Включить</string>
   <string name="launcher_mode_enable_check">Отключение невозможно, пока активен режим рабочего стола. Будет включено снова, если режим рабочего стола станет активен</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Меню приложений</string>
   <string name="hidden_apps_dialog_title">Скрытые приложения</string>
   <string name="package_add_hidden_app_title">Скрыть приложение</string>
+  <string name="bg_style_system">Система</string>
+  <string name="omnijaws_current_text">Сейчас</string>
+  <string name="calendar_view_status_perms">Нажмите для настройки</string>
+  <string name="launcher_settings">Настройки лаунчера</string>
+  <string name="calendar_event_no_title_label">Без заголовка</string>
+  <string name="weather_icon_pack_title">Набор значков состояния погоды</string>
+  <string name="hotseat_category_title">Док-станция</string>
+  <string name="pref_allDayEvents_title">Показать события на весь день</string>
+  <string name="preferences_widget_days_title">Отображать период</string>
+  <string name="two_weeks">2 недели</string>
+  <string name="three_weeks">3 недели</string>
+  <string name="one_month">1 месяц</string>
+  <string name="three_months">3 месяца</string>
+  <string name="pref_show_today_title">Отображать дату</string>
+  <string name="show_top_widget_title">Показать верхний виджет</string>
+  <string name="pref_show_events_title">Отображать предстоящие события</string>
 </resources>

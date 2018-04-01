@@ -147,7 +147,6 @@
   <string name="adjust_handle_summary">Nastavi velikost in barvo položaja</string>
   <string name="settings_button_text">Nastavitve</string>
   <string name="wallpaper_button_text">Slika ozadja</string>
-  <string name="category_launcher_title">Način zaganjalnika</string>
   <string name="launcher_mode_summary">Zaženi OmniSwitch tudi v zaganjalniku.  Po omogočanju pritisnite Domov in izberite OmniSwitch</string>
   <string name="launcher_mode_title">Omogoči</string>
   <string name="launcher_mode_enable_check">Onemogočanje ni mogoče, če je način zaganjalnika dejaven.  Ponovno bo omogočeno, ko način zaganjalnika postane dejaven</string>

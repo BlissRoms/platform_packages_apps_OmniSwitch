@@ -116,7 +116,6 @@
   <string name="adjust_handle_summary">位置とサイズと色を設定する</string>
   <string name="settings_button_text">設定</string>
   <string name="wallpaper_button_text">壁紙</string>
-  <string name="category_launcher_title">ランチャーモード</string>
   <string name="launcher_mode_summary">OmniSwitchをホームアプリとして使用します。有効にしたあとホームボタンを押してOmniSwitchを選択してください</string>
   <string name="launcher_mode_title">有効にする</string>
   <string name="launcher_mode_enable_check">ランチャーモードが有効になっている場合、OmniSwitch を無効化できません。ランチャーモードがアクティブになると OmniSwitch は再び有効化されます。</string>

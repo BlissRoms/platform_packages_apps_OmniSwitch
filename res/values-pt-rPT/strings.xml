@@ -148,7 +148,7 @@
   <string name="adjust_handle_summary">Configurar posição, tamanho e cor</string>
   <string name="settings_button_text">Configurações</string>
   <string name="wallpaper_button_text">Papel de parede</string>
-  <string name="category_launcher_title">Modo página inicial</string>
+  <string name="category_launcher_title">Página Inicial</string>
   <string name="launcher_mode_summary">Executar o OmniSwitch como a sua aplicação de página inicial. Após ativar, pressione o botão Página inicial e selecione \"OmniSwitch\"</string>
   <string name="launcher_mode_title">Ativar</string>
   <string name="launcher_mode_enable_check">Não é possível desativar enquanto o modo página inicial estiver ativado. Será possível novamente quando o modo página inicial ficar ativado</string>
@@ -188,4 +188,20 @@
   <string name="category_allapps_title">Painel de aplicações</string>
   <string name="hidden_apps_dialog_title">Aplicativos ocultos</string>
   <string name="package_add_hidden_app_title">Esconder aplicativo</string>
+  <string name="bg_style_system">Sistema</string>
+  <string name="omnijaws_current_text">Agora</string>
+  <string name="calendar_view_status_perms">Toque para configurar</string>
+  <string name="launcher_settings">Configurações da Página Inicial</string>
+  <string name="calendar_event_no_title_label">Sem título</string>
+  <string name="weather_icon_pack_title">Pacote de ícones de condições meteorológicas</string>
+  <string name="hotseat_category_title">Doca</string>
+  <string name="pref_allDayEvents_title">Mostrar eventos de dia inteiro</string>
+  <string name="preferences_widget_days_title">Período de visualização</string>
+  <string name="two_weeks">2 semanas</string>
+  <string name="three_weeks">3 semanas</string>
+  <string name="one_month">1 mês</string>
+  <string name="three_months">3 meses</string>
+  <string name="pref_show_today_title">Mostrar a data</string>
+  <string name="show_top_widget_title">Mostrar widget no topo</string>
+  <string name="pref_show_events_title">Mostrar próximos eventos</string>
 </resources>

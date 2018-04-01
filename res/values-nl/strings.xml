@@ -147,7 +147,6 @@
   <string name="adjust_handle_summary">Configureer de positie, grootte en kleur</string>
   <string name="settings_button_text">Instellingen</string>
   <string name="wallpaper_button_text">Achtergrond</string>
-  <string name="category_launcher_title">Launcher modus</string>
   <string name="launcher_mode_summary">OmniSwitch ook uitvoeren als uw launcher. Na het inschakelen van druk op home en selecteer OmniSwitch</string>
   <string name="launcher_mode_title">Inschakelen</string>
   <string name="launcher_mode_enable_check">Uitschakelen is niet mogelijk als launcher modus actief is. Komt beschikbaar wanneer laucher modus aktief wordt</string>
