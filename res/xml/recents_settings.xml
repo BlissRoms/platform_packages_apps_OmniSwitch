@@ -235,7 +235,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="category_launcher"
         android:title="@string/category_launcher_title" >
 
     </PreferenceCategory>
