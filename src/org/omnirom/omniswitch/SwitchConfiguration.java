@@ -548,7 +548,27 @@ public class SwitchConfiguration {
         return getPrefs(context).getBoolean(SettingsActivity.SHOW_EVENTS_PREFERENCE_KEY, true);
     }
 
+    public static boolean isShowWeather(Context context) {
+        return getPrefs(context).getBoolean(SettingsActivity.SHOW_WEATHER_PREFERENCE_KEY, true);
+    }
+
     public static boolean isTopSpaceReserved(Context context) {
-        return getPrefs(context).getBoolean(SettingsActivity.SHOW_TOP_WIDGET_PREFERENCE_KEY, true);
+        return isShowToday(context)
+                || isShowWeather(context)
+                || isShowEvents(context);
+    }
+
+    public static void backwardCompatibility(Context context) {
+        final String SHOW_TOP_WIDGET_PREFERENCE_KEY = "pref_topWidget";
+        SharedPreferences prefs = getPrefs(context);
+        if (prefs.contains(SHOW_TOP_WIDGET_PREFERENCE_KEY)) {
+            boolean value = prefs.getBoolean(SHOW_TOP_WIDGET_PREFERENCE_KEY, true);
+            if (!value) {
+                prefs.edit().putBoolean(SettingsActivity.SHOW_EVENTS_PREFERENCE_KEY, false).commit();
+                prefs.edit().putBoolean(SettingsActivity.SHOW_WEATHER_PREFERENCE_KEY, false).commit();
+                prefs.edit().putBoolean(SettingsActivity.SHOW_TODAY_PREFERENCE_KEY, false).commit();
+            }
+            prefs.edit().remove(SHOW_TOP_WIDGET_PREFERENCE_KEY).commit();
+        }
     }
 }

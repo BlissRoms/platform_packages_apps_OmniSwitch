@@ -220,6 +220,10 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
         } else if (activePanel == 2) {
             mAppDrawerPanelVisibile = true;
         }
+
+        // Top widget backward compatibility
+        SwitchConfiguration.backwardCompatibility(this);
+
         initView();
         restoreState();
 
@@ -932,7 +936,8 @@ public class Launcher extends Activity implements IEditFavoriteActivity {
     public void updateTopWidgetVisibility() {
         boolean visible = SwitchConfiguration.isTopSpaceReserved(this);
         if (mTopContainer != null) {
-            mTopContainer.updateTopWidgetVisibility(visible);
+            mTopContainer.updateTopWidgetVisibility(false); // Reset current view if any
+            if(visible) mTopContainer.updateTopWidgetVisibility(visible);
         }
     }
 

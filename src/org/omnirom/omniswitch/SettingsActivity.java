@@ -118,10 +118,10 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String SHOW_EVENTS_PERIOD_PREFERENCE_KEY = "pref_showEventsPeriod";
     public static final String SHOW_TODAY_PREFERENCE_KEY = "pref_showToday";
     public static final String SHOW_EVENTS_PREFERENCE_KEY = "pref_showEvents";
-    public static final String SHOW_TOP_WIDGET_PREFERENCE_KEY = "pref_topWidget";
     private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
     private static final String DEFAULT_WEATHER_ICON_PREFIX = "outline";
     private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
+    public static final String SHOW_WEATHER_PREFERENCE_KEY = "pref_showWeather";
 
     public static int BUTTON_KILL_ALL = 0;
     public static int BUTTON_KILL_OTHER = 1;
