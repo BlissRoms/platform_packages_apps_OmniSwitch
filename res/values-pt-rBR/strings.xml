@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Remover</string>
   <string name="package_inspect_item_title">Informações do Aplicativo</string>
   <string name="start_on_boot_title">Iniciar no boot</string>
   <string name="start_on_boot_summary">Iniciar e ativar no boot</string>
@@ -170,4 +171,12 @@
   <string name="package_undock_task_title">Desafixar</string>
   <string name="dim_action_buttons_summary">Adicionar escurecimento extra para o botão de ação</string>
   <string name="dim_action_buttons_title">Fundo do botão de ação escurecido</string>
+  <string name="hidden_apps_dialog_title">Aplicativos ocultos</string>
+  <string name="bg_style_system">Sistema</string>
+  <string name="omnijaws_current_text">Agora</string>
+  <string name="calendar_event_no_title_label">Sem título</string>
+  <string name="two_weeks">2 Semanas</string>
+  <string name="three_weeks">3 semanas</string>
+  <string name="one_month">1 mês</string>
+  <string name="three_months">3 meses</string>
 </resources>

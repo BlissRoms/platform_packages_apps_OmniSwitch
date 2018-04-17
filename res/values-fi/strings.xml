@@ -77,5 +77,6 @@
   <string name="hidden_apps_dialog_title">Piilotetut sovellukset</string>
   <string name="package_add_hidden_app_title">Piilota sovellus</string>
   <string name="pref_allDayEvents_title">Näytä koko päivän tapahtumat</string>
+  <string name="pref_show_today_title">Näytä päivämäärä</string>
   <string name="pref_show_events_title">Näytä tulevat tapahtumat</string>
 </resources>
