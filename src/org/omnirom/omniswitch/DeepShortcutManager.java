@@ -82,7 +82,7 @@ public class DeepShortcutManager {
             try {
                 mLauncherApps.startShortcut(shortcutInfo, sourceBounds,
                         startActivityOptions);
-            } catch (SecurityException | IllegalStateException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to start shortcut", e);
             }
         }
@@ -95,7 +95,7 @@ public class DeepShortcutManager {
                 Drawable icon = mLauncherApps.getShortcutIconDrawable(
                         shortcutInfo, density);
                 return icon;
-            } catch (SecurityException | IllegalStateException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to get shortcut icon", e);
             }
         }
@@ -122,7 +122,7 @@ public class DeepShortcutManager {
             List<ShortcutInfo> shortcutInfos = null;
             try {
                 shortcutInfos = mLauncherApps.getShortcuts(q, android.os.Process.myUserHandle());
-            } catch (SecurityException | IllegalStateException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to query for shortcuts", e);
             }
             if (shortcutInfos == null) {
@@ -139,7 +139,7 @@ public class DeepShortcutManager {
         if (Utils.isNycMR1OrAbove()) {
             try {
                 return mLauncherApps.hasShortcutHostPermission();
-            } catch (SecurityException | IllegalStateException e) {
+            } catch (Exception e) {
                 Log.e(TAG, "Failed to make shortcut manager call", e);
             }
         }
