@@ -151,7 +151,7 @@
   <string name="category_launcher_title">Spouštěč</string>
   <string name="launcher_mode_summary">OmniSwitch můžete použít také jako launcher. Pro zapnutí stiskněte tlačítko Domů a vyberte OmniSwitch</string>
   <string name="launcher_mode_title">Zapnout</string>
-  <string name="launcher_mode_enable_check">Vypnutí není možné, pokud je aktivní režim launcheru. Znovu může být zapnut, když bude launcher aktivován</string>
+  <string name="launcher_mode_enable_check">Zakázání není možné, pokud je aktivní režim spouštěče</string>
   <string name="welcome_cling_header">Vítejte v OmniSwitch launcheru</string>
   <string name="welcome_cling_description">Užívejte si minimalistického launcheru, který je zaměřen na spuštění aplikací a gesta. Spouštějte OmniSwitch kdekoli.</string>
   <string name="welcome_cling_dismiss">Rozumím</string>
@@ -183,9 +183,9 @@
   <string name="block_apps_on_splitscreen_title">Blokovat nepřipojitelné aplikace</string>
   <string name="use_power_hint_summary">Použijte HAL pro zvýšení rychlosti. Závisí na zařízení!</string>
   <string name="use_power_hint_title">Použijte nápovědu</string>
-  <string name="hidden_apps_config_summary">Vyberte aplikace, které se zobrazí v panelu aplikací</string>
+  <string name="hidden_apps_config_summary">Vyberte aplikace, které se zobrazí v seznamu aplikací</string>
   <string name="hidden_apps_config_title">Skryté aplikace</string>
-  <string name="category_allapps_title">Panel aplikací</string>
+  <string name="category_allapps_title">Seznam aplikací</string>
   <string name="hidden_apps_dialog_title">Skryté aplikace</string>
   <string name="package_add_hidden_app_title">Skrýt aplikace</string>
   <string name="bg_style_system">Systém</string>
@@ -202,6 +202,6 @@
   <string name="one_month">1 měsíc</string>
   <string name="three_months">3 měsíce</string>
   <string name="pref_show_today_title">Zobrazit datum</string>
-  <string name="show_top_widget_title">Zobrazit widget nahoře</string>
+  <string name="pref_show_weather_title">Zobrazit počasí</string>
   <string name="pref_show_events_title">Zobrazit nadcházející události</string>
 </resources>

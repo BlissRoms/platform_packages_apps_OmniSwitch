@@ -150,7 +150,6 @@
   <string name="wallpaper_button_text">Papel de parede</string>
   <string name="launcher_mode_summary">Execute OmniSwitch também como seu lançador. Após precionar tecla inicio, selecione OmniSwitch</string>
   <string name="launcher_mode_title">Ativado</string>
-  <string name="launcher_mode_enable_check">Desabilitar não é possível se o lançador modo está ativo. Será habilitado novamente quando o modo lançador fica ativo</string>
   <string name="welcome_cling_header">Bem-vindo ao modo de lançador OmniSwitch</string>
   <string name="welcome_cling_description">Divirta-se usando um lançador minimalista que se concentre no lançamento e mudança de aplicativos. Deslize em qualquer lugar para abrir o OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Entendi</string>

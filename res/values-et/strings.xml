@@ -141,7 +141,6 @@
   <string name="category_launcher_title">Käivitaja</string>
   <string name="launcher_mode_summary">Kasuta OmniSwitchi ka oma käivitajana. Peale lubamist vajuta kodunuppu ja vali OmniSwitch</string>
   <string name="launcher_mode_title">Luba</string>
-  <string name="launcher_mode_enable_check">Keelamine ei ole võimalik, kui käivitajarežiim on sees. Lubatakse uuesti, kui käivitajarežiim aktiveerub</string>
   <string name="welcome_cling_header">Tere tulemast OmniSwitchi käivitajarežiimi</string>
   <string name="welcome_cling_description">Naudi minimalistlikku käivitajat, mis keskendub rakenduste käivitamisele ja vahetamisele. Viipa mistahes kohas, et avada OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Sain aru</string>
@@ -168,6 +167,7 @@
   <string name="dock_non_resizeble_failed_to_dock_text">Rakendus ei toeta poolitatud ekraani</string>
   <string name="block_apps_on_splitscreen_summary">Keela poolitatud ekraani režiimis mittetoetatud rakendusele vahetamine</string>
   <string name="block_apps_on_splitscreen_title">Blokeeri mittedokitavad rakendused</string>
+  <string name="use_power_hint_title">Kasuta toitenupu vihjet</string>
   <string name="hidden_apps_config_title">Peidetud rakendused</string>
   <string name="category_allapps_title">Rakendustesahtel</string>
   <string name="hidden_apps_dialog_title">Peidetud rakendused</string>
@@ -186,6 +186,5 @@
   <string name="one_month">1 kuu</string>
   <string name="three_months">3 kuud</string>
   <string name="pref_show_today_title">Näita kuupäeva</string>
-  <string name="show_top_widget_title">Näita ülavidinat</string>
   <string name="pref_show_events_title">Näita tulevaid sündmusi</string>
 </resources>

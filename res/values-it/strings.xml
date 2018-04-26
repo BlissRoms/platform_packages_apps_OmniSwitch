@@ -150,7 +150,6 @@
   <string name="wallpaper_button_text">Sfondo</string>
   <string name="launcher_mode_summary">Usa OmniSwitch anche come launcher. Dopo l\'attivazione premi Home e seleziona OmniSwitch</string>
   <string name="launcher_mode_title">Abilita</string>
-  <string name="launcher_mode_enable_check">Impossibile disabilitare se il launcher mode è attivo. Si riabiliterà nuovamente quando il launcher mode si attiva</string>
   <string name="welcome_cling_header">Benvenuti nel launcher mode di OmniSwitch</string>
   <string name="welcome_cling_description">Buon divertimento con un launcher minimale che si concentra su lanciare e cambiare apps. Fai swipe per aprire OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Ho capito</string>

@@ -151,7 +151,7 @@
   <string name="category_launcher_title">Spúšťač</string>
   <string name="launcher_mode_summary">Používať OmniSwitch aj ako spúšťač. Po nastavení stlačte Domov a vyberte OmniSwitch</string>
   <string name="launcher_mode_title">Povoliť</string>
-  <string name="launcher_mode_enable_check">Zrušenie nie je možné pokiaľ je spúšťač aktívny. Bude znova povolený pri ďaľšej aktivácií</string>
+  <string name="launcher_mode_enable_check">Vypnutie nie je možné, kým je aktívny režim spúšťača</string>
   <string name="welcome_cling_header">Vítajte v režime spuštača OmniSwitch</string>
   <string name="welcome_cling_description">Zabávajte sa používaním minimalistického spúšťača, ktorý sa zameriava na spúštanie a prepínanie. Potiahnite kdekoľvek pre otvorenie OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Rozumiem</string>
@@ -202,6 +202,6 @@
   <string name="one_month">1 mesiac</string>
   <string name="three_months">3 mesiace</string>
   <string name="pref_show_today_title">Zobraziť dátum</string>
-  <string name="show_top_widget_title">Zobraziť najlepšie miniaplikácie</string>
+  <string name="pref_show_weather_title">Zobraziť počasie</string>
   <string name="pref_show_events_title">Zobraziť nadchádzajúce udalosti</string>
 </resources>

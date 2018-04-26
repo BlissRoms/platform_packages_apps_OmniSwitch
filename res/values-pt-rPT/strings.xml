@@ -151,7 +151,7 @@
   <string name="category_launcher_title">Página Inicial</string>
   <string name="launcher_mode_summary">Executar o OmniSwitch como a sua aplicação de página inicial. Após ativar, pressione o botão Página inicial e selecione \"OmniSwitch\"</string>
   <string name="launcher_mode_title">Ativar</string>
-  <string name="launcher_mode_enable_check">Não é possível desativar enquanto o modo página inicial estiver ativado. Será possível novamente quando o modo página inicial ficar ativado</string>
+  <string name="launcher_mode_enable_check">Não é possível desativar enquanto o modo de ecrã inicial estiver ativado</string>
   <string name="welcome_cling_header">Bem-vindo ao modo página inicial do OmniSwitch</string>
   <string name="welcome_cling_description">Divirta-se ao usar uma página inicial minimalista com foco na abertura e mudança de aplicações. Deslize em qualquer lugar para abrir o OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Entendi</string>
@@ -202,6 +202,6 @@
   <string name="one_month">1 mês</string>
   <string name="three_months">3 meses</string>
   <string name="pref_show_today_title">Mostrar a data</string>
-  <string name="show_top_widget_title">Mostrar widget no topo</string>
+  <string name="pref_show_weather_title">Mostrar meteorologia</string>
   <string name="pref_show_events_title">Mostrar próximos eventos</string>
 </resources>

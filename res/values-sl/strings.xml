@@ -149,7 +149,6 @@
   <string name="wallpaper_button_text">Slika ozadja</string>
   <string name="launcher_mode_summary">Zaženi OmniSwitch tudi v zaganjalniku.  Po omogočanju pritisnite Domov in izberite OmniSwitch</string>
   <string name="launcher_mode_title">Omogoči</string>
-  <string name="launcher_mode_enable_check">Onemogočanje ni mogoče, če je način zaganjalnika dejaven.  Ponovno bo omogočeno, ko način zaganjalnika postane dejaven</string>
   <string name="welcome_cling_header">Dobrodošli v način zaganjalnika OmniSwitch</string>
   <string name="welcome_cling_description">Zabavajte se z minimalističnim zaganjalnikom, ki se osredotoča na zaganjanje in preklapljanje programov.  Povlecite kjerkoli, da odprete OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Razumem</string>

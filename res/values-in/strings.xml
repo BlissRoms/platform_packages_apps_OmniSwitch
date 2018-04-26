@@ -150,7 +150,6 @@
   <string name="wallpaper_button_text">Wallpaper</string>
   <string name="launcher_mode_summary">Jalankan OmniSwitch juga sebagai peluncur Anda. Setelah pengaktifan tekan beranda dan pilih OmniSwitch</string>
   <string name="launcher_mode_title">Mengaktifkan</string>
-  <string name="launcher_mode_enable_check">Nonaktifkan tidak mungkin jika mode peluncur aktif. Akan diaktifkan lagi saat mode peluncur aktif</string>
   <string name="welcome_cling_header">Selamat datang di mode peluncur OmniSwitch</string>
   <string name="welcome_cling_description">Bersenang-senang menggunakan peluncur minimalis yang berfokus pada peluncuran dan peralihan aplikasi. Gesek ke mana saja untuk membuka OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Mengerti</string>

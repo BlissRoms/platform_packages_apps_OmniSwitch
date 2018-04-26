@@ -118,7 +118,6 @@
   <string name="wallpaper_button_text">壁紙</string>
   <string name="launcher_mode_summary">OmniSwitchをホームアプリとして使用します。有効にしたあとホームボタンを押してOmniSwitchを選択してください</string>
   <string name="launcher_mode_title">有効にする</string>
-  <string name="launcher_mode_enable_check">ランチャーモードが有効になっている場合、OmniSwitch を無効化できません。ランチャーモードがアクティブになると OmniSwitch は再び有効化されます。</string>
   <string name="welcome_cling_header">OmniSwitch ランチャー モードへようこそ</string>
   <string name="welcome_cling_description">アプリの起動や切り替えに重点を置いたミニマルなランチャーをお楽しみください。 設定している側であれば、画面端のどの位置からスワイプしても OmniSwitch を開くことができます。</string>
   <string name="welcome_cling_dismiss">OK</string>

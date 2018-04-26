@@ -151,7 +151,6 @@
   <string name="category_launcher_title">Lanzador</string>
   <string name="launcher_mode_summary">Ejecutar OmniSwitch también como su lanzador. Después de activarlo, pulse Inicio y seleccione OmniSwitch</string>
   <string name="launcher_mode_title">Habilitar</string>
-  <string name="launcher_mode_enable_check">No es posible deshabilitar si está activado el modo de lanzador. Se habilitará otra vez cuando se active el modo de lanzador</string>
   <string name="welcome_cling_header">Bienvenido al modo lanzador de OmniSwitch</string>
   <string name="welcome_cling_description">Diviértete usando un launcher minimalista que se centra en el lanzamiento y cambio de aplicaciones. Deslize en cualquier lugar para abrir OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Entendido</string>
@@ -201,6 +200,5 @@
   <string name="one_month">1 mes</string>
   <string name="three_months">3 meses</string>
   <string name="pref_show_today_title">Mostrar fecha</string>
-  <string name="show_top_widget_title">Mostrar widget superiores</string>
   <string name="pref_show_events_title">Ver próximos eventos</string>
 </resources>

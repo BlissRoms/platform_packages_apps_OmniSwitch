@@ -17,6 +17,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="package_remove_task_title">Verwijderen</string>
   <string name="package_inspect_item_title">App informatie</string>
   <string name="start_on_boot_title">Start bij het opstarten</string>
   <string name="start_on_boot_summary">Schakel in bij opstarten van apparaat</string>
@@ -147,9 +148,10 @@
   <string name="adjust_handle_summary">Configureer de positie, grootte en kleur</string>
   <string name="settings_button_text">Instellingen</string>
   <string name="wallpaper_button_text">Achtergrond</string>
+  <string name="category_launcher_title">Launcher</string>
   <string name="launcher_mode_summary">OmniSwitch ook uitvoeren als uw launcher. Na het inschakelen van druk op home en selecteer OmniSwitch</string>
   <string name="launcher_mode_title">Inschakelen</string>
-  <string name="launcher_mode_enable_check">Uitschakelen is niet mogelijk als launcher modus actief is. Komt beschikbaar wanneer laucher modus aktief wordt</string>
+  <string name="launcher_mode_enable_check">Uitschakelen is niet mogelijk terwijl de launcher-modus actief is</string>
   <string name="welcome_cling_header">Welkom bij OmniSwitch launcher modus</string>
   <string name="welcome_cling_description">Veel plezier bij het gebruik van een minimalistische launcher met de nadruk op het starten van apps en het switchen tussen apps. Swipe om OmniSwitch te openen.</string>
   <string name="welcome_cling_dismiss">Begrepen</string>
@@ -170,4 +172,36 @@
   <string name="package_undock_task_title">Loskoppelen</string>
   <string name="dim_action_buttons_summary">Extra achtergrond dim aan actieknoppen toevoegen</string>
   <string name="dim_action_buttons_title">Achtergrond van actieknoppen dimmen</string>
+  <string name="package_force_stop_title">Gedwongen stoppen</string>
+  <string name="package_lock_app_title">Vergrendelen</string>
+  <string name="package_unlock_app_title">Ontgrendelen</string>
+  <string name="locked_apps_sort_summary">Vergrendelde apps zullen eerst worden weergegeven in lijst</string>
+  <string name="locked_apps_sort_title">Sorteer vergrendelde apps</string>
+  <string name="drag_handle_dynamic_color_title">Gebruik accentkleur</string>
+  <string name="dock_non_resizeble_failed_to_dock_text">App biedt geen ondersteuning voor split-scherm</string>
+  <string name="block_apps_on_splitscreen_summary">Terwijl in split-screen modus blokkeer verwisselen naar niet-ondersteunde apps</string>
+  <string name="block_apps_on_splitscreen_title">Blokkeer onkoppelbare apps</string>
+  <string name="use_power_hint_summary">Gebruik vermogen HAL hint om te versnellen. Apparaatsafhankelijk!</string>
+  <string name="use_power_hint_title">Gebruik vermogen hint</string>
+  <string name="hidden_apps_config_summary">Definieer apps die verborgen zijn in de app drawer weergave</string>
+  <string name="hidden_apps_config_title">Verborgen apps</string>
+  <string name="category_allapps_title">Applicatie drawer</string>
+  <string name="hidden_apps_dialog_title">Verborgen apps</string>
+  <string name="package_add_hidden_app_title">Verberg app</string>
+  <string name="bg_style_system">Systeem</string>
+  <string name="omnijaws_current_text">Nu</string>
+  <string name="calendar_view_status_perms">Aanraken om in te stellen</string>
+  <string name="launcher_settings">Launcher instellingen</string>
+  <string name="calendar_event_no_title_label">Geen titel</string>
+  <string name="weather_icon_pack_title">Weersconditie pictogrammenpakket</string>
+  <string name="hotseat_category_title">Dock</string>
+  <string name="pref_allDayEvents_title">Toon alle dagafspraken</string>
+  <string name="preferences_widget_days_title">Weergave periode</string>
+  <string name="two_weeks">2 weken</string>
+  <string name="three_weeks">3 weken</string>
+  <string name="one_month">1 maand</string>
+  <string name="three_months">3 maanden</string>
+  <string name="pref_show_today_title">Toon datum</string>
+  <string name="pref_show_weather_title">Toon weer</string>
+  <string name="pref_show_events_title">Toon aankomende evenementen</string>
 </resources>

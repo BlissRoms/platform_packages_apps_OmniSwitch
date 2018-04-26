@@ -151,7 +151,7 @@
   <string name="category_launcher_title">启动器</string>
   <string name="launcher_mode_summary">启用OmniSwitch作为启动器。启用后按home键并选择OmniSwitch</string>
   <string name="launcher_mode_title">启用</string>
-  <string name="launcher_mode_enable_check">无法在启动器模式激活时禁用，将会在启动器模式激活时再次启用</string>
+  <string name="launcher_mode_enable_check">启动器模式处于活动状态时无法禁用</string>
   <string name="welcome_cling_header">欢迎来到OmniSwitch启动器模式</string>
   <string name="welcome_cling_description">愉快使用专注于应用的启动和切换的简约启动器，随时随地滑动打开OmniSwitch。</string>
   <string name="welcome_cling_dismiss">确认</string>
@@ -202,6 +202,6 @@
   <string name="one_month">1 个月</string>
   <string name="three_months">3 个月</string>
   <string name="pref_show_today_title">显示日期</string>
-  <string name="show_top_widget_title">显示顶部小部件</string>
+  <string name="pref_show_weather_title">显示天气</string>
   <string name="pref_show_events_title">显示即将发生事件</string>
 </resources>

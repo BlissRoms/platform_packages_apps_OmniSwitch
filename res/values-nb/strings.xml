@@ -150,7 +150,6 @@
   <string name="wallpaper_button_text">Bakgrunn</string>
   <string name="launcher_mode_summary">Kjøre OmniSwitch som programvelger. Etter aktivering trykk hjem og velg OmniSwitch</string>
   <string name="launcher_mode_title">Aktiver</string>
-  <string name="launcher_mode_enable_check">Deaktivering er ikke mulig med aktiv programvelgermodus. Vil aktiveres når programvelgermodus blir aktiv</string>
   <string name="welcome_cling_header">Velkommen til OmniSwitch programvelgermodus</string>
   <string name="welcome_cling_description">Ha det gøy med en minimalistisk programvelger som fokuserer på app-aktivering og -bytting. Sveip for å åpne OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Oppfattet</string>
