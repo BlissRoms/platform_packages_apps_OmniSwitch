@@ -151,6 +151,7 @@
   <string name="category_launcher_title">Лаунчер</string>
   <string name="launcher_mode_summary">Использовать OmniSwitch в качестве рабочего стола. После выбора данной опции, нажмите кнопку Домой и выберите OmniSwitch</string>
   <string name="launcher_mode_title">Включить</string>
+  <string name="launcher_mode_enable_check">Отключение невозможно, пока активен режим лаунчера</string>
   <string name="welcome_cling_header">Добро пожаловать в режим рабочего стола OmniSwitch</string>
   <string name="welcome_cling_description">Повеселитесь используя минималистичный рабочий стол, который фокусируется на открытии и переключении приложений. Сделайте свайп в любом месте для открытия OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Понятно</string>
@@ -201,5 +202,6 @@
   <string name="one_month">1 месяц</string>
   <string name="three_months">3 месяца</string>
   <string name="pref_show_today_title">Отображать дату</string>
+  <string name="pref_show_weather_title">Показывать погоду</string>
   <string name="pref_show_events_title">Отображать предстоящие события</string>
 </resources>
