@@ -200,5 +200,6 @@
   <string name="one_month">1 mes</string>
   <string name="three_months">3 meses</string>
   <string name="pref_show_today_title">Mostrar fecha</string>
+  <string name="pref_show_weather_title">Mostrar condiciones meteorológicas</string>
   <string name="pref_show_events_title">Ver próximos eventos</string>
 </resources>
