@@ -148,6 +148,7 @@
   <string name="adjust_handle_summary">Skonfiguruj rozmiar położenia i kolor</string>
   <string name="settings_button_text">Ustawienia</string>
   <string name="wallpaper_button_text">Tapeta</string>
+  <string name="category_launcher_title">Program uruchamiający</string>
   <string name="launcher_mode_summary">Użyj OmniSwitch jako Launchera. Po włączeniu naciśnij przycisk Home i wybierz OmniSwitch</string>
   <string name="launcher_mode_title">Włącz</string>
   <string name="welcome_cling_header">Witamy w trybie Launchera OmniSwitch</string>
@@ -176,4 +177,14 @@
   <string name="drag_handle_dynamic_color_title">Użyj koloru wiodącego</string>
   <string name="dock_non_resizeble_failed_to_dock_text">Aplikacja nie obsługuje dzielonego ekranu</string>
   <string name="block_apps_on_splitscreen_summary">Podczas trybu dzielonego ekranu blokuje przejście do nieobsługiwanych aplikacji</string>
+  <string name="package_add_hidden_app_title">Ukryj aplikację</string>
+  <string name="bg_style_system">System</string>
+  <string name="calendar_view_status_perms">Dotknij, aby skonfigurować</string>
+  <string name="two_weeks">2 tygodnie</string>
+  <string name="three_weeks">3 tygodnie</string>
+  <string name="one_month">Miesiąc</string>
+  <string name="three_months">3 miesiące</string>
+  <string name="pref_show_today_title">Pokaż datę</string>
+  <string name="pref_show_weather_title">Pokaż prognozę pogody</string>
+  <string name="pref_show_events_title">Nadchodzące wydarzenia</string>
 </resources>
