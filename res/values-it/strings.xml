@@ -148,8 +148,10 @@
   <string name="adjust_handle_summary">Configura posizione dimensione e colore</string>
   <string name="settings_button_text">Impostazioni</string>
   <string name="wallpaper_button_text">Sfondo</string>
+  <string name="category_launcher_title">Launcher</string>
   <string name="launcher_mode_summary">Usa OmniSwitch anche come launcher. Dopo l\'attivazione premi Home e seleziona OmniSwitch</string>
   <string name="launcher_mode_title">Abilita</string>
+  <string name="launcher_mode_enable_check">Non è possibile disattivare quando la modalità launcher è attiva</string>
   <string name="welcome_cling_header">Benvenuti nel launcher mode di OmniSwitch</string>
   <string name="welcome_cling_description">Buon divertimento con un launcher minimale che si concentra su lanciare e cambiare apps. Fai swipe per aprire OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Ho capito</string>
@@ -186,4 +188,20 @@
   <string name="category_allapps_title">Menù delle applicazioni</string>
   <string name="hidden_apps_dialog_title">App nascoste</string>
   <string name="package_add_hidden_app_title">Nascondi app</string>
+  <string name="bg_style_system">Sistema</string>
+  <string name="omnijaws_current_text">Ora</string>
+  <string name="calendar_view_status_perms">Tocca per configurare</string>
+  <string name="launcher_settings">Impostazioni launcher</string>
+  <string name="calendar_event_no_title_label">Nessun titolo</string>
+  <string name="weather_icon_pack_title">Pacchetto icone per le condizioni meteo</string>
+  <string name="hotseat_category_title">Dock</string>
+  <string name="pref_allDayEvents_title">Mostra gli eventi giornalieri</string>
+  <string name="preferences_widget_days_title">Periodo visualizzato</string>
+  <string name="two_weeks">2 settimane</string>
+  <string name="three_weeks">3 settimane</string>
+  <string name="one_month">1 mese</string>
+  <string name="three_months">3 mesi</string>
+  <string name="pref_show_today_title">Mostra data</string>
+  <string name="pref_show_weather_title">Mostra meteo</string>
+  <string name="pref_show_events_title">Mostra i prossimi eventi</string>
 </resources>

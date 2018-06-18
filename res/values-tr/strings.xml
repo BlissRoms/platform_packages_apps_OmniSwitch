@@ -31,7 +31,7 @@
   <string name="icon_size_large">Büyük</string>
   <string name="icon_size_title">Simge boyutu</string>
   <string name="ok">Tamam</string>
-  <string name="cancel">İptal</string>
+  <string name="cancel">İptal et</string>
   <string name="drag_handle_color_title">Renk</string>
   <string name="drag_handle_color_dialog_title">Renk</string>
   <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> boş</string>
@@ -116,10 +116,10 @@
   <string name="layout_style_1">Ufki</string>
   <string name="layout_style_2">Dikey</string>
   <string name="no_limit">Sınır yok</string>
-  <string name="one_hour">1 saat</string>
-  <string name="three_hours">3 saat</string>
-  <string name="six_hours">6 saat</string>
-  <string name="twelve_hours">12 saat</string>
+  <string name="one_hour">1 sâat</string>
+  <string name="three_hours">3 sâat</string>
+  <string name="six_hours">6 sâat</string>
+  <string name="twelve_hours">12 sâat</string>
   <string name="one_day">1 gün</string>
   <string name="two_days">2 gün</string>
   <string name="one_week">1 hafta</string>
