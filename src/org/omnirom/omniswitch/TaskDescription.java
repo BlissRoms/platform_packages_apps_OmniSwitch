@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 public final class TaskDescription {
@@ -44,6 +45,9 @@ public final class TaskDescription {
     private boolean mLocked;
     private boolean mNeedsUpdate;
     private boolean mSupportsSplitScreen;
+    private int mActivityPrimaryColor;
+    private int mActivityBackgroundColor;
+    private boolean mUseLightOnPrimaryColor;
 
     public static interface ThumbChangeListener {
         public void thumbChanged(int pesistentTaskId, Bitmap thumb);
@@ -172,5 +176,26 @@ public final class TaskDescription {
 
     public boolean isSupportsSplitScreen() {
         return mSupportsSplitScreen;
+    }
+
+    public void setTaskBackgroundColor(int backgroundColor) {
+        mActivityBackgroundColor = backgroundColor;
+    }
+
+    public void setTaskPrimaryColor(int activityColor) {
+        mActivityPrimaryColor = activityColor;
+        mUseLightOnPrimaryColor = Utils.computeContrastBetweenColors(mActivityPrimaryColor, Color.WHITE) > 3f;
+    }
+
+    public int getTaskPrimaryColor() {
+        return mActivityPrimaryColor;
+    }
+
+    public int getTaskBackgroundColor() {
+        return mActivityBackgroundColor;
+    }
+
+    public boolean useLightOnPrimaryColor() {
+        return mUseLightOnPrimaryColor;
     }
 }

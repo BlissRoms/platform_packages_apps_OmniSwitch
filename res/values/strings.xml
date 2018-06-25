@@ -210,4 +210,6 @@
         <string name="pref_show_weather_summary"></string>
         <string name="pref_show_events_title">Show upcoming events</string>
         <string name="pref_show_events_summary"></string>
+        <string name="color_task_header_summary">Use application primary color as header background</string>
+        <string name="color_task_header_title">Color task header</string>
 </resources>

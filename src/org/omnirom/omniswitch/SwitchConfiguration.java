@@ -115,6 +115,7 @@ public class SwitchConfiguration {
     public boolean mUsePowerHint;
     public Set<String> mHiddenAppsList = new HashSet<String>();
     public Launcher mLauncher;
+    public boolean mColorfulHeader;
 
     // old pref slots
     private static final String PREF_DRAG_HANDLE_COLOR = "drag_handle_color";
@@ -304,6 +305,7 @@ public class SwitchConfiguration {
         mDynamicDragHandleColor = prefs.getBoolean(SettingsActivity.PREF_DRAG_HANDLE_DYNAMIC_COLOR, false);
         mBlockSplitscreenBreakers = prefs.getBoolean(SettingsActivity.PREF_BLOCK_APPS_ON_SPLITSCREEN, true);
         mUsePowerHint = prefs.getBoolean(SettingsActivity.PREF_USE_POWER_HINT, false);
+        mColorfulHeader = prefs.getBoolean(SettingsActivity.PREF_COLOR_TASK_HEADER, false);
 
         mHiddenAppsList.clear();
         String hiddenListString = prefs.getString(SettingsActivity.PREF_HIDDEN_APPS, "");
