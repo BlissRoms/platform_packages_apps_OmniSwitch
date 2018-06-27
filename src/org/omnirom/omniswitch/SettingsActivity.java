@@ -112,6 +112,7 @@ public class SettingsActivity extends PreferenceActivity implements
     public static final String PREF_USE_POWER_HINT = "use_power_hint";
     private static final String PREF_HIDDEN_APPS_CONFIG = "hidden_apps_config";
     public static final String PREF_HIDDEN_APPS = "hidden_apps";
+    public static final String PREF_COLOR_TASK_HEADER = "color_task_header";
 
     public static final String WEATHER_ICON_PACK_PREFERENCE_KEY = "pref_weatherIconPack";
     public static final String SHOW_ALL_DAY_EVENTS_PREFERENCE_KEY = "pref_allDayEvents";
@@ -172,6 +173,7 @@ public class SettingsActivity extends PreferenceActivity implements
     private Preference mFavoriteAppsConfigStat;
     private CheckBoxPreference mRevertRecents;
     private Preference mHiddenAppsConfig;
+    private CheckBoxPreference mColorTaskHeader;
 
     @Override
     public void onPause() {
@@ -268,10 +270,12 @@ public class SettingsActivity extends PreferenceActivity implements
         mLaunchStatsDelete = (Preference) findPreference(PREF_LAUNCH_STATS_DELETE);
         mFavoriteAppsConfigStat = (Preference) findPreference(PREF_FAVORITE_APPS_CONFIG_STAT);
         mRevertRecents = (CheckBoxPreference) findPreference(PREF_REVERT_RECENTS);
+        mColorTaskHeader = (CheckBoxPreference) findPreference(PREF_COLOR_TASK_HEADER);
 
         boolean vertical = mLayoutStyle.getValue().equals("1");
         mRevertRecents.setEnabled(vertical);
         mThumbSize.setEnabled(vertical);
+        mColorTaskHeader.setEnabled(vertical);
 
         mHiddenAppsConfig = findPreference(PREF_HIDDEN_APPS_CONFIG);
 
@@ -460,6 +464,7 @@ public class SettingsActivity extends PreferenceActivity implements
             boolean vertical = mLayoutStyle.getValue().equals("1");
             mRevertRecents.setEnabled(vertical);
             mThumbSize.setEnabled(vertical);
+            mColorTaskHeader.setEnabled(vertical);
             return true;
         } else if (preference == mAppFilterTime) {
             String value = (String) newValue;

@@ -226,6 +226,11 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
         } else if (getTask().isLocked()) {
             bgPaint = BitmapUtils.getLockedAppsPaint(resources);
             textPaint.setColor(Color.WHITE);
+        } else if (mConfiguration.mColorfulHeader && getTask().getTaskPrimaryColor() != 0) {
+            bgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            bgPaint.setStyle(Paint.Style.FILL);
+            bgPaint.setColor(getTask().getTaskPrimaryColor());
+            textPaint.setColor(getTask().useLightOnPrimaryColor() ? Color.WHITE : Color.BLACK);
         } else {
             bgPaint = BitmapUtils.getDefaultBgPaint(resources, mConfiguration);
             textPaint.setColor(mConfiguration.getCurrentTextTint(bgPaint.getColor()));

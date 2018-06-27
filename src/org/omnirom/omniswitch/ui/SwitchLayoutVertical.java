@@ -142,7 +142,7 @@ public class SwitchLayoutVertical extends AbstractSwitchLayout {
         mRecentList = (ListView) mView
                 .findViewById(R.id.recent_list);
         mRecentList.setVerticalScrollBarEnabled(false);
-        final int listMargin = Math.round(2 * mConfiguration.mDensity);
+        final int listMargin = Math.round(1 * mConfiguration.mDensity);
         mRecentList.setDividerHeight(listMargin);
         mRecentList.setStackFromBottom(mConfiguration.mRevertRecents);
 

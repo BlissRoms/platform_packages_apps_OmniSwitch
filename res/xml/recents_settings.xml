@@ -122,6 +122,11 @@
             android:key="use_power_hint"
             android:summary="@string/use_power_hint_summary"
             android:title="@string/use_power_hint_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="color_task_header"
+            android:summary="@string/color_task_header_summary"
+            android:title="@string/color_task_header_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="app_filter_category"

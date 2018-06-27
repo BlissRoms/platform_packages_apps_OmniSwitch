@@ -281,6 +281,7 @@ public class RecentTasksLoader {
                     }
                     final ActivityManager.RecentTaskInfo recentInfo = recentTasks
                             .get(i);
+                    final ActivityManager.TaskDescription taskDescription = recentInfo.taskDescription;
 
                     if (DEBUG) {
                         Log.d(TAG, "" + i + " recent item = " + recentInfo.baseIntent + " " + recentInfo.taskDescription.getLabel());
@@ -301,6 +302,11 @@ public class RecentTasksLoader {
                     Intent intent = new Intent(recentInfo.baseIntent);
                     if (recentInfo.origActivity != null) {
                         intent.setComponent(recentInfo.origActivity);
+                    }
+
+                    if (taskDescription != null) {
+                        item.setTaskPrimaryColor(taskDescription.getPrimaryColor());
+                        item.setTaskBackgroundColor(taskDescription.getBackgroundColor());
                     }
 
                     // Don't load the current home activity.
