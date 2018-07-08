@@ -17,13 +17,13 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="package_remove_task_title">Menghapus</string>
+  <string name="package_remove_task_title">Hapus</string>
   <string name="package_inspect_item_title">Info aplikasi</string>
   <string name="start_on_boot_title">Mulai saat boot</string>
   <string name="start_on_boot_summary">Mulai dan aktifkan saat perangkat boot</string>
-  <string name="opacity_title">Kegelapan</string>
-  <string name="opacity_summary">Latar belakang kegelapan dari tampilan hamparan</string>
-  <string name="animate_title">Menghidupkan</string>
+  <string name="opacity_title">Opasitas</string>
+  <string name="opacity_summary">Opasitas latar belakang tampilan lapisan</string>
+  <string name="animate_title">Animasi</string>
   <string name="animate_title_summary">Menghidupkan tampil dan sembunyi dari tampilan hamparan</string>
   <string name="adjust_handle_help">Gerakkan dan ubah ukuran penarik pegangan</string>
   <string name="icon_size_normal">Normal</string>
@@ -151,6 +151,7 @@
   <string name="category_launcher_title">Peluncur</string>
   <string name="launcher_mode_summary">Jalankan OmniSwitch juga sebagai peluncur Anda. Setelah pengaktifan tekan beranda dan pilih OmniSwitch</string>
   <string name="launcher_mode_title">Mengaktifkan</string>
+  <string name="launcher_mode_enable_check">Tidak mungkin menonaktifkan saat modus peluncur aktif</string>
   <string name="welcome_cling_header">Selamat datang di mode peluncur OmniSwitch</string>
   <string name="welcome_cling_description">Bersenang-senang menggunakan peluncur minimalis yang berfokus pada peluncuran dan peralihan aplikasi. Gesek ke mana saja untuk membuka OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Mengerti</string>
@@ -195,6 +196,7 @@
   <string name="weather_icon_pack_title">Paket ikon kondisi cuaca</string>
   <string name="hotseat_category_title">Dock</string>
   <string name="pref_allDayEvents_title">Tampilkan semua acara hari</string>
+  <string name="preferences_widget_days_title">Periode tampilan</string>
   <string name="two_weeks">2 minggu</string>
   <string name="three_weeks">3 minggu</string>
   <string name="one_month">1 bulan</string>
