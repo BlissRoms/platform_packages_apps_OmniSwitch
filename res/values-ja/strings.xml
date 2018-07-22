@@ -49,7 +49,7 @@
   <string name="favorite_add">追加\u2026</string>
   <string name="location_left">左</string>
   <string name="location_right">右</string>
-  <string name="reset">既定</string>
+  <string name="reset">デフォルト</string>
   <string name="toggle_last_app">最後に使用したアプリ</string>
   <string name="toggle_last_app_help">最後に使用したアプリに切り替える</string>
   <string name="kill_all_apps_help">全てのアプリを終了する</string>
