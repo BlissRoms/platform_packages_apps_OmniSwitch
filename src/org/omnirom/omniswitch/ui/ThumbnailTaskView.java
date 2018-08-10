@@ -220,10 +220,7 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
         textPaint.setTextSize(textSize);
 
         Paint bgPaint = null;
-        if (getTask().isDocked()) {
-            bgPaint = BitmapUtils.geDockedAppsPaint(resources);
-            textPaint.setColor(Color.WHITE);
-        } else if (getTask().isLocked()) {
+        if (getTask().isLocked()) {
             bgPaint = BitmapUtils.getLockedAppsPaint(resources);
             textPaint.setColor(Color.WHITE);
         } else if (mConfiguration.mColorfulHeader && getTask().getTaskPrimaryColor() != 0) {

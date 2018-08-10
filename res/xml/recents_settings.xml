@@ -114,15 +114,6 @@
             android:summary="@string/locked_apps_sort_summary"
             android:title="@string/locked_apps_sort_title" />
         <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="block_apps_on_splitscreen"
-            android:summary="@string/block_apps_on_splitscreen_summary"
-            android:title="@string/block_apps_on_splitscreen_title" />
-        <CheckBoxPreference
-            android:key="use_power_hint"
-            android:summary="@string/use_power_hint_summary"
-            android:title="@string/use_power_hint_title" />
-        <CheckBoxPreference
             android:defaultValue="false"
             android:key="color_task_header"
             android:summary="@string/color_task_header_summary"

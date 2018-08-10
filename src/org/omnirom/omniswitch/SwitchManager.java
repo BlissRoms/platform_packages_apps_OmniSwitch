@@ -29,10 +29,9 @@ import org.omnirom.omniswitch.ui.SwitchLayout;
 import org.omnirom.omniswitch.ui.SwitchLayoutVertical;
 
 import android.app.ActivityManager;
-import static android.app.ActivityManager.StackId.DOCKED_STACK_ID;
-import static android.app.ActivityManager.StackId.HOME_STACK_ID;
 import android.app.ActivityManagerNative;
 import android.app.ActivityOptions;
+import android.app.IActivityManager;
 import android.app.TaskStackBuilder;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -62,10 +61,7 @@ public class SwitchManager {
     private SwitchConfiguration mConfiguration;
     private int mLayoutStyle;
     private final ActivityManager mAm;
-    private TaskDescription mDockedTask;
-    private TaskDescription mTopHomeTask;
-    private boolean mRestoreStack;
-    private TaskDescription mPlaceholderTask;
+    private final IActivityManager mIAm;
     private IPowerManager mPowerService;
 
     public SwitchManager(Context context, int layoutStyle) {
@@ -74,6 +70,7 @@ public class SwitchManager {
         mLayoutStyle = layoutStyle;
         mAm = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         mPowerService = IPowerManager.Stub.asInterface(ServiceManager.getService("power"));
+        mIAm = ActivityManager.getService();
         init();
     }
 
@@ -102,7 +99,6 @@ public class SwitchManager {
             }
             startBoost();
             mLayout.setHandleRecentsUpdate(true);
-            mRestoreStack = false;
 
             clearTasks();
             RecentTasksLoader.getInstance(mContext).cancelLoadingTasks();
@@ -133,7 +129,6 @@ public class SwitchManager {
             startBoost();
             clearTasks();
             mLayout.setHandleRecentsUpdate(true);
-            mRestoreStack = false;
         }
     }
 
@@ -143,7 +138,6 @@ public class SwitchManager {
                 Log.d(TAG, "showHidden");
             }
             mLayout.setHandleRecentsUpdate(true);
-            mRestoreStack = false;
 
             // show immediately
             mLayout.showHidden();
@@ -189,25 +183,12 @@ public class SwitchManager {
         return mGestureView;
     }
 
-    public void update(List<TaskDescription> taskList, TaskDescription dockedTask,
-            TaskDescription topHomeTask, TaskDescription placeholderTask, List<TaskDescription> taskListOriginal) {
-        if (DEBUG){
-            Log.d(TAG, "update mRestoreStack= " + mRestoreStack);
-        }
-        if (!mRestoreStack) {
-            mLoadedTasksOriginal = taskListOriginal;
-        }
-        mDockedTask = dockedTask;
-        mPlaceholderTask = placeholderTask;
-        mTopHomeTask = topHomeTask;
-
-        if (!mRestoreStack) {
-            mLoadedTasks.clear();
-            mLoadedTasks.addAll(taskList);
-            mLayout.update();
-            mGestureView.update();
-        }
-        mRestoreStack = false;
+    public void update(List<TaskDescription> taskList, List<TaskDescription> taskListOriginal) {
+        mLoadedTasksOriginal = taskListOriginal;
+        mLoadedTasks.clear();
+        mLoadedTasks.addAll(taskList);
+        mLayout.update();
+        mGestureView.update();
     }
 
     public void switchTask(TaskDescription ad, boolean close, boolean customAnim) {
@@ -215,14 +196,9 @@ public class SwitchManager {
             return;
         }
 
-        if (Utils.isDockingActive(mContext) && !ad.isSupportsSplitScreen() && mConfiguration.mBlockSplitscreenBreakers) {
-            Toast.makeText(mContext, R.string.dock_non_resizeble_failed_to_dock_text, Toast.LENGTH_LONG).show();
-            return;
-        }
         if(close){
             hide(true);
         }
-        setFocusStack();
         try {
             ActivityOptions options = null;
             if (customAnim) {
@@ -254,7 +230,7 @@ public class SwitchManager {
             toggleLockedApp(ad, ad.isLocked(), false);
         }
 
-        mAm.removeTask(ad.getPersistentTaskId());
+        removeTask(ad.getPersistentTaskId());
         if (DEBUG){
             Log.d(TAG, "kill " + ad.getLabel());
         }
@@ -262,9 +238,6 @@ public class SwitchManager {
         if (!close) {
             ad.setKilled();
             removeTaskFromList(ad);
-            // make sure we stay on the correct focus
-            // and killing is not changing it - overlay stays open here
-            restoreHomeStack();
             mLayout.refresh();
         }
     }
@@ -292,7 +265,7 @@ public class SwitchManager {
             if (ad.isLocked()) {
                 continue;
             }
-            mAm.removeTask(ad.getPersistentTaskId());
+            removeTask(ad.getPersistentTaskId());
             if (DEBUG){
                 Log.d(TAG, "kill " + ad.getLabel());
             }
@@ -320,7 +293,7 @@ public class SwitchManager {
             if (ad.isLocked()) {
                 continue;
             }
-            mAm.removeTask(ad.getPersistentTaskId());
+            removeTask(ad.getPersistentTaskId());
             if (DEBUG){
                 Log.d(TAG, "kill " + ad.getLabel());
             }
@@ -349,7 +322,7 @@ public class SwitchManager {
                 // remove from locked
                 toggleLockedApp(ad, ad.isLocked(), false);
             }
-            mAm.removeTask(ad.getPersistentTaskId());
+            removeTask(ad.getPersistentTaskId());
             if (DEBUG){
                 Log.d(TAG, "kill " + ad.getLabel());
             }
@@ -401,18 +374,9 @@ public class SwitchManager {
             if (info != null && DEBUG) {
                 Log.d(TAG, "startIntentFromtString resizable = "  + info.resizeMode);
             }
-            if (info != null && Utils.isDockingActive(mContext) && 
-                    info.resizeMode != ActivityInfo.RESIZE_MODE_RESIZEABLE &&
-                    info.resizeMode != ActivityInfo.RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION &&
-                    mConfiguration.mBlockSplitscreenBreakers) {
-                Toast.makeText(mContext, R.string.dock_non_resizeble_failed_to_dock_text, Toast.LENGTH_LONG).show();
-                return;
-            }
-
             if(close){
                 hide(true);
             }
-            setFocusStack();
             startIntentFromtString(mContext, intent);
         } catch (URISyntaxException e) {
             Log.e(TAG, "URISyntaxException: [" + intent + "]");
@@ -528,19 +492,6 @@ public class SwitchManager {
         }
     }
 
-    private TaskDescription getUndockedTopTask(TaskDescription excludeTask) {
-        for (TaskDescription ad : mLoadedTasksOriginal) {
-            if (ad.getStackId() != DOCKED_STACK_ID) {
-                if (excludeTask == null) {
-                    return ad;
-                } else if (ad.getPersistentTaskId() != excludeTask.getPersistentTaskId()) {
-                    return ad;
-                }
-            }
-        }
-        return null;
-    }
-
     public void lockToCurrentApp(boolean close) {
         TaskDescription ad = getCurrentTopTask();
         if (ad != null) {
@@ -567,7 +518,7 @@ public class SwitchManager {
     public void stopLockToApp(boolean close) {
         try {
             if (ActivityManagerNative.getDefault().isInLockTaskMode()) {
-                ActivityManagerNative.getDefault().stopLockTaskMode();
+                ActivityManagerNative.getDefault().stopSystemLockTaskMode();
                 if (DEBUG){
                     Log.d(TAG, "stop lock app");
                 }
@@ -593,132 +544,6 @@ public class SwitchManager {
         }
     }
 
-    public boolean isDockedTask(TaskDescription ad) {
-        return mDockedTask != null && ad.getPersistentTaskId() == mDockedTask.getPersistentTaskId();
-    }
-
-    /**
-     * make sure we set the focus stack to home whenever we open
-     * else we will open apps in the docked stack if last focus was there
-     * focus cant change while we are open
-     */
-    public void setFocusStack() {
-        if (DEBUG){
-            Log.d(TAG, "setFocusStack " + Utils.isDockingActive(mContext));
-        }
-        if (Utils.isDockingActive(mContext)){
-            if (mPlaceholderTask == null) {
-                if (DEBUG){
-                    Log.d(TAG, "start placeholder activity");
-                }
-                // make sure the placeholder activity gets activated if needed
-                startPlaceholderActivity(mContext);
-            }
-            try {
-                TaskDescription activateTask = null;
-                if (mTopHomeTask != null) {
-                    // we want to restore also activities that are excluded from recents
-                    if (DEBUG) {
-                        Log.d(TAG, "setFocusStack mTopHomeTask = " + mTopHomeTask.getIntent());
-                    }
-                    activateTask = mTopHomeTask;
-                } else {
-                    TaskDescription ad = getUndockedTopTask(null);
-                    if (ad != null) {
-                        if (DEBUG) {
-                            Log.d(TAG, "setFocusStack topUndockedTask = " + ad.getIntent());
-                        }
-                        activateTask = ad;
-                    } else if (mPlaceholderTask != null) {
-                        if (DEBUG) {
-                            Log.d(TAG, "setFocusStack mPlaceholderTask = " + mPlaceholderTask.getIntent());
-                        }
-                        activateTask = mPlaceholderTask;
-                    }
-                }
-                if (activateTask != null) {
-                    ActivityManagerNative.getDefault().startActivityFromRecents(
-                            activateTask.getPersistentTaskId(), ActivityOptions.makeBasic().toBundle());
-                }
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    public void dockTask(TaskDescription ad, boolean close) {
-        if(close){
-            hide(true);
-        }
-        try {
-            if (isDockedTask(ad)) {
-                // undock
-                if (DEBUG){
-                    Log.d(TAG, "undock task " + ad.getIntent());
-                }
-                ActivityManagerNative.getDefault().moveTasksToFullscreenStack(
-                        DOCKED_STACK_ID, true /* onTop */);
-                mDockedTask = null;
-                return;
-            }
-            if (mDockedTask != null) {
-                // undock old
-                if (DEBUG){
-                    Log.d(TAG, "undock task " + mDockedTask.getIntent());
-                }
-                ActivityManagerNative.getDefault().moveTasksToFullscreenStack(
-                        DOCKED_STACK_ID, false /* onTop */);
-            }
-            // dock new
-            if (DEBUG){
-                Log.d(TAG, "dock task " + ad.getIntent());
-            }
-            // get it before changing anything
-            TaskDescription topUndocked = getUndockedTopTask(ad);
-
-            if (DEBUG){
-                Log.d(TAG, "start placeholder activity");
-            }
-            // always start the placeholder activity to linger in the bg
-            startPlaceholderActivity(mContext);
-
-            int createMode = ActivityManager.DOCKED_STACK_CREATE_MODE_TOP_OR_LEFT;
-            ActivityOptions options = ActivityOptions.makeBasic();
-            options.setDockCreateMode(createMode);
-            options.setLaunchStackId(DOCKED_STACK_ID);
-            ActivityManagerNative.getDefault().startActivityFromRecents(
-                    ad.getPersistentTaskId(),  options.toBundle());
-            // using this is faster then using onTop == true above
-            if (mDockedTask != null) {
-                // if we unddocked another task move that on top of the home stack
-                // we simply assume that this task is alive at this point
-                mAm.moveTaskToFront(mDockedTask.getPersistentTaskId(), ActivityManager.MOVE_TASK_NO_USER_ACTION);
-            } else {
-                if (topUndocked != null) {
-                    if (DEBUG){
-                        Log.d(TAG, "top undocked task " + topUndocked.getIntent());
-                    }
-                    // can be a dead task so make sure it gets started
-                    ActivityManagerNative.getDefault().startActivityFromRecents(
-                            topUndocked.getPersistentTaskId(), ActivityOptions.makeBasic().toBundle());
-                }
-            }
-            mDockedTask = ad;
-        } catch (Exception e) {
-        }
-    }
-
-    public void restoreHomeStack() {
-        if (Utils.isDockingActive(mContext)){
-            if (DEBUG) {
-                Log.d(TAG, "restoreHomeStack");
-            }
-            mRestoreStack = true;
-            RecentTasksLoader.getInstance(mContext).cancelLoadingTasks();
-            RecentTasksLoader.getInstance(mContext).setSwitchManager(this);
-            RecentTasksLoader.getInstance(mContext).loadTasksInBackground(10, false, false);
-        }
-    }
-
     public void forceStop(TaskDescription ad, boolean close) {
         if (mConfiguration.mRestrictedMode){
             return;
@@ -736,9 +561,6 @@ public class SwitchManager {
         if (!close) {
             ad.setKilled();
             removeTaskFromList(ad);
-            // make sure we stay on the correct focus
-            // and killing is not changing it - overlay stays open here
-            restoreHomeStack();
             mLayout.refresh();
         }
     }
@@ -783,6 +605,14 @@ public class SwitchManager {
                 mPowerService.powerHint(8, 0);
             } catch (RemoteException e){
             }
+        }
+    }
+
+    private void removeTask(int taskid) {
+        try {
+            mIAm.removeTask(taskid);
+        } catch (RemoteException e) {
+            Log.e(TAG, "removeTask failed", e);
         }
     }
 }

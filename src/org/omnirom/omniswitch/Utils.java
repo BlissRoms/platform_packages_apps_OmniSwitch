@@ -206,20 +206,6 @@ public class Utils {
         return false;
     }
 
-    public static boolean isMultiStackEnabled(Context context) {
-        return ActivityManager.supportsMultiWindow(context);
-    }
-
-    public static boolean isDockingActive(Context context) {
-        if (isMultiStackEnabled(context)) {
-            try {
-                return WindowManagerGlobal.getWindowManagerService().getDockedStackSide() != WindowManager.DOCKED_INVALID;
-            } catch (RemoteException e) {
-            }
-        }
-        return false;
-    }
-
     public static void updateFavoritesList(Context context, SwitchConfiguration config, List<String> favoriteList) {
         favoriteList.clear();
         favoriteList.addAll(config.mFavoriteList);

@@ -28,7 +28,6 @@ import org.omnirom.omniswitch.ui.BitmapUtils;
 import org.omnirom.omniswitch.ui.IconPackHelper;
 
 import android.app.ActivityManager;
-import static android.app.ActivityManager.StackId.DOCKED_STACK_ID;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -66,9 +65,6 @@ public class RecentTasksLoader {
     private PreloadTaskRunnable mPreloadTasksRunnable;
     private boolean mHasThumbPermissions;
     private SwitchConfiguration mConfiguration;
-    private TaskDescription mDockedTask;
-    private TaskDescription mTopHomeTask;
-    private TaskDescription mPlaceholderTask;
     private PackageManager mPackageManager;
     private Drawable mDefaultAppIcon;
     private Set<String> mLockedAppsList;
@@ -192,9 +188,6 @@ public class RecentTasksLoader {
         }
         mLoadedTasks.clear();
         mLoadedTasksOriginal.clear();
-        mDockedTask = null;
-        mTopHomeTask = null;
-        mPlaceholderTask = null;
         mPreloaded = false;
         mState = State.IDLE;
     }
@@ -210,7 +203,7 @@ public class RecentTasksLoader {
             if (DEBUG) {
                 Log.d(TAG, "recents preloaded " + mLoadedTasks);
             }
-            mSwitchManager.update(mLoadedTasks, mDockedTask, mTopHomeTask, mPlaceholderTask, mLoadedTasksOriginal);
+            mSwitchManager.update(mLoadedTasks, mLoadedTasksOriginal);
             loadMissingTaskInfo();
             return;
         }
@@ -221,9 +214,6 @@ public class RecentTasksLoader {
         mState = State.LOADING;
         mLoadedTasks.clear();
         mLoadedTasksOriginal.clear();
-        mDockedTask = null;
-        mPlaceholderTask = null;
-        mTopHomeTask = null;
         if (withThumbs) {
             BitmapCache.getInstance(mContext).clearThumbs();
         }
@@ -242,7 +232,7 @@ public class RecentTasksLoader {
                         if (DEBUG) {
                             Log.d(TAG, "recents loaded");
                         }
-                        mSwitchManager.update(mLoadedTasks, mDockedTask, mTopHomeTask, mPlaceholderTask, mLoadedTasksOriginal);
+                        mSwitchManager.update(mLoadedTasks, mLoadedTasksOriginal);
                         loadMissingTaskInfo();
                     } else {
                         if (DEBUG) {
@@ -265,7 +255,6 @@ public class RecentTasksLoader {
                 final List<ActivityManager.RecentTaskInfo> recentTasks = mActivityManager
                         .getRecentTasks(maxNumTasks == 0 ? ActivityManager.getMaxRecentTasksStatic() : maxNumTasks,
                                 ActivityManager.RECENT_IGNORE_UNAVAILABLE |
-                                ActivityManager.RECENT_INCLUDE_PROFILES |
                                 ActivityManager.RECENT_WITH_EXCLUDED) ;
 
                 int numTasks = recentTasks.size();
@@ -320,25 +309,9 @@ public class RecentTasksLoader {
                         continue;
                     }
 
-                    // always remember our own placeholder activity
-                    // this is the fallback if no other top task is available
-                    if (componentString.contains(getPlaceholderActivity())) {
-                        if (DEBUG) {
-                            Log.d(TAG, "mPlaceholderTask=" + recentInfo.baseIntent);
-                        }
-                        mPlaceholderTask = item;
-                        continue;
-                    }
-
-                    // always add the docked task and put on first place
-                    if (recentInfo.stackId == DOCKED_STACK_ID) {
-                        mDockedTask = item;
-                        item.setDocked();
-                        mLoadedTasks.add(0, item);
-                    }
                     boolean activeTask = true;
-                    // never time filter locked and docked tasks
-                    if (mConfiguration.mFilterActive && !item.isLocked() && !item.isDocked()) {
+                    // never time filter locked tasks
+                    if (mConfiguration.mFilterActive && !item.isLocked()) {
                         long lastActiveTime = recentInfo.lastActiveTime;
                         long firstActiveTime = recentInfo.firstActiveTime;
                         if (DEBUG) {
@@ -377,25 +350,6 @@ public class RecentTasksLoader {
                         continue;
                     }
 
-                    // this can include activities that have set exclude from recents
-                    // but never the placeholder task
-                    if (recentInfo.stackId != DOCKED_STACK_ID && mTopHomeTask == null
-                            && !componentString.contains(getPlaceholderActivity())) {
-                        if (DEBUG) {
-                            Log.d(TAG, "mTopHomeTask=" + recentInfo.baseIntent);
-                        }
-                        mTopHomeTask = item;
-                    }
-
-                    // both activities live in the same task so we can also accept that as
-                    // placeholder if needed
-                    if (componentString.contains(getSettingsActivity()) && mPlaceholderTask == null) {
-                        if (DEBUG) {
-                            Log.d(TAG, "settings activity as mPlaceholderTask=" + recentInfo.baseIntent);
-                        }
-                        mPlaceholderTask = item;
-                    }
-
                     // Check the first non-recents task, include this task even if it is marked as excluded
                     boolean isExcluded = (recentInfo.baseIntent.getFlags() & Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
                             == Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS;
@@ -407,12 +361,10 @@ public class RecentTasksLoader {
 
                     mLoadedTasksOriginal.add(item);
 
-                    if (recentInfo.stackId != DOCKED_STACK_ID) {
-                        if (item.isLocked() && mConfiguration.mTopSortLockedApps) {
-                            mLoadedTasks.add(mDockedTask != null ? 1 : 0, item);
-                        } else {
-                            mLoadedTasks.add(item);
-                        }
+                    if (item.isLocked() && mConfiguration.mTopSortLockedApps) {
+                        mLoadedTasks.add(0, item);
+                    } else {
+                        mLoadedTasks.add(item);
                     }
                     if (preloadTaskNum < TASK_INIT_LOAD) {
                         if (withIcons) {
@@ -443,49 +395,19 @@ public class RecentTasksLoader {
         mTaskLoader.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    /**
-     * Returns a task thumbnail from the activity manager
-     */
-    private Bitmap getThumbnailOld(int taskId) {
-        if (DEBUG) {
-            Log.d(TAG, "getThumbnailOld " + taskId);
-        }
-        ActivityManager.TaskThumbnail taskThumbnail = mActivityManager.getTaskThumbnail(taskId);
-        if (taskThumbnail == null) return null;
-
-        Bitmap thumbnail = taskThumbnail.mainThumbnail;
-        ParcelFileDescriptor descriptor = taskThumbnail.thumbnailFileDescriptor;
-        if (thumbnail == null && descriptor != null) {
-            thumbnail = BitmapFactory.decodeFileDescriptor(descriptor.getFileDescriptor(),
-                    null, sBitmapOptions);
-        }
-        if (descriptor != null) {
-            try {
-                descriptor.close();
-            } catch (IOException e) {
-            }
-        }
-        return thumbnail;
-    }
-
     public Bitmap getThumbnail(int taskId, boolean reducedResolution, boolean firstThumb) {
-        if (firstThumb) {
-            return getThumbnailOld(taskId);
-        }
-        if (ActivityManager.ENABLE_TASK_SNAPSHOTS) {
-            try {
-                ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, reducedResolution);
-                if (snapshot != null) {
-                    if (DEBUG) {
-                        Log.d(TAG, "getThumbnail " + taskId);
-                    }
-                    return Bitmap.createHardwareBitmap(snapshot.getSnapshot());
+        try {
+            ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, reducedResolution);
+            if (snapshot != null) {
+                if (DEBUG) {
+                    Log.d(TAG, "getThumbnail " + taskId);
                 }
-            } catch (RemoteException e) {
-                Log.w(TAG, "Failed to retrieve snapshot", e);
+                return Bitmap.createHardwareBitmap(snapshot.getSnapshot());
             }
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed to retrieve snapshot", e);
         }
-        return getThumbnailOld(taskId);
+        return null;
     }
 
     void loadTaskIcon(TaskDescription td, boolean withIconPack, String label) {
@@ -620,10 +542,6 @@ public class RecentTasksLoader {
 
     public Bitmap getDefaultThumb() {
         return mDefaultThumbnail;
-    }
-
-    private String getPlaceholderActivity() {
-        return mContext.getPackageName() + "/.PlaceholderActivity";
     }
 
     private String getSettingsActivity() {

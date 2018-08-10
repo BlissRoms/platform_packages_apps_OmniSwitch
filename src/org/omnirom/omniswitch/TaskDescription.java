@@ -40,7 +40,6 @@ public final class TaskDescription {
     private ThumbChangeListener mListener;
     private boolean mThumbLoading;
     private Bitmap mThumb;
-    private boolean mDocked;
     private String mLabel;
     private boolean mLocked;
     private boolean mNeedsUpdate;
@@ -148,14 +147,6 @@ public final class TaskDescription {
 
     public Bitmap getThumb() {
         return mThumb;
-    }
-
-    public void setDocked() {
-        mDocked = true;
-    }
-
-    public boolean isDocked() {
-        return mDocked;
     }
 
     public void setLocked(boolean value) {

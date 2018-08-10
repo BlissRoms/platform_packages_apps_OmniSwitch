@@ -116,9 +116,7 @@ public class PackageTextView extends TextView {
             Drawable d= getTask().getIcon();
             d.setBounds(0, 0, configuration.mIconSizePx, configuration.mIconSizePx);
             setCompoundDrawables(null, d, null, null);
-            if (getTask().isDocked()) {
-                setBackgroundColor(getResources().getColor(R.color.docked_task_bg_color));
-            } else if (getTask().isLocked()) {
+            if (getTask().isLocked()) {
                 setBackgroundColor(getResources().getColor(R.color.locked_task_bg_color));
             } else {
                 setBackgroundColor(0);

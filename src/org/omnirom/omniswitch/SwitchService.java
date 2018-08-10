@@ -174,7 +174,6 @@ public class SwitchService extends Service {
         public static final String ACTION_HANDLE_SHOW = "org.omnirom.omniswitch.ACTION_HANDLE_SHOW";
         public static final String ACTION_TOGGLE_OVERLAY = "org.omnirom.omniswitch.ACTION_TOGGLE_OVERLAY";
         public static final String ACTION_TOGGLE_OVERLAY2 = "org.omnirom.omniswitch.ACTION_TOGGLE_OVERLAY2";
-        public static final String ACTION_RESTORE_HOME_STACK = "org.omnirom.omniswitch.ACTION_RESTORE_HOME_STACK";
         public static final String ACTION_PRELOAD_TASKS = "org.omnirom.omniswitch.ACTION_PRELOAD_TASKS";
         public static final String ACTION_HIDE_OVERLAY = "org.omnirom.omniswitch.ACTION_HIDE_OVERLAY";
 
@@ -236,11 +235,6 @@ public class SwitchService extends Service {
                 } else if (Intent.ACTION_SHUTDOWN.equals(action)) {
                     Log.d(TAG, "ACTION_SHUTDOWN");
                     mManager.shutdownService();
-                } else if (ACTION_RESTORE_HOME_STACK.equals(action)) {
-                    if(DEBUG){
-                        Log.d(TAG, "ACTION_RESTORE_HOME_STACK");
-                    }
-                    mManager.restoreHomeStack();
                 } else if (ACTION_PRELOAD_TASKS.equals(action)) {
                     if(DEBUG){
                         Log.d(TAG, "ACTION_PRELOAD_TASKS " + System.currentTimeMillis());

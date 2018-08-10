@@ -91,7 +91,7 @@ public class SwitchLayout extends AbstractSwitchLayout {
             }
             item.setTask(ad);
             item.setTaskInfo(mConfiguration);
-            if (ad.isLocked() || ad.isDocked()) {
+            if (ad.isLocked()) {
                 item.setTextColor(Color.WHITE);
             } else {
                 item.setTextColor(mConfiguration.getCurrentTextTint(mConfiguration.getViewBackgroundColor()));
