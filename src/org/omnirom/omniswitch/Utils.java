@@ -46,6 +46,7 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 import android.view.WindowManager;
+import static android.view.WindowManager.DOCKED_INVALID;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -202,6 +203,20 @@ public class Utils {
         try {
             return ActivityManagerNative.getDefault().isInLockTaskMode();
         } catch(RemoteException e) {
+        }
+        return false;
+    }
+
+    public static boolean isMultiStackEnabled(Context context) {
+        return ActivityManager.supportsMultiWindow(context);
+    }
+
+    public static boolean isDockingActive(Context context) {
+        if (isMultiStackEnabled(context)) {
+            try {
+                return WindowManagerGlobal.getWindowManagerService().getDockedStackSide() != DOCKED_INVALID;
+            } catch(RemoteException e) {
+            }
         }
         return false;
     }

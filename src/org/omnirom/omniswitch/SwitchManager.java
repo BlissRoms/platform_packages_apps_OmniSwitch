@@ -29,10 +29,13 @@ import org.omnirom.omniswitch.ui.SwitchLayout;
 import org.omnirom.omniswitch.ui.SwitchLayoutVertical;
 
 import android.app.ActivityManager;
+import static android.app.ActivityManager.SPLIT_SCREEN_CREATE_MODE_BOTTOM_OR_RIGHT;
+import static android.app.ActivityManager.SPLIT_SCREEN_CREATE_MODE_TOP_OR_LEFT;
 import android.app.ActivityManagerNative;
 import android.app.ActivityOptions;
 import android.app.IActivityManager;
 import android.app.TaskStackBuilder;
+import static android.app.WindowConfiguration.WINDOWING_MODE_SPLIT_SCREEN_PRIMARY;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -614,5 +617,33 @@ public class SwitchManager {
         } catch (RemoteException e) {
             Log.e(TAG, "removeTask failed", e);
         }
+    }
+
+    public void dockTask(TaskDescription ad, boolean close) {
+        if (ad.isKilled()) {
+            return;
+        }
+
+        if(close){
+            hide(true);
+        }
+        try {
+            ActivityOptions options = makeSplitScreenOptions(true);
+            ActivityManagerNative.getDefault().startActivityFromRecents(
+                        ad.getPersistentTaskId(), options.toBundle());
+            if (DEBUG){
+                Log.d(TAG, "dock task " + ad.getLabel());
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private ActivityOptions makeSplitScreenOptions(boolean dockTopLeft) {
+        final ActivityOptions options = ActivityOptions.makeBasic();
+        options.setLaunchWindowingMode(WINDOWING_MODE_SPLIT_SCREEN_PRIMARY);
+        options.setSplitScreenCreateMode(dockTopLeft
+                ? SPLIT_SCREEN_CREATE_MODE_TOP_OR_LEFT
+                : SPLIT_SCREEN_CREATE_MODE_BOTTOM_OR_RIGHT);
+        return options;
     }
 }

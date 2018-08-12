@@ -809,6 +809,9 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         if (!Utils.isLockToAppEnabled(mContext)) {
             popup.getMenu().removeItem(R.id.package_lock_task);
         }
+        if (!Utils.isMultiStackEnabled(mContext)) {
+            popup.getMenu().removeItem(R.id.package_dock_task);
+        }
         String packageName = ad.getPackageName();
         final boolean isLockedApp = ad.isLocked();
         if (isLockedApp) {
@@ -837,6 +840,8 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
                     }
                     mRecentsManager.stopLockToApp(false);
                     mRecentsManager.lockToApp(ad, mAutoClose);
+                } else if (item.getItemId() == R.id.package_dock_task) {
+                    mRecentsManager.dockTask(ad, mAutoClose);
                 } else {
                     return false;
                 }
