@@ -809,7 +809,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         if (!Utils.isLockToAppEnabled(mContext)) {
             popup.getMenu().removeItem(R.id.package_lock_task);
         }
-        if (!Utils.isMultiStackEnabled(mContext)) {
+        if (!Utils.isMultiStackEnabled(mContext) || Utils.isDockingActive(mContext)) {
             popup.getMenu().removeItem(R.id.package_dock_task);
         }
         String packageName = ad.getPackageName();
